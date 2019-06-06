@@ -1,0 +1,46 @@
+<template name="expert-item">
+
+  <view class="inner-div" style="padding:34rpx 0 15.8rpx 0">
+    <image class="avatar" style="height: 70rpx; width: 70rpx" src="{{expertAvatarUrl}}/{{jfId}}"></image>
+    <view class="expert-name">{{expertName}}</view>
+    <view class="expert-post">{{abilitieLevel}}</view>
+  </view>
+  <view class="inner-div">
+    <view class="row">
+      <view class="quota">邀约响应及时性：</view>
+      <view class="star">
+        <wux-rater icon="star" allowTouchMove="{{true}}" disabled="{{disabled}}" data-expertid="{{jfId}}" data-index="0" bind:change="changeRate" fontSize="48" singleWidth="70" slot="footer" allowHalf="{{true}}" auto="{{false}}" value="{{ score && score[0] ? score[0] : '0.0' }}" />
+      </view>
+      <view class="score">{{score && score[0] ? score[0] : '0.0'}}</view>
+    </view>
+    <view class="row">
+      <view class="quota">评标及时性：</view>
+      <view class="star">
+        <wux-rater icon="star" allowTouchMove="{{true}}" disabled="{{disabled}}" data-expertid="{{jfId}}" data-index="1" bind:change="changeRate" fontSize="48" singleWidth="70" slot="footer" allowHalf="{{true}}" auto="{{false}}" value="{{ score && score[1] ? score[1] : '0.0' }}" />
+      </view>
+      <view class="score">{{score && score[1] ? score[1] : '0.0'}}</view>
+    </view>
+    <view class="row">
+      <view class="quota">纪律：</view>
+      <view class="star">
+        <wux-rater icon="star" allowTouchMove="{{true}}" disabled="{{disabled}}" data-expertid="{{jfId}}" data-index="2" bind:change="changeRate" fontSize="48" singleWidth="70" slot="footer" allowHalf="{{true}}" auto="{{false}}" value="{{ score && score[2] ? score[2] : '0.0' }}" />
+      </view>
+      <view class="score">{{score && score[2] ? score[2] : '0.0'}}</view>
+    </view>
+    <view class="row">
+      <view class="quota">政府采购业务：</view>
+      <view class="star">
+        <wux-rater icon="star" allowTouchMove="{{true}}" disabled="{{disabled}}" data-expertid="{{jfId}}" data-index="3" bind:change="changeRate" fontSize="48" singleWidth="70" slot="footer" allowHalf="{{true}}" auto="{{false}}" value="{{ score && score[3] ? score[3] : '0.0' }}" />
+      </view>
+      <view class="score">{{score && score[3] ? score[3] : '0.0'}}</view>
+    </view>
+    <view class="row">
+      <view class="quota">专业业务：</view>
+      <view class="star">
+        <wux-rater icon="star" allowTouchMove="{{true}}" disabled="{{disabled}}" data-expertid="{{jfId}}" data-index="4" bind:change="changeRate" fontSize="48" singleWidth="70" slot="footer" allowHalf="{{true}}" auto="{{false}}" value="{{ score && score[4] ? score[4] : '0.0' }}" />
+      </view>
+      <view class="score">{{score && score[4] ? score[4] : '0.0'}}</view>
+    </view>
+  </view>
+
+</template>

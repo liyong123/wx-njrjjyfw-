@@ -1,0 +1,386 @@
+/* pages/findSupplier/corePersonDetail.wxss */
+
+.content {
+  background-color: #f6f6f6;
+}
+
+/*隐藏scroll-view滚动条*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/*用户基本信息 */
+/* 基本信息 */
+.person-bk {
+  width: 100%;
+  height: 480rpx;
+
+  position:relative;
+}
+
+.person-bk-image1 {
+  width: 100%;
+  height: 490rpx;
+
+  position: absolute;
+  top: -20rpx;
+  z-index: 1;
+}
+
+.person-info {
+  width: 100%;
+  height: 490rpx;
+  position: relative;
+}
+
+.person-bg {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 用户信息卡片式布局*/
+
+.person-card {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 1;
+
+  background: url('http://qdrc.jfh.com/qingdao/webchat/jyh/page/caigouxiangqing/basic-container.png') center 100%;
+}
+
+.person-card-bg {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+  padding: 0 22rpx;
+}
+
+/* 头像、姓名、年龄*/
+
+.person-card-one {
+  margin-top: 50rpx;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-one-photo {
+  width: 124rpx;
+  height: 124rpx;
+  border-radius: 50%;
+}
+
+.card-one-name {
+  margin-top: 20rpx;
+  font-size: 18px;
+  color: #4a4a4a;
+  height: 50rpx;
+  text-align: center;
+}
+
+.card-one-age {
+  margin-top: 10rpx;
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.dash {
+  width: 100%;
+  border-bottom: 1rpx dashed #bfbfbf; 
+  opacity: 0.8;
+  margin-top: 20rpx;
+}
+
+/* 工作时间、地点*/
+
+.person-card-two {
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.card-two-item {
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.item-work {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-text {
+  font-size: 16px;
+  color: #597ff3;
+}
+
+.work-sign {
+  font-size: 12px;
+  color: #7493bf;
+}
+
+.work-icon {
+  width: 62rpx;
+  height: 62rpx;
+}
+
+/* 条目*/
+
+.resume-part {
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.resume-title {
+  padding: 30rpx 0;
+  line-height: 30rpx;
+  font-size: 16px;
+  border-bottom: 1rpx dashed #b0b0b0;
+  display: flex;
+  align-items: center;
+}
+
+.resume-title>text {
+  display: inline-block;
+  border-left: 7rpx solid #597ff3;
+  padding-left: 20rpx;
+  color: #4a4a4a;
+  font-size: 16px;
+}
+
+.resume-title>image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 20rpx;
+}
+
+/*条目---领域*/
+
+.resume-work {
+  display: flex;
+  border-bottom: 1rpx solid #ebebeb;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.resume-work-1 {
+  background:#597ff3;
+  margin-top:25rpx;
+  border-radius:50%;
+  width:10rpx;
+  height:10rpx;
+}
+
+.resume-work-2 {
+  font-size: 28rpx;
+  width: 100rpx;
+  margin-left: 20rpx;
+  color: #666666;
+  margin-top: 10rpx;
+}
+
+.resume-field {
+  width: 300px;
+}
+
+.resume-field>text {
+  display: inline-block;
+  background-color: #e8eefd;
+  height: 35rpx;
+  line-height: 35rpx;
+  border-radius: 10rpx;
+  color: #597ff3;
+  padding: 3px 5px;
+  margin: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*条目---学历*/
+
+.resume-education {
+  padding: 30rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+}
+
+.text-blue {
+  font-size: 14px;
+  color: #4068e3;
+}
+.text-black{
+  font-size: 14px;
+  color: #4a4a4a;
+}
+
+/*条目---项目案例*/
+
+.resume-project {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.project-time {
+  font-size: 14px;
+  color: #597ff3;
+}
+
+.project-name {
+  font-size: 16px;
+  color: #4a4a4a;
+  padding: 20rpx 0 10rpx 30rpx;
+}
+
+.project-classify {
+  font-size: 14px;
+  color: #9b9b9b;
+  padding: 10rpx 0 10rpx 30rpx;
+}
+
+.project-describe {
+  padding: 10rpx 30rpx 0px;
+  line-height: 40rpx;
+  color: #666666;
+}
+
+/* 案例描述详情*/
+
+.look-detail {
+  display: inline-block;
+  color: #597ff3;
+  line-height: 25px;
+}
+
+/* 全部成功案例*/
+
+.look-at-all-classfy {
+  width: 300rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  color: #597ff3;
+  border: 1rpx solid #597ff3;
+  border-radius: 27rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.look-at-all-classfy>image {
+  width: 30rpx;
+  height: 17rpx;
+  margin-left: 15rpx;
+}
+
+/*条目---自我介绍*/
+
+.resume-myself {
+  position: relative;
+  padding: 20rpx;
+}
+
+.self-introduction {
+  position: relative;
+  line-height: 25px;
+  text-indent: 50rpx;
+  color: #666666;
+  display: inline-block;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+/*自我介绍展开*/
+
+.unfold {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.unfold-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.unfold-content>text {
+  line-height: 55rpx;
+  color: #597ff3;
+  text-align: center;
+}
+
+.unfold-content>image {
+  width: 30rpx;
+  height: 17rpx;
+  margin-left: 15rpx;
+}
+
+.ellipsis {
+  -webkit-line-clamp: 3;
+  opacity: 0.75;
+}
+
+.unellipsis {
+  -webkit-line-clamp: 0;
+  opacity: 1;
+}

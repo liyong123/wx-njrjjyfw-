@@ -1,0 +1,9 @@
+diff a/app.json b/app.json	(rejected hunks)
+@@ -25,7 +25,6 @@
+     "pages/evaluateExpert/index",
+     "pages/expertMessage/index",
+     "pages/user/cooperation/index",
+-    "pages/user/myFocus/index",
+     "pages/web/leadership-index"
+   ],
+   "window": {

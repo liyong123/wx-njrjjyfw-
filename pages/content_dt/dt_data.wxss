@@ -1,0 +1,192 @@
+.date-show{  
+    position: relative;  
+    width: 250rpx;  
+    font-family: PingFang-SC-Regular;  
+    font-size: 40rpx;  
+    color: #282828;  
+    text-align: center;  
+    margin: 0 auto 10rpx; padding-top: 59rpx;
+}  
+.lt-arrow,.rt-arrow{  
+    position: absolute;  
+    top: 58rpx;  
+    width: 60rpx;  
+    height: 60rpx;  
+}  
+.lt-arrow image,.rt-arrow image{  
+    width: 60rpx;  
+    height: 60rpx;  
+}  
+.lt-arrow{  
+    left: -110rpx;  
+    transform: rotate(180deg);  
+}  
+.rt-arrow{  
+    right: -100rpx;  
+}  
+.header{  
+    font-size: 0;  
+    padding: 0 24rpx;
+    background:#F0F0F0;
+    border-radius:60rpx;  
+}  
+.header>view{  
+    display: inline-block;  
+    width: 14.285%;  
+    color: #333;  
+    font-size: 30rpx;  
+    text-align: center;   
+    padding: 20rpx 0;  
+}  
+.wrap_data{
+  padding:0 0 30rpx 0;
+}
+.weekMark view{  
+    position: absolute;  
+    bottom: 0;  
+    left: 0;  
+    width: 100%;
+}  
+.date-box{  
+    font-size: 0;  
+    padding: 10rpx 0;  
+}  
+.date-box>view{  
+    position: relative;  
+    display: inline-block;  
+    width: 14.285%;  
+    color: #020202;  
+    font-size: 40rpx;  
+    text-align: center;  
+    vertical-align: middle;  
+    margin: 5rpx 0 10rpx;  
+}  
+.date-head{  
+    height: 120rpx;  
+    line-height: 60rpx;  
+    font-size: 38rpx;  
+}  
+.nowDay .dt_list_1{  
+    width: 60rpx;  
+    border-radius: 50%;  
+    text-align: center;  
+    color: #fff;  
+    background-color: #0AC18A;  
+    margin: 0 auto;  
+}
+.dt_list_2{ padding: 0 30rpx; margin-top: 5rpx; }
+.dt_list_2 .data_date_dny{ float: left;}
+.date-weight{     
+    font-size: 22rpx;  
+    padding: 15rpx 0;  
+}  
+.nowDay .date-weight{  
+    color: #22A7F6;  
+}  
+.one{  
+    position: absolute;  
+    bottom: 0;  
+    right: 5rpx;  
+    width: 20rpx;  
+    height: 20rpx;  
+    border-radius: 50%;  
+    background-color: red;  
+}  
+.two{  
+    position: absolute;  
+    bottom: 30rpx;  
+    right: 5rpx;  
+    width: 20rpx;  
+    height: 20rpx;  
+    border-radius: 50%;  
+    background-color: blue;  
+}  
+.wrap{
+  width:95%;
+  margin:0 auto;
+  padding-bottom:30rpx;
+  border-bottom:1rpx dotted #ccc;
+}
+.dongtai{
+  width:95%;
+  background:#fff;
+  margin:0 auto;
+}
+.data_stat{
+  width:90%;
+  margin:0 auto;
+  padding:20rpx;
+  display:flex;
+  flex-wrap:wrap;
+  align-content:space-around;
+}
+.data_list{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:20rpx 0 20rpx 35rpx;
+}
+.data_sc{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#BD10E0;
+}
+.data_bg{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#8B572A;
+}
+.data_jd{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#F5A623;
+}
+.data_ys{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#B8E986;
+}
+.data_tl{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#4A90E2;
+}
+.data_yj{
+  width:30rpx;
+  height:30rpx;
+  border-radius:100rpx;
+  background:#FF6477;
+}
+.data_wen{
+  margin-left:30rpx;
+}
+.data_date_dny{
+  width:15rpx;
+  height:15rpx;
+  margin-left:5rpx;
+  margin-bottom: 3px;
+
+}
+.dt_tu{
+  display:flex;
+  justify-content:flex_end;
+  align-items:center;
+  flex-direction:column;
+  margin:150rpx auto;
+}
+.dt_tu image{
+  width:300rpx;
+  height:300rpx;
+  margin:0 auto;
+}
+.dt_wen{
+  margin-top:50rpx;
+  font-size:32rpx;
+  color:#9B9B9B;
+  text-align:center;
+}

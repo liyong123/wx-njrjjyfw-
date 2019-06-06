@@ -1,0 +1,2 @@
+@import "../../styles/common.wxss";
+@import "./template/expert-item.wxss";

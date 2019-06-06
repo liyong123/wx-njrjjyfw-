@@ -1,0 +1,112 @@
+/* pages/content_dt/index.wxss */
+.content-dt{
+  width:95%;
+  margin:0 auto;
+}
+.dt_tu{
+  display:flex;
+  justify-content:flex_end;
+  align-items:center;
+  flex-direction:column;
+  margin:150rpx auto;
+}
+.dt_tu image{
+  width:300rpx;
+  height:300rpx;
+  margin:0 auto;
+}
+.dt_wen{
+  margin-top:50rpx;
+  font-size:32rpx;
+  color:#9B9B9B;
+  text-align:center;
+}
+.dt-time{
+  height:90rpx;
+  margin:20rpx auto;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content: flex-end;
+  padding-right:30rpx;
+}
+.dt-times{
+  float:left;
+  font-size:30rpx;
+}
+.dt-times-img{
+  display:inline-block;
+  margin-left:20rpx;
+}
+.dt-times-img image{
+  width:40rpx;
+  height:40rpx;
+}
+.dt-list-ys{
+  padding:10rpx;
+  background:#fff;
+  margin:20rpx auto;
+}
+.dt-ys-1{
+  height:100rpx;
+  line-height: 100rpx;
+  border-bottom:1px solid #ccc;
+  display:flex;
+  justify-content: flex-start;
+  align-items:center;
+}
+.dt-ys-1 image{
+  width:50rpx;  
+  height:50rpx;
+  margin:10rpx 10rpx;
+}
+.dt-ys-1 text{
+  margin-right:10rpx;
+}
+.dt-ys-2{
+  display:flex;
+  justify-content: space-between;
+}
+
+.dt_des{
+  padding:20rpx;
+  width:100%;
+}
+
+.dt_des text{
+  font-size:24rpx;
+  display:inline-block;
+}
+.dt-ys-3{
+  padding:30rpx 20rpx;
+}
+.dt-ys-3 image{
+  width:50rpx;
+  height:40rpx;
+}
+.dt_des image{
+  width:50rpx;
+  height:50rpx;
+  float:left;
+}
+.meeting{
+  float:left;
+  font-size:24rpx;
+  margin-left:20rpx;
+}
+.commun2_223{ padding: 48rpx 40rpx 30rpx; font-size: 27rpx;}
+.commun2_223_re{ height: auto;}
+.commun2_223_ab{ display: flex;width: 100%;margin-top:20rpx;}
+.commun2_223_flex{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:center;
+  font-size:23rpx;
+}
+.commun2_223line_text{ width: 100%;}
+.commun2_223line{ width: 100%; height: 4rpx; background: #0AC18A; border-radius: 2rpx;}
+.commun2_223_flex:first-child .commun2_223line{ width: 50%; float: right;}
+.commun2_223_flex:last-child .commun2_223line{ width: 50%; float: left;}
+.commun2_2231{ width: 36rpx; height: 36rpx; margin-top: -18rpx;}
+.commun2_2232{ margin-top: 16rpx;}

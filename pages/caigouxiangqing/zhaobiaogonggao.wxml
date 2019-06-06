@@ -1,0 +1,16 @@
+<!--pages/caigouxiangqing/zhaobiaogonggao.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='listpadding'>
+  <view class='zbgg'>
+    <view class='zbgg_1'>
+      <view class='zbgg_11'>招标公告需求详情</view>
+      <view class='zbgg_12'>【发布时间：{{putTimeFmt}}】</view>
+    </view>
+    <view class='zbgg_2'>
+      <view class='wxParse' style='height:{{dkheight}}px;'>
+        <template is="wxParse" data="{{wxParseData:memoStr.nodes}}"/>  
+      </view>
+    </view>
+  </view>
+</view>
+<view class=''></view>

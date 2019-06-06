@@ -1,0 +1,36 @@
+<!--bu_pages/serviceMarket/search.wxml-->
+<template name="searchItemsTemp">
+  <view class="search-items-container">
+    <view class="search-item" wx:for="{{items}}" data-value="{{item}}" bindtap="searchItemClicked">{{item}}</view>
+  </view>
+</template>
+
+<!--import src="../components/goHomeTouch.wxml"/>
+<template is="goHomeTemplate" data="{{...goHomePos}}"></template-->
+
+<view class="page">
+  <view class="searchBar-container">
+    <view class="searchBar bk-gray">
+      <icon size="15" type="search" bindtap="searchIconClicked" />
+      <input class="search-input" value="{{searchName}}" placeholder="请输入关键字" placeholder-style='color:#9B9B9B' focus="true" confirm-type="search" bindconfirm="searchInputConfirmed" bindinput="searchInputChanged" selection-start='0' selection-end='{{searchName.length}}'/>
+      <icon size="15" class="icon" type="clear" bindtap="searchClearClicked" hidden="{{searchName.length == 0}}" />
+    </view>
+    <view style='position:relative;'>
+      <view class="search-view">搜索</view>
+      <button class="search-btn" bindtap="searchInputConfirmed"></button>
+    </view>
+  </view>
+  <view class="search-category-container" wx:if="{{recents.length > 0}}">
+    <view class="search-category-header">
+      <view class="search-title">搜索历史</view>
+      <image class="recents-delete" src="../../images/delete.png" bindtap="recentsDeleteClicked" />
+    </view>
+    <template is="searchItemsTemp" data="{{items:recents}}"></template>
+  </view>
+  <view class="search-category-container" wx:if="{{hots.length > 0}}">
+    <view class="search-category-header">
+      <view class="search-title">热门搜索</view>
+    </view>
+    <template is="searchItemsTemp" data="{{items:hots}}"></template>
+  </view>
+</view>

@@ -1,0 +1,58 @@
+.supplier-middle-content {
+  display: inline-block;
+  /* width: 498rpx; */
+  width: 490rpx;
+  height: 84rpx;
+  vertical-align: top;
+  padding: 0 15rpx;
+  line-height: 1.7;
+}
+
+.supplier-right-content {
+  height: 84rpx;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1.7;
+}
+
+.supplier-attribute-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.supplier-share {
+  font-size: 24rpx;
+  line-height: 1.7;
+}
+
+.supplier-share button::after {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.supplier-location-text {
+  vertical-align: middle;
+  line-height: 1.7;
+}
+
+.supplier-location-icon {
+  vertical-align: middle;
+  width: 20rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+}
+
+.supplier-attribute {
+  color: #9b9b9b;
+}
+
+.supplier-attribute text {
+  color: #e55449;
+}
+
+.dashed {
+  width: 100%;
+  border-bottom: 1rpx dashed #dedede;
+  height: 20rpx;
+}

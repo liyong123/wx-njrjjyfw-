@@ -1,0 +1,146 @@
+/* pages/list/list-item.wxss */
+.list-item-title {
+  display: inline-block;
+  margin-bottom:10rpx;
+  max-width: 400rpx;
+  vertical-align:top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 26rpx
+}
+
+.orderName {
+  color: #4a4a4a;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align:middle;
+  display: inline-block;
+}
+
+.stageName {
+  color: #597FF3;
+  font-size: 24rpx;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align:middle;
+  display: inline-block;
+  float: right;
+}
+
+.list-item-icon {
+  display: inline-block;
+  width: 24rpx;
+  height: 20rpx;
+  margin-right: 12rpx;
+  vertical-align:middle;
+}
+
+.detail-list {
+  display: flex;
+}
+
+.detail-list view:first-child {
+  font-size: 24rpx;
+  color: #C0C4CC;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  width: 120rpx;
+}
+
+.detail-list view:last-child {
+  font-size: 24rpx;
+  color: #666666;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.list-item-status {
+  float: right;
+}
+
+.list-item-content {
+  display: flex;
+  justify-content: start;
+}
+
+.list-item-col {
+  text-align: center;
+  width: 33%;
+}
+
+.list-item-col-name {
+  color: #c0c4cc;
+}
+
+.list-item-col-value {
+  color: #4a4a4a;
+  padding: 22rpx 0 16rpx 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40rpx;
+  font-size: 24rpx;
+  color: #C0C4CC;
+  border-top: 1rpx dashed #E0E0E0;
+  margin-top:15rpx;
+  line-height:20rpx;
+  padding-top:25rpx;
+}
+
+.detail-footer > view {
+  display: flex;
+  align-items: center;
+  color: #666666;
+}
+
+.detail-footer > view > image {
+  width: 20rpx;
+  height: 20rpx;
+  display: inline-block;
+}
+
+.detail-footer > view > text {
+  margin-right: -6rpx;
+}
+
+.status-wrapper {
+  display: flex;
+  align-items: center;
+  color: #666666;
+  transform: scale(0.83);
+  width: 70rpx;
+  white-space: nowrap;
+  /* padding-left: 10rpx; */
+}
+
+
+.status-wrapper image {
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.status-wrapper .normal {
+  color: #07B985;
+}
+
+.status-wrapper .warning {
+  color: #F0A33F;
+}
+
+.status-wrapper .high-warning {
+  color: #E55449;
+}

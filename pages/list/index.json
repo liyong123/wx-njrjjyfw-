@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "项目列表",
+  "usingComponents": {
+    "wux-tab": "../../component/tab/index",
+    "wux-tabs": "../../component/tabs/index",
+    "tab-bar": "../../component/tabbar/tabbar"
+  }
+}

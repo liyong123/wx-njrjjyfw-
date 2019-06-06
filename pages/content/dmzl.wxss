@@ -1,0 +1,173 @@
+/* pages/content_zl/dmzl.wxss */
+.zl_title{
+  color: #000000;
+  font-size:30rpx;
+  font-family: PingFangSC-Regular;
+  line-height: 40rpx;
+  float:left;
+  font-weight: bold;
+}
+.zl_dmzl{
+  margin:0rpx auto;
+  background:#fff;
+  border-bottom:1rpx solid #ccc;
+  padding:50rpx 0 50rpx 0;
+}
+.daima{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.daima image{
+  width:300rpx;
+  height:250rpx;
+  margin:0 auto;
+}
+.daima_des{
+  font-size:30rpx;
+  color:#9B9B9B;
+  text-align:center;
+}
+.zl_tubiao{
+  display:flex;
+  flex-direction: column;
+  position:relative;
+  align-items:center;
+}
+.progress_box image{
+  width:500rpx;
+  height:500rpx;
+  position: absolute;
+  flex-direction: column;
+  align-items:center;
+}
+.zl_fs{
+  position:absolute;
+  display:flex;
+  top:100rpx;
+  flex-direction: column;
+  align-items:center;
+}
+.fen{
+  font-size:30rpx;
+  position:absolute;
+  top:0;
+  left:150rpx;
+  color:#C7C7C7;
+}
+.progress_data{
+  color:#C7C7C7;
+}
+.zl_defen{
+  font-size:30rpx;
+  color:#ccc;
+  display:flex;
+  justify-content: space-around;
+  align-items:flex-start;
+}
+.zl_defen text{
+  font-size:100rpx;
+  font-weight:bold;
+  color:#3CC39B;
+}
+.zl_date{
+  font-size:30rpx;
+  color:#ccc;
+}
+
+.zl_dianzan{
+  width:500rpx;
+  height:60rpx;
+  border-radius:30rpx;
+  background:#A6E7D3;
+  margin:40rpx 0 30rpx;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.zl_dianzan text{
+  color:#25BC90;
+}
+.zl_lister{
+  width:95%;
+  margin:0 auto;
+  background:#fff;
+  padding:30rpx auto;
+}
+.zl_list{
+  padding:50rpx 10rpx 20rpx 10rpx;
+  border-bottom:1px dotted #ccc;
+  flex:1;
+  justify-content: space-between;
+}
+.zl_tpro{
+  padding:20rpx 15rpx 0 15rpx;
+}
+
+.zl_por{
+  width:550rpx;
+  height:40rpx;
+  background:#ccc;
+  border-radius:30rpx;
+  float:right;
+}
+.zl_por text{
+  color:#9B9B9B;
+  font-size:24rpx;
+  padding-left:30rpx;
+  padding-top:10rpx;
+}
+.zl_pro_lu{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#29AE89;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_lan{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#2F6FB4;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_chen{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#F76B1C;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_hong{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#DD2476;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_lu_zi{
+  font-size:20rpx;
+  color:#fff;
+}
+.zl_wenzi{
+  width:95%;
+  margin:20rpx auto;
+  display:flex;
+  align-items:flex-start;
+}
+.zl_wenzi text{
+  font-size:26rpx;
+  color:#B3B3B3;
+}

@@ -1,0 +1,17 @@
+/* pages/content_dt/bm.wxss */
+.dt_tu{
+  display:flex;
+  justify-content:flex_end;
+  align-items:center;
+  flex-direction:column;
+  margin:150rpx auto;
+}
+.dt_tu image{
+  width:300rpx;
+  height:300rpx;
+}
+.dt_wen{
+  margin-top:50rpx;
+  font-size:32rpx;
+  color:#9B9B9B;
+}

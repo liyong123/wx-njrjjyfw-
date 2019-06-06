@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "tab-bar": "../../component/tabbar/tabbar"
+  },
+  "navigationBarTitleText": "项目总览"
+}

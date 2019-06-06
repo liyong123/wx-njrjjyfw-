@@ -1,0 +1,344 @@
+<!--pages/web/detail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+
+<view wx:if='{{noData}}' class='detail_nodata'>
+  <image src='http://qdrc.jfh.com/qingdao/webchat/img/supplier/no_data.png'></image>
+  <view>暂无该供应商的详情信息，后续会不断完善，敬请期待</view>
+</view>
+
+<scroll-view wx:else class='content' style="height: 100%;" scroll-y="true" scroll-top="{{scrollTop.scroll_top}}" bindscroll="scrollTopFun" scroll-into-view='{{toView}}'>
+  <!-- 基本信息 -->
+  <view class='basic-bk' id='listA' style='{{isVisitor? "height:460rpx":""}}'>
+    <image class='maturity_analysis' src='../../img/supplier/maturity_analysis.png' bindtap='gotoMaturityAnalysis'></image>
+    <image class='basic-bk-image0' src='../../img/supplier/basic_bk.png'></image>
+    <image class='basic-bk-image1' src='http://qdrc.jfh.com/qingdao/webchat/jyh/page/caigouxiangqing/basic-container.png' style='{{isVisitor? "height:460rpx":""}}'></image>
+    <view class='basic-container'>
+      <image class='basic-logo' mode='aspectFit' src='{{basicInfo.logoUrl != "" ?basicInfo.logoUrl: logo}}'></image>
+      <text class='company-name'>{{tools.sub(basicInfo.spName,12)}}</text>
+      <view class='flex-container'>
+        <view wx:if="{{basicInfo.peopleNo}}">
+          <text class='people-no'>{{basicInfo.peopleNo}}</text>
+          <text class='gray-color'>人关注了企业</text>
+        </view>
+        <view class='flex-container' wx:if='{{basicInfo.city !=""}}'>
+          <image class='image-address' src='../../img/address.png'></image>
+          <view class='blue-color'>{{tools.sub(basicInfo.city,3)}}</view>
+        </view>
+      </view>
+      <view class='basic-classify-contianer'>
+        <view class='basic-classify' style='justify-content:flex-start;'>
+          <image src='../../img/supplier/detail_basic_person.png'></image>
+          <view class='basic-classify-text-container'>
+            <view>{{tools.memberSize(basicInfo.members)}}</view>
+            <view class='gray-color'>人员规模</view>
+          </view>
+        </view>
+        <view class='basic-classify'>
+          <image src='../../img/supplier/detail_basic_money.png'></image>
+          <view class='basic-classify-text-container'>
+            <view>{{basicInfo.rstCapital ? basicInfo.rstCapital +'万元' : '未披露'}}</view>
+            <view class='gray-color'>注册资本</view>
+          </view>
+        </view>
+        <view class='basic-classify' style='justify-content:flex-end;'>
+          <image src='../../img/supplier/detail_basic_time.png'></image>
+          <view class='basic-classify-text-container'>
+            <view>{{basicInfo.buildTime ? basicInfo.buildTime : '暂无'}}</view>
+            <view class='gray-color'>注册时间</view>
+          </view>
+        </view>
+      </view>
+      <view wx:if='{{!isVisitor}}' class='dash-line'></view>
+      <view wx:if='{{!isVisitor}}' class='basic-classify-contianer basic-classify-contianer2'>
+        <view class='basic-classify-text-container'>
+          <view class='blue-color order-number'>{{basicInfo.orderNum?basicInfo.orderNum:'暂无'}}</view>
+          <view class='blue-color2 order-number-mark'>接单数量</view>
+        </view>
+        <view class='basic-classify-text-container'>
+          <view class='blue-color order-number'>{{basicInfo.orderPrice?tools.formatCurrency(basicInfo.orderPrice):'暂无'}}</view>
+          <view class='blue-color2 order-number-mark'>接单金额</view>
+        </view>
+        <view class='basic-classify-text-container'>
+          <view class='blue-color order-number'>{{basicInfo.scores?basicInfo.scores:'4.1'}}</view>
+          <view class='blue-color2 order-number-mark'>客户评分</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 公司简介 -->
+  <view wx:if='{{!isVisitor}}' class='part-container' style='margin-top:-20rpx'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>公司简介</view>
+      <image class='cpmpany-brief-icon' src='../../img/cpmpanyBrief.png'></image>
+    </view>
+    <view class='cpmpany-brief-1'>
+      <text wx:if="{{basicInfo.spMemo.length < basicDetailShowNo}}">{{basicInfo.spMemo}}</text>
+      <view wx:else>
+        <text>{{tools.sub(basicInfo.spMemo, basicDetailShowNo)}}</text>
+        <view class='look-detail' bindtap="lookDetail">{{basicDetailExpanded? '收起 ':'查看详情>>'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 擅长的领域 -->
+  <view wx:if='{{!isVisitor}}' class='part-container'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>擅长的领域</view>
+      <image class='field-expertise-icon' src='../../img/fieldExpertise.png'></image>
+    </view>
+    <view class='field-expertise-1'>
+      <text wx:for="{{basicInfo.indlist || ['暂无']}}" wx:if='{{index < domainShowNo}}'>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 成功案例 -->
+  <view wx:if='{{!isVisitor}}' class='part-container' id='listB'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>成功案例</view>
+      <image class='success-case-icon' src='../../img/successful-case.png'></image>
+    </view>
+    <view wx:if='{{successCases.length == 0}}' class='have-no-data'>暂无</view>
+    <view class='success-case' wx:for="{{successCases}}" wx:if="{{index<successCaseShowNo}}" wx:key="id" bindtap='successCaseClick' data-index="{{index}}">
+      <view class='case-header'>
+        <view class='case-name'>{{item.caseName}}</view>
+        <view class='look-detail' bindtap="lookCaseDetail">查看详情>></view>
+      </view>
+      <view class='case-classfy'>
+        <view>
+          <text class='gray-color'>所属行业：</text>
+          <text class='lable-value'>{{tools.sub(item.industry != '' ? item.industry:'暂无',8)}}</text>
+        </view>
+        <view>
+          <text class='gray-color'>开发周期：</text>
+          <text class='lable-value'>{{item.developDays}}个月</text>
+        </view>
+        <view>
+          <text class='gray-color'>所属类别：</text>
+          <text class='lable-value'>{{tools.sub(item.workType,8)}}</text>
+        </view>
+        <view>
+          <text class='gray-color'>参与人数：</text>
+          <text class='lable-value'>{{item.personNum}}人</text>
+        </view>
+      </view>
+    </view>
+    <view class='look-at-all-container' wx:if="{{successCases.length>3}}">
+      <view class='look-at-all-classfy' bindtap="lookAllSuccessCase">{{caseExpanded?'收起':'查看全部成功案例'}}
+        <image style='{{caseExpanded ? "transform:rotate(180deg)" :""}}' src="../../img/down-lod.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 解决方案 -->
+  <view class='part-container'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>解决方案</view>
+      <image class='solution-icon' src='../../img/solution.png'></image>
+    </view>
+    <view wx:if='{{solutions.length == 0}}' class='have-no-data'>暂无</view>
+    <view class='solutions' style='{{solutions.length <= solutionShowNo ? "border-bottom: none;":""}}'>
+      <view class='solution' wx:for="{{solutions}}" wx:if="{{index<solutionShowNo}}" wx:key="id" bindtap='solutionClick' data-index="{{index}}">
+        <image src="{{item.pLogoUrl != '' ? item.pLogoUrl : solutionLogo}}"></image>
+        <view class='solution-name'>{{tools.sub(item.pName,12)}}</view>
+        <view class='solution-price'>￥
+          <text>{{tools.formatCurrency(item.pPrice)}}</text> </view>
+      </view>
+    </view>
+
+    <view class='look-at-all-container' wx:if="{{solutions.length>4}}">
+      <view class='look-at-all-classfy' bindtap="lookAllSolution">{{solutionExpanded? '收起' : '查看全部解决方案'}}
+        <image style='{{solutionExpanded ? "transform:rotate(180deg)" :""}}' src="../../img/down-lod.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 核心成员 -->
+  <view class='part-container' id='listC' wx:if='{{!isVisitor}}'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>核心成员</view>
+      <image class='core-member-icon' src='../../img/core_member.png'></image>
+    </view>
+    <view wx:if='{{coreMembers.length == 0}}' class='have-no-data'>暂无</view>
+    <view class='core-member' wx:for="{{coreMembers}}" wx:if="{{index<coreMemberShowNo}}" wx:key="jfid" bindtap='coreMemberClick' data-jfid='{{item.jfId}}'>
+      <view>
+        <image src="{{item.memLogoUrl=='' ? memberLogo : headerBaseUrl + item.memLogoUrl}}"></image>
+        <view class='member-name'>{{item.fullName}}</view>
+      </view>
+
+      <view class='member-detail'>
+        <view class='member-detail-item' style='margin-top:0rpx;'>
+          <view class='gray-color member-detail-label' style='margin:0rpx 10rpx 0 0;'>担任：</view>
+          <text class='lable-value'>{{item.position}}</text>
+        </view>
+        <view class='member-detail-item member-detail-label' style='margin:20rpx 0 0 160rpx;'>
+          <text class='blue-color'>{{item.workTime}}年</text>
+          <text class='gray-color'>工作经验</text>
+
+          <text class='blue-color' style='margin-left:60rpx;'>{{item.caseNum}}个</text>
+          <text class='gray-color'>项目案例</text>
+        </view>
+
+        <view class='member-detail-item'>
+          <view class='gray-color member-detail-label'>工作类型：</view>
+          <view class='member-detail-vals'>
+            <view class='member-detail-val' wx:for="{{item.tech}}">{{item}}</view>
+          </view>
+        </view>
+        <view class='member-detail-item'>
+          <view class='gray-color member-detail-label'>技能：</view>
+          <view class='member-detail-vals'>
+            <view class='member-detail-val' wx:for="{{item.skill}}">{{item}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='look-at-all-container' wx:if="{{coreMembers.length>3}}">
+      <view class='look-at-all-classfy' bindtap="lookAllCoreMember">{{coreMemberExpanded?'收起':'查看全部核心成员'}}
+        <image style='{{coreMemberExpanded ? "transform:rotate(180deg)" :""}}' src="../../img/down-lod.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 资质证书 -->
+  <view class='part-container'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>资质证书</view>
+      <image class='core-member-icon' src='../../img/qualificatiom-certificate.png'></image>
+    </view>
+    <view wx:if='{{certificates.length == 0}}' class='have-no-data'>暂无</view>
+    <view class='certificate' wx:for="{{certificates}}" wx:if="{{index<certificateShowNo}}" wx:key="risk" bindtap='certificateClick' data-index="{{index}}">
+      <text>{{tools.sub(item.qName, 20)}}</text>
+      <image src="../../img/arrow_right.png" data-id="{{item.id}}" bindtap="certificateImage"></image>
+    </view>
+    <view class='look-at-all-container' wx:if="{{certificates.length>3}}">
+      <view class='look-at-all-classfy' bindtap="lookAllCertificate">{{certificateExpanded?'收起':'查看全部资质证书'}}
+        <image style='{{certificateExpanded ? "transform:rotate(180deg)" :""}}' src="../../img/down-lod.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 风险信息 -->
+  <view wx:if='{{!isVisitor}}' class='part-container' id='listD'>
+    <view class='part-header'>
+      <view class='part-header-left'></view>
+      <view class='part-header-title'>风险信息</view>
+      <image class='core-member-icon' src='../../img/risk-information.png'></image>
+    </view>
+    <view class='risk-information'>
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/no-data-risk.png"></image>
+    </view>
+  </view>
+
+  <!-- 右侧返回顶部  快捷导航 -->
+  <view class='back-top' wx:if='{{!isVisitor && scrollTop.goTop_show}}'>
+    <image class='back-image' src="../../img/return.png" catchtap="goTopFun"></image>
+  </view>
+
+  <view class='quick-navigation-detail' wx:if="{{isShowNav}}">
+    <text wx:for="{{quickNavigationDetail}}" wx:if='{{item.show}}' bindtap="choiceNaviItem" data-index="{{item.id}}">{{item.name}}</text>
+  </view>
+
+  <view wx:if='{{!isVisitor && scrollTop.goTop_show}}' class='quick-navigation'>
+    <image class='back-image' src="../../img/navigation.png" data-show="{{isShowNav}}" bindtap="showNav"></image>
+  </view>
+</scroll-view>
+
+<!-- 底部固定 -->
+<view wx:if="{{!noData}}" class='bast'>
+  <view class='bast-item-wrapper' style='position:relative;'>
+    <image src='../../img/share.png'></image>
+    <view class='gray-color'>分享</view>
+    <button class='share-button' open-type='share'></button>
+  </view>
+  <view wx:if='{{!isVisitor}}' class='bast-item-wrapper {{isFollowed?"followed":"not-followed"}}' bindtap='followClicked'>
+    <image src='{{isFollowed ? "../../img/focusNo.png":"../../img/focus.png"}}'></image>
+    <view class='{{isFollowed? "" : "white-color"}}'>{{isFollowed? '取消关注':'关注'}}</view>
+  </view>
+
+  <!-- <view style='position:relative;'>
+    <image src='../../img/share.png'></image>
+    <view class='gray-color'>分享</view>
+    <button class='share-button' open-type='share'></button>
+  </view>
+  <view wx:if='{{!isVisitor}}' bindtap='saveSupplier'>
+    <image src='../../img/enshrine.png'></image>
+    <view class='gray-color'>收藏</view>
+  </view> -->
+
+  <!--view bindtap='makeCall'>
+    <text>联系他</text>
+  </view-->
+
+</view>
+
+<!--案例详情-->
+<view class='mask-layer' wx:if="{{showCaseDetail}}" catchtouchmove='catchMaskTouch' bindtap='dismissMask'>
+  <view class='mask-bottom-content' catchtap='catchMaskContentTap'>
+    <view style='margin:20rpx 20rpx; background:#f8faff;'>
+      <view class='case-header'>
+        <view class='case-name blue-color' style='font-size: 30rpx;'>{{tools.sub(caseDetail.caseName,20)}}</view>
+      </view>
+      <view class='case-classfy'>
+        <view>
+          <text class='gray-color'>所属行业：</text>
+          <text class='lable-value'>{{tools.sub(caseDetail.industry != '' ? caseDetail.industry : '暂无', 8)}}</text>
+        </view>
+        <view>
+          <text class='gray-color'>开发周期：</text>
+          <text class='lable-value'>{{caseDetail.developDays}}个月</text>
+        </view>
+        <view>
+          <text class='gray-color'>所属类别：</text>
+          <text class='lable-value'>{{tools.sub(caseDetail.workType,8)}}</text>
+        </view>
+        <view>
+          <text class='gray-color'>参与人数：</text>
+          <text class='lable-value'>{{caseDetail.personNum}}人</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{caseDetail.caseDesc.length < 400}}" class='case-desc gray-color'>{{caseDetail.caseDesc}}</view>
+    <scroll-view wx:else scroll-y class='detail-scroll'>
+      <view class='case-desc gray-color' style='border:none'>{{caseDetail.caseDesc}} </view>
+    </scroll-view>
+    <view class='mask-cancle' bindtap='closeCaseDetail'>收起 </view>
+  </view>
+</view>
+
+<!--方案详情-->
+<view class='mask-layer' wx:if="{{showSolutionDetail}}" catchtouchmove='catchMaskTouch' bindtap='dismissMask'>
+  <view class='mask-bottom-content' catchtap='catchMaskContentTap'>
+    <view style='margin:20rpx 20rpx;'>
+      <view class='case-header'>
+        <view style='font-size: 30rpx;'>{{tools.sub(solutionDetail.pName,20)}}</view>
+      </view>
+      <view class='solution-price'>￥
+        <text>{{tools.formatCurrency(solutionDetail.pPrice)}}</text>
+      </view>
+    </view>
+    <view class='case-desc gray-color' wx:if="{{solutionDetail.pDesc.length < 400}}">{{solutionDetail.pDesc}}</view>
+    <scroll-view wx:else class='detail-scroll' scroll-y>
+      <view class='case-desc gray-color' style='border:none'>{{solutionDetail.pDesc}}</view>
+    </scroll-view>
+    <view class='mask-cancle' bindtap='closeSolutionDetail'>收起</view>
+  </view>
+</view>
+
+<!-- 资质证书  图片 -->
+<view wx:if="{{certificateImageShow}}" class='mask-layer' catchtouchmove='catchMaskTouch' bindtap='dismissMask'>
+  <view class='mask-layer-hide' bindtap="closeCertificateImage">X</view>
+  <view class='certificate-image'>
+    <image mode='aspectFit' src="{{certificateImageUrl}}" catchtap='catchMaskContentTap'></image>
+  </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/web/commitDetail.wxml-->
+<web-view src="{{baseUrl}}/jfbid/openapi/platform/commitTenderDetail?ggId={{ggId}}"></web-view>

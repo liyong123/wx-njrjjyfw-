@@ -1,0 +1,270 @@
+<!--pages/leadership-index/index.wxml-->
+<view class="contariner">
+  <!-- 采购中  建设中  已完成 -->
+  <view class='blue-backgraund'></view>
+  <view class='item-1'>
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=cgzb&orderStatus={{QUERY_STATE_CAIGOUZHONG}}">
+      <view class='pro-classify'>
+        <text class='pro-number'>{{titleUrlData1.tenderNum}}</text>
+        <image src='../../img/addicon1.png'></image>
+      </view>
+      <text class='pro-name'>采购中</text>
+    </navigator>
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=xmjs&orderStatus={{QUERY_STATE_JIANSHEZHONG}}">
+      <view class='pro-classify'>
+        <text class='pro-number'>{{titleUrlData.unFinishedNum}}</text>
+        <image src='../../img/addicon2.png'></image>
+      </view>
+      <text class='pro-name'>建设中</text>
+    </navigator>
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=xmjs&orderStatus={{QUERY_STATE_YIWANCHENG}}">
+      <view class='pro-classify'>
+        <text class='pro-number'>{{titleUrlData.filedNum}}</text>
+        <image src='../../img/addicon3.png'></image>
+      </view>
+      <text class='pro-name'>已验收</text>
+    </navigator>
+  </view>
+
+  <view class='contariner-leadership'>
+    <!-- 项目总览 -->
+    <view class='item-2'>
+      <view class='item-title'>
+        <text class='item-title-left'></text>
+        <text>项目总览</text>
+      </view>
+
+      <view class='all-pro'>
+        <view class='contract-num'>
+          <text style='font-size:40rpx;'>{{contractNum}}</text>
+          <text class='lable-pro'>项目总数量</text>
+        </view>
+
+        <view class='total-price'>
+          <text style='font-size:40rpx;'>{{totalPrice}}</text>
+          <text class='total-price-yuan'>（元）</text>
+          <text class='lable-pro'>项目总金额</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 项目一周动态 -->
+    <view class='leadership_mt'>
+      <view class='item-title'>
+        <text class='item-title-left'></text>
+        <text>项目最新动态</text>
+      </view>
+      <!-- leadership1 -->
+      <view class='leadership_whitebg'>
+        <block wx:for="{{weekDynamic}}" wx:key="projectDynamic">
+          <view class='leadership1_1 gaofenxian' data-itemGrp="{{item}}" bindtap="toProjectDetail">
+            <view class='leadership1_10'></view>
+            <view class='leadership1_11'>{{item.putTime}}</view>
+            <view class='leadership1_12'>
+              <view class='leadership1_121'>{{item.orderName}}</view>
+              <view class='leadership1_122'>{{item.statusName}}</view>
+              <!-- <view class='leadership1_122'>{{item.statusName}}</view> -->
+            </view>
+            <view class='leadership1_13'>
+              <view class='leadership1_131' style="width:40%">{{ item.statusName == '已签约' ? '合同金额' : '预算金额' }}
+                <span>{{item.planPrice}}</span>(元)</view>
+              <!--招标中  -->
+              <!-- <view wx:if="{{item.orderSuatus ==3 }}" class='leadership1_132' style="width:296rpx">投标供应商
+                <span>{{item.bookCount}}</span> 家</view> -->
+              <!--"已评标"  -->
+              <!-- <view wx:if="{{item.orderSuatus==3}}" class='leadership1_132' style="width:296rpx;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">中标： 江苏中大东博信息科技有限公司</view> -->
+              <!-- 已终止 item.bookCount !=0-->
+              <view class='leadership1_132'>
+                投标供应商
+                <span>{{item.bookCount}}</span> 家
+              </view>
+
+              <!-- 已终止 item.bookCount ==0 -->
+              <view wx:if="{{item.orderSuatus == 0 && item.bookCount ==0 }}" class='leadership1_132' style='width:100%'>所有投标单位都不符合招标要求</view>
+            </view>
+            <view class='{{(item.proPlan==="正常"?"leadership1_16":item.proPlan==="有风险"?"leadership1_15":"leadership1_14")}}' wx:if="{{(item.stageName && item.stageName !='') && item.proPlan && item.proPlan!=4 }}">
+              <view class='leadership1_141'>项目进度{{" " + item.proPlan}}</view>
+              <text wx:if='{{item.proPlan === "正常" && item.delayDay && item.delayDay != "0天"}}' class='leadership1_142'>
+                供应商已延期项目计划{{item.delayDay}}，但尚未超过进度风险期限
+              </text>
+              <text wx:if='{{item.proPlan === "正常" && (!item.delayDay || item.delayDay == "0天")}}' class='leadership1_142'>
+                项目计划如期进行，项目进度正常
+              </text>
+              <text wx:if='{{item.proPlan === "有风险"}}' class='leadership1_142'>
+                供应商已延期项目计划{{item.delayDay}}，项目进度有风险
+              </text>
+              <text wx:if='{{item.proPlan === "高风险"}}' class='leadership1_142'>
+                供应商已延期项目计划{{item.delayDay}}，项目进度高风险
+              </text>
+            </view>
+          </view>
+        </block>
+        <!-- youfenxian -->
+        <!-- <view class='leadership1_1'>
+          <view class='leadership1_10'></view>
+          <view class='leadership1_11'>2018.10.21</view>
+          <view class='leadership1_12'>
+            <view class='leadership1_121'>南京市财政局行政办公管理系统</view>
+            <view class='leadership1_122'>已评标</view>
+          </view>
+          <view class='leadership1_13'>
+            <view class='leadership1_131' style="width:40%">预算金额 <span>25万</span>(元)</view>
+            <view class='leadership1_132' style="width:296rpx;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">中标： 江苏中大东博信息科技有限公司</view>
+          </view>
+          <view class='leadership1_14'>
+            <view class='leadership1_141'>有风险</view>
+            <view class='leadership1_142'>供应商未按平台建议提交需求分析说明书、项目计划书，已延期项目计划X天</view>
+          </view>
+        </view> -->
+        <!-- zhengchang -->
+        <!-- <view class='leadership1_1 '>
+          <view class='leadership1_10'></view>
+          <view class='leadership1_11'>2018.10.21</view>
+          <view class='leadership1_12'>
+            <view class='leadership1_121'>驾驶员计分学习互联网平台</view>
+            <view class='leadership1_122'>系统实施阶段</view>
+          </view>
+          <view class='leadership1_13'>
+            <view class='leadership1_131' style='width:100%'>南京骏蝶科技有限公司</view>
+            <view class='leadership1_132'>投标供应商
+              <span>8</span> 家 所有投标单位都不符合招标要求</view>
+          </view>
+          <view class='leadership1_14'>
+            <view class='leadership1_141'>项目进度 正常</view>
+            <view class='leadership1_142'>供应商已按平台建议提交系统接口说明书，项目进度正常。</view>
+          </view>
+        </view> -->
+
+        <view class=''></view>
+      </view>
+    </view>
+
+    <!-- 项目代码资产 -->
+    <view class='leadership_mt'>
+      <view class='item-title'>
+        <text class='item-title-left'></text>
+        <text>项目代码资产</text>
+      </view>
+      <view class='leadership2' wx:if="{{hasCodeData}}">
+        <view class="leadership2_1 'show'" data-num="0">
+          <view class='leadership2_1af'>
+            <view class='leadership2_11'>
+              <view class='leadership2_111' bindtap='codetoDetail' data-codeAsset="{{topCodeAsset}}">{{ topCodeAsset.orderName }}</view>
+              <!-- bindtap='codetoDetail' 暂不跳转-->
+              <view class='leadership2_112'>
+                <view class='leadership2_1121 leadership2_1121_r1'>代码资产
+                  <span style="color: #4a4a4a; font-weight: 600">{{ topCodeAsset.codeLineNumDesc }}</span>
+                </view>
+              </view>
+              <view class='leadership2_113'>
+                <view class='leadership2_1131'>
+                  <view class='leadership2_11311'>{{topCodeAsset.compile || '暂无'}}</view>
+                  <view class='leadership2_11312'>编译</view>
+                </view>
+                <view class='leadership2_1131'>
+                  <view class='leadership2_11311'>{{topCodeAsset.maintain || '暂无'}}</view>
+                  <view class='leadership2_11312'>可维护</view>
+                </view>
+                <view class='leadership2_1131'>
+                  <view class='leadership2_11311'>{{topCodeAsset.rule || '暂无'}}</view>
+                  <view class='leadership2_11312'>规范性</view>
+                </view>
+                <view class='leadership2_1131'>
+                  <view class='leadership2_11311'>{{topCodeAsset.rely || '暂无'}}</view>
+                  <view class='leadership2_11312'>可靠性</view>
+                </view>
+              </view>
+            </view>
+            <view class='leadership2_12'>
+              <view class='progress_box'>
+                <!-- <canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas> 
+                <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>  -->
+                <image style="width: 200rpx;height: 200rpx" src="{{circleSrc}}"></image>
+                <view class="progress_text">
+
+                  <view class='progress_info'>
+                    <!-- <text class='green' wx:if="{{fenshu>=80 && fenshu<=100}}">{{chushifenshu || '0'}}</text>
+                      <text class='blue' wx:if="{{fenshu>=70 && fenshu<80}}">{{chushifenshu || '0'}}</text>
+                      <text class='orange' wx:if="{{fenshu>=60 && fenshu<70}}">{{chushifenshu || '0'}}</text>
+                      <text class='red' wx:if="{{fenshu>=0 && fenshu<60}}">{{chushifenshu || '0'}}</text> -->
+                    <text class='green' wx:if="{{fenshu>=80 && fenshu<=100}}">{{fenshu || '暂无'}}</text>
+                    <text class='blue' wx:if="{{fenshu>=70 && fenshu<80}}">{{fenshu || '暂无'}}</text>
+                    <text class='orange' wx:if="{{fenshu>=60 && fenshu<70}}">{{fenshu || '暂无'}}</text>
+                    <text class='red' wx:if="{{fenshu>=0 && fenshu<60}}">{{fenshu || '暂无'}}</text> {{ fenshu ? '分' : '' }}
+                  </view>
+                  <view class='progress_info2'>{{ topCodeAsset.reportDate }}</view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+          <view class=''>
+            <view class="code-zan code-zan-you" wx:if="{{fenshu>=80 && fenshu<=100}}">
+              <text>代码非常健康，给您的供应商点赞~</text>
+            </view>
+            <view class="code-zan code-zan-shangke" wx:if="{{fenshu>=70 && fenshu<80}}">
+              <text>还有提升空间，继续努力！</text>
+            </view>
+            <view class="code-zan code-zan-fenxian" wx:if="{{fenshu>=60 && fenshu<70}}">
+              <text>托管的代码质量有潜在风险，请您加强管理！</text>
+            </view>
+            <view class="code-zan code-zan-gaofenxian" wx:if="{{fenshu>0 && fenshu<60}}">
+              <text>代码质量风险很高，可能影响您的项目成果！</text>
+            </view>
+          </view>
+        </view>
+        <view class='leadership2_2'>
+          <block wx:for="{{codeAsset}}">
+            <view data-num="{{index}}" class="leadership2_21 {{ item.color }} {{_num == index ? 'active' : ''}}" bindtap="navbarTap">
+              <view class="triangle_border_up">
+                <span></span>
+              </view>
+              <view class='leadership2_211'>{{ item._orderName }}</view>
+              <view class='leadership2_212' style="{{ _num == index ? 'color: #fff' : '' }}">{{item.codeTotal ? item.codeTotal +'分' : '暂无' }}
+                <image style="width: 16rpx;height: 16rpx;{{ _num == index ? 'filter:brightness(0%) invert(100%);' : '' }}" src='../../img/{{item.codeFlag == 1 ?"arrowup2" : "arrowup1" }}.png'></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='homeNoData' wx:elif="{{!hasCodeData}}">
+        <image src='../../img/kzt2.png' />
+        <text>暂无代码资产，快到电脑端发布需求，开启项目拥有资产吧！</text>
+      </view>
+    </view>
+
+    <!-- 合作的供应商 -->
+    <view class='leadership_mt'>
+      <view class='item-title' style='padding-top: 15rpx;'>
+        <text class='item-title-left'></text>
+        <text>合作的供应商</text>
+        <view class='view-more' bindtap='gotolist' wx:if="{{hasSupplierData}}">查看更多
+          <text class='view-more-1'>>></text>
+        </view>
+      </view>
+      <view class='leadership_whitebg leadership3' style=" padding-top:10rpx;" wx:if="{{hasSupplierData}}">
+        <view wx:for="{{suppliers}}" class='leadership3_1' bindtap='gotogInfo' data-id='{{item.spid}}'>
+          <view class='leadership3_11'>
+            <image style="border-radius: 8rpx" src="{{supplierAvatarUrl+'/'+item.BUID || 'http://qdrc.jfh.com/qingdao/webchat/img/supplier_default.png' }}"></image>
+          </view>
+          <view class='leadership3_12'>
+            <view class='leadership3_12_cl'>
+              <view class='leadership3_121'>{{item.BU_NAME}}</view>
+              <view class='leadership3_122'>
+                <!-- <wux-rater icon="star" disabled="{{true}}"  fontSize="22" singleWidth="26" slot="footer" class="leadership3_1221" auto="{{false}}" value="{{item.customerScore || 0 }}" /> -->
+                <view class='leadership3_1222'>{{item.customerScore == 0.0?'暂无评分':item.customerScore+'分' || '暂无分数' }}</view>
+              </view>
+            </view>
+            <view class='leadership3_123'>最近合作项目：{{item.orderName || '暂无' }}</view>
+          </view>
+        </view>
+      </view>
+      <view class='homeNoData' wx:if="{{!hasSupplierData}}">
+        <image src='../../img/kzt1.png' />
+        <text>暂无合作，快到电脑端发布需求，寻找优质的供应商吧！</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!--  tab-bar -->
+<tab-bar pages="{{pages}}"></tab-bar>

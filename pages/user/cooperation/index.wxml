@@ -1,0 +1,146 @@
+<view class='tabContent'>
+  <view wx:for="{{tabDatas}}" class='{{currentTab == index ? "choosedTab" :""}}' data-tab="{{index}}" wx:key="tabUnique" bindtap='tabChange'>
+    <text>{{item.title}}</text>
+    <!-- <text>{{"（"+  item.num + "）"}}</text> -->
+    <text hidden='{{currentTab != index}}' class='bottomLine'></text>
+  </view>
+</view>
+
+<view class='eachModule' wx:if='{{currentTab == 0}}' style='height:{{eachProviderModuleHeight}}'>
+  <view class='searchInput'>
+    <icon type="search" size="18" color="#6f6f6f" />
+    <input type='text' name="searchInput" placeholder-style="color:#9b9b9b" bindconfirm="getSearchInputValue" value="{{keyWord}}" placeholder='请输入供应商名称' />
+  </view>
+  <!-- <view class='filter-list-header' style='margin-bottom:20rpx;'>
+    <view class="list-header-item {{listSort2['annualSales2']['type']}}" data-sort-type='annualSales2' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.annualSales2 ? 'choosed': ''}}">注册时间</text>
+      <image wx:if="{{listSort2.annualSales2.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort2.annualSales2.type === 'desc'}}" src='../../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort2.annualSales2.type === 'asc'}}" src='../../../img/icon_asc.png'></image>
+    </view>
+    <view class="list-header-item {{listSort2['registeredAssets2']['type']}}" data-sort-type='registeredAssets2' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.registeredAssets2 ? 'choosed': ''}}">注册资本</text>
+      <image wx:if="{{listSort2.registeredAssets2.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort2.registeredAssets2.type === 'desc'}}" src='../../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort2.registeredAssets2.type === 'asc'}}" src='../../../img/icon_asc.png'></image>
+    </view>
+    <view class="list-header-item {{listSort2['staffSize2']['type']}}" data-sort-type='staffSize2' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.staffSize2 ? 'choosed': ''}}">人员规模</text>
+      <image wx:if="{{listSort2.staffSize2.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort2.staffSize2.type === 'desc'}}" src='../../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort2.staffSize2.type === 'asc'}}" src='../../../img/icon_asc.png'></image>
+    </view>
+  </view> -->
+  <view class='company' wx:for="{{expertList}}" wx:key="companyUnique" data-bid="{{item.spid}}" bindtap='toProviderDetail'>
+    <view class='companyTop'>
+      <view>
+        <image src="{{supplierAvatarUrl}}/{{item.BUID}}" />
+      </view>
+      <view class='companyNameAdd'>
+        <view class='nameAdressGrp'>
+          <view class='nameOnly'>{{item.BU_NAME ? item.BU_NAME : "暂无"}}</view>
+          <view class='addressBrowse'>
+            <view>
+              <image src="../../../img/location_space.png" />
+              <text>{{item.CITY ? item.CITY : "暂无"}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="registerTime">
+          <text>注册时间：</text>
+          <text>{{item.BUILDTIME ? item.BUILDTIME : "暂无"}}</text>
+        </view>
+        <view class='moneyPersonGrp'>
+          <view>
+            <text>{{item.rst_capital ? item.rst_capital+"万" : "暂无"}}</text>
+            <text>注册资本</text>
+          </view>
+          <view>
+            <text>{{item.BUSCALE ? item.BUSCALE : "暂无"}}</text>
+            <text>人员规模</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="domain-wrapper">
+      <view class='title'>擅长标签:</view>
+      <view class='inner-content'>
+        <text wx:for="{{item.tagsContent}}" wx:for-item="tags" wx:key="tagsContent">{{tags}}</text>
+        <text wx:if="{{!item.tagsContent}}">暂无</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='eachModule' wx:if='{{currentTab == 1}}' style='height:{{eachModuleHeight}}'>
+  <view class='searchInput'>
+    <icon type="search" size="18" color="#6f6f6f" />
+    <input type='text' name="searchInput" placeholder-style="color:#9b9b9b" bindconfirm="getSearchInputValue" value="{{keyWord}}" placeholder='请输入专家名称' />
+  </view>
+  <!-- <view class='filter-list-header' style='margin-bottom:20rpx;'>
+    <view class="list-header-item {{listSort2['registeredAssetsDefault']['type']}}" data-sort-type='registeredAssetsDefault' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.registeredAssetsDefault ? 'choosed': ''}}">默认排序</text>
+    </view>
+    <view class="list-header-item {{listSort2['staffSize2']['type']}}" data-sort-type='staffSize2' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.staffSize2 ? 'choosed': ''}}">职称</text>
+      <image wx:if="{{listSort2.staffSize2.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort2.staffSize2.type === 'desc'}}" src='../../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort2.staffSize2.type === 'asc'}}" src='../../../img/icon_asc.png'></image>
+    </view>
+    <view class="list-header-item {{listSort2['annualSales2']['type']}}" data-sort-type='annualSales2' bindtap="sortRegisteredAssets2">
+      <text class="{{sortStatusList2.annualSales2 ? 'choosed': ''}}">综合得分</text>
+      <image wx:if="{{listSort2.annualSales2.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort2.annualSales2.type === 'desc'}}" src='../../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort2.annualSales2.type === 'asc'}}" src='../../../img/icon_asc.png'></image>
+    </view>
+  </view> -->
+  <view class="expertGroup">
+    <view class='expertEach' wx:for="{{expertList}}" wx:key="expertUnique" data-id="{{item.JFID}}" bindtap='toExpertDetail'>
+      <view class='expertPictureAll' style='width:50px'>
+        <image src="{{expertAvatarUrl}}/{{item.JFID}}" class='expertPicture' />
+      </view>
+      <view class='expertMessage' style='width:{{expertMessageWidth}}'>
+        <view class="nameLevelGrp" style='position:relative'>
+          <text style='margin-right:20rpx'>{{item.NAME?item.NAME:"暂无"}}</text>
+           <text class='abilitieLevel' style='margin-right:20rpx'>{{item.POSITIONAL_TITLE == "1"?"初级职称":(item.POSITIONAL_TITLE=="2"?"中级职称":(item.POSITIONAL_TITLE == "3"?"副高职称":(item.POSITIONAL_TITLE == "4"?"正高职称":"暂无")))}}</text>
+          <view class='starAdressGrp'>
+            <view class='starGroup'>
+              <image src="../../../img/enshrine.png" />
+              <text>{{item.score?item.score:"无"}}</text>
+            </view>
+            <view class='workAddress'>
+              <image src="../../../img/location_space.png" />
+              <text style='font-size: 20rpx;color: #9B9B9B'>{{item.PROVINCE?item.PROVINCE:"暂无"}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='workGroup'>
+          <text>工作年限：</text>
+          <text style='color:#777'>{{item.workinglife?(item.workinglife + "年"):"暂无"}}</text>
+        </view>
+        <view class='workGroup' style='margin-bottom:0'>
+          <text>工作单位：</text>
+          <text class="workCompanyText">{{item.UNIT_NAME?item.UNIT_NAME:"暂无"}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<block wx:if="{{expertList.length > 0}}">
+  <view class="loadingmore" wx:if='{{ listIsEnd }}'>──────没有更多─────</view>
+</block>
+<block wx:elif="{{expertList.length == 0 && !loading}}">
+  <view class="loadingmore" wx:if='{{currentTab == 0}}'>
+    <view>
+      <image class="photo" src="http://qdrc.jfh.com/qingdao/webchat/img/myCopNoData.png"></image>
+    </view>
+    <view>暂无合作的供应商！</view>
+  </view>
+  <view class="loadingmore" wx:if='{{currentTab == 1}}'>
+    <view>
+      <image class="photo" src="http://qdrc.jfh.com/qingdao/webchat/img/myCopNoData.png"></image>
+    </view>
+    <view>暂无合作的专家！</view>
+  </view>
+</block>

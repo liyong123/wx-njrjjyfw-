@@ -1,0 +1,3 @@
+<!--pages/caigouxiangqing/cjgs.wxml-->
+<!-- <web-view src="{{baseUrl}}/jftender/openapi/deal/toPreview?oid={{orderId}}"></web-view> -->
+<web-view src="{{baseUrl}}/jfbid/openapi/platform/commitTenderDetail?ggId={{orderId}}"></web-view>

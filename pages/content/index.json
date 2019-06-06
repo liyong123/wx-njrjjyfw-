@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "wux-tabs": "../../component/tabs/index",
+    "wux-tab": "../../component/tab/index"
+  }
+}

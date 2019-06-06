@@ -1,0 +1,4 @@
+<!-- 指向微信公众平台首页的web-view -->
+<view class="container">
+  <web-view class="webView" src="{{url}}"></web-view>
+</view>

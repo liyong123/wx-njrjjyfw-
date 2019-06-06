@@ -1,0 +1,69 @@
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class='fix-header'>
+<!-- 搜索 -->
+  <view style='position:relative;' wx:if='{{showAd}}'>
+    <!--image class='ad-image' src='../../img/supplier/temp.jpg'></image-->
+    <swiper indicator-dots autoplay class='ad-swiper'>
+      <block wx:for="{{ads}}">
+        <swiper-item>
+          <image src="{{item.linkUrl}}" class="ad-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--icon class='ad-close' size='15' type='clear' bindtap='closeAd'></icon-->
+  </view>
+  <view class='list-search'>
+    <view class='list-search-box' bindtap='searchClick'>
+      <icon type="search" size="15"/>
+      <input placeholder="请输入供应商名称" placeholder-style='color:#9B9B9B' value='{{searchText}}' disabled/>
+    </view>
+
+  <!--view class="filter-container" bindtap="filterClick">
+      <text>筛选</text>
+      <image class="filter-icon" src='../../img/find_supplier_filter.png'></image>
+    </view-->
+</view>
+<!-- 列表头部 过滤 -->
+  <view class='sort-list'>
+    <view wx:for='{{sortItems}}' class='sort-item' bindtap="sortItemClick" data-index="{{index}}">
+      <text class="{{index == sortIndex ? 'choosed': ''}}">{{item.name}}</text>
+      <image wx:if='{{index != sortIndex}}' src='../../img/sort_icon.png' ></image>
+      <image wx:elif="{{item.isAsc}}" src='../../img/icon_asc.png'></image>
+      <image wx:else src='../../img/icon_desc.png'></image>   
+    </view>
+  </view>
+</view>
+
+<scroll-view class='supplier-list-wrapper' style='{{showAd ? "top:356rpx" : "top:176rpx"}};{{showTabbar ? "bottom:100rpx" : "bottom:0"}}' bindscrolltolower='onReachBottom' scroll-y scroll-top='{{scrollTop}}' scroll-with-animation >
+<block wx:for="{{list}}" wx:key='spId'>
+  <view class='supplier-item-wrapper' bindtap='supplierItemCilck' data-spid="{{item.spId}}">
+  <view class='supplier-item-header'>
+    <image class='supplier-item-logo' src='{{item.logoUrl != "" ? item.logoUrl : logoUrl}}' mode='aspectFit'></image>
+    <view class='supplier-item-detail'>
+      <view class='supplier-item-name'>{{tools.sub(item.spName, 12)}}</view>
+      <view class='supplier-item-text' style='color:#777e85;'>注册时间：{{item.buildTime || '暂无'}}</view>
+      <view class='supplier-item-text' style='display:flex;'>
+        <view>注册资本：{{item.rstCapital}}</view>
+        <view style='margin-left:50rpx;'>人员规模：{{tools.memberSize(item.maxmembers)}}</view>
+      </view>
+      <view class='supplier-item-detail-right' wx:if='{{item.city != ""}}'>
+        <view class='supplier-item-detail-right-item'>
+          <image src='../../img/location_space.png'></image>
+          <text>{{tools.sub(item.city, 3)}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='supplier-item-domains'>
+    <view class='supplier-item-domains-label'>擅长标签：</view>
+    <view class='supplier-item-domains-val'>
+      <view class='domain-item' wx:for="{{item.indName}}">{{tools.sub(item, 10)}}
+      </view>
+    </view>
+  </view>
+  </view>
+</block>
+<view class='load-more' wx:if="{{listIsEnd}}">没有更多了</view>
+</scroll-view>>
+
+<tab-bar wx:if='{{showTabbar}}' pages="{{pages}}"></tab-bar>

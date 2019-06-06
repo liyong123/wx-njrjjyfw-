@@ -1,0 +1,115 @@
+<!--pages/web/visitorIndex.wxml-->
+<!-- <text>pages/web/visitorIndex.wxml</text> -->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+
+<view class='content'>
+  <!-- 搜索供应商  bindinput="userNameInput"-->
+  <view class='search'> 
+    <view class='search-content'>
+      <image class='search-image' src='../../img/search_1769.png'></image>
+      <input value="{{searchName}}" data-val="{{searchName}}" placeholder-class="phcolor" bindtap='findDemandConfirm' class="input-search" name="search" placeholder="找需求" />
+    </view>
+  </view>
+
+  <!-- 广告位  轮播图 -->
+  <view class='advertising-post-background'></view>
+  <view class='advertising-post'>
+    <swiper style="height: 280rpx;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" vertical="{{isVertical}}" duration="{{duration}}" circular='false'>
+      <swiper-item wx:for="{{imgUrls}}" wx:key="imgUrls">
+        <image src="{{item.typeImg}}" data-id="{{item.url}}" bindtap='gotoBullInfo' />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 需求大厅  找供应商  项目热链接  杰英会 -->
+  <view class='itemize'>
+    <view class='itemize-classfiy' bindtap='demandHall'>
+      <image class='itemize-image' src='../../img/itemize_57.png'></image>
+      <view>需求大厅</view>
+    </view>
+    <view class='itemize-classfiy' bindtap='lookingSupplier'>
+      <image class='itemize-image' src='../../img/itemize_58.png'></image>
+      <view>找供应商</view>
+    </view>
+    <view class='itemize-classfiy' bindtap='hotLink'>
+      <image class='itemize-image' src='../../img/itemize_59.png'></image>
+      <view>项目热连接</view>
+    </view>
+    <view class='itemize-classfiy' bindtap='toJieYingHui'>
+      <image class='itemize-image' src='../../img/itemize_60.png'></image>
+      <view>杰英会</view>
+    </view>
+  </view>
+
+  <!-- 最新标讯 -->
+  <view class='burberry-glasses'>
+    <!-- <image class='burberry-glasses-image' src='../../img/burberry-glasses.png'></image> -->
+    <text class='burberry-black'>最新</text>
+    <text class='burberry-red'>标讯</text>
+    <swiper class="burberry-glasses-content" vertical="true" autoplay="true" circular="true" interval="2000">
+      <block wx:for="{{msgList}}" wx:key="msgList">
+        <navigator url="/pages/web/commitDetail?ggId={{item.flag == 0 ? item.oid : item.id}}" open-type="navigate">
+        <swiper-item>
+          <text class='burberry-glasses-name'>{{item.orderName}}</text>
+          <text class='burberry-glasses-status'>签约成功！</text>
+        </swiper-item>
+        </navigator>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 最新需求 -->
+
+  <view class='latest-demand'>
+    <view class='latest-title'>
+      <text class='latest-title-text'>最新需求</text>
+      <image class='latest-title-image' src='../../img/latest_1779.png'></image>
+      <text class='view-more' bindtap='demandHall'>查看更多 <text class='view-more-1'>>></text> </text>
+    </view>
+
+    <view class='demand-list'>
+      <view class='demand-list-con' wx:for="{{demandList}}" wx:key='demandList' data-orderid="{{item.orderId}}" data-orderno="{{item._orderNo}}" bindtap='demandDetail'>
+      <!-- bindtap='demandDetail' -->
+        <view class='demand-list-con-title'>
+          <text class="demand-list-con-title-sub">{{item.orderName}}</text>
+          <view class='demand-list-price red'>
+            <text>￥</text>
+            <text>{{item.changePlanPrice}}</text>
+          </view>
+        </view>
+        <view class='publishGrp'>
+          <image class='demand-list-image' src='../../img/icon_1776.png'></image>
+          <text>{{item.putTime}}发布</text>
+          <image class='icon_1776' style='margin-left:68rpx;' src='../../img/icon_1775.png'></image>
+          <text>{{item.bidValidtime}}截止</text>
+          <image class='icon1780' style='margin-left:72rpx;' src='../../img/location_space.png'></image>
+          <text>{{item.ocity?item.ocity:"暂无"}}</text>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 最热门供应商 -->
+  <!-- <view class='hot-supplier'>
+    <view class='latest-title'>
+      <text class='latest-title-text'>最热供应商</text>
+      <image class='latest-title-image' src='../../img/latest_1779.png'></image>
+      <text class='view-more' bindtap='lookingSupplier'>查看更多<text class='view-more-1'>>></text></text>
+    </view>
+
+    <view class='hot-supplier-con'>
+      <view class='hot-supplier-list' wx:for="{{hotSupplierList}}" wx:if="{{index<8}}" wx:key='hotSupplierList'>
+        <image src='{{item.linkUrl}}' data-buid="{{item.code}}" bindtap='supplierDetail'></image>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 登录云集  开启项目 -->
+  <view class='login-shade' wx:if="{{!isLOgin}}"></view>
+  <view class='login' wx:if="{{!isLOgin}}">
+    <text class='login-text'>登录云集,开启项目</text>
+    <text class='login-operation' bindtap='login'>马上登录/注册</text>
+  </view>
+
+</view>
+<tab-bar pages="{{pages}}"></tab-bar>

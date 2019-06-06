@@ -1,0 +1,29 @@
+<!--pages/findSupplier/guide.wxml-->
+<view class="top"></view>
+<view class="container">
+  <view class="tab-button-container">
+    <button class="{{currentTabIndex == 0 ? 'active' : ''}}" data-index="0" bindtap="changeTab">采购单位</button>
+    <button class="{{currentTabIndex == 1 ? 'active' : ''}}" data-index="1" bindtap="changeTab">供应商</button>
+  </view>
+
+  <view wx:if="{{currentTabIndex == 0}}" class="bg" >
+    <swiper style="height: 980rpx" indicator-dots="true" indicator-active-color="#587EF2" circular="false" duration="500" interval="2000">
+      <swiper-item wx:for="{{cgdwImgs}}" wx:key="key">
+          <image class="bg-img" src="{{item.src}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+    <view wx:if="{{currentTabIndex == 1}}" class="bg">
+    <swiper style="height: 980rpx" indicator-dots="true" indicator-active-color="#587EF2" circular="false" duration="500" interval="2000">
+    <swiper-item wx:for="{{gysImgs}}" wx:key="key">
+          <image class="bg-img" src="{{item.src}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="foot">
+    <!-- <view class="foot-button">
+      <button bindtap="guideLink">立即体验</button>
+    </view> -->
+  </view>
+</view>

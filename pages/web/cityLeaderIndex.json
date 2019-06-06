@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText": "南京云集",
+    "usingComponents": {
+      "ec-canvas": "../../ec-canvas/ec-canvas",
+      "tab-bar": "../../component/tabbar/tabbar"
+    }
+}

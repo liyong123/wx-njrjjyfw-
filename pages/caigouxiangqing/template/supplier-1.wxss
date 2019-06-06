@@ -1,0 +1,31 @@
+.supplier-1-content {
+  display: inline-block;
+  width: 582rpx;
+  height: 84rpx;
+  vertical-align: top;
+  padding: 0 15rpx;
+  line-height: 1.7;
+  position: relative;
+}
+
+.supplier-1-line2 view {
+  display: inline-block;
+}
+
+.supplier-1-share {
+  float: right;
+}
+
+.supplier-1-share button::after {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.supplier-1-zhongbiao {
+  position: absolute;
+  right: 100rpx;
+  top: 0;
+  width: 111.6rpx;
+  height: 95.2rpx;
+}

@@ -1,0 +1,655 @@
+/* pages/web/index.wxss */
+
+page {
+  background: #fff;
+  /* overflow: hidden; */
+}
+
+.contariner {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 100rpx;
+}
+
+/* item-topic */
+
+.item-topic {
+  width: 98%;
+  line-height: 32rpx;
+  border-bottom: 1rpx solid #bebebe;
+  padding: 15rpx 0 15rpx 15rpx;
+}
+
+.item-number {
+  display: inline-block;
+  height: 32rpx;
+  padding: 5rpx;
+  font-size: 13px;
+  color: #e55449;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+}
+
+.item-title {
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  color: #4a4a4a;
+  letter-spacing: -0.95px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.item-title-left {
+  display: inline-block;
+  width: 4px;
+  height: 27rpx;
+  margin-right: 15rpx;
+  margin-top: 1rpx;
+  background: #597ff3;
+  border-radius: 2px;
+}
+
+.more-item {
+  float: right;
+  font-size: 12px;
+  color: #acacac;
+  letter-spacing: -0.87px;
+  text-align: right;
+}
+
+/* item-1 */
+
+.blue-backgraund {
+  width: 100%;
+  height: 100px;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/img/page/index/1.png');
+  background-size: 100% 100%;
+}
+
+.item-1 {
+  width: 95%;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: -150rpx;
+  border: 1rpx solid #e9edf9;
+  box-shadow: 0 15rpx 10rpx #e9edf9;
+  border-radius: 15rpx;
+}
+
+.item-1>navigator {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  margin-top: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+.pro-classify {
+  width: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.item-1 image {
+  width: 48px;
+  height: 48px;
+  margin: 15rpx 13rpx 0 0;
+}
+
+.pro-number {
+  padding: 5rpx 12rpx;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff;
+  background: #e55449;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+}
+
+.pro-name {
+  font-size: 12px;
+  color: #4a4a4a;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+/* item-2 */
+
+.item-2 {
+  padding: 15rpx;
+  margin-top: 25px;
+}
+
+.all-pro {
+  width: 80%;
+  height: 90px;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/img/page/index/2.png');
+  background-size: 100% 100%;
+  margin: 0 auto;
+  color: #fff;
+  margin-top: 35rpx;
+}
+
+.all-pro>view {
+  display: inline-block;
+  text-align: center;
+}
+
+.contract-num, .total-price {
+  padding-top: 40rpx;
+}
+
+.contract-num {
+  width: 34%;
+  height: 170rpx;
+}
+
+.total-price {
+  float: right;
+  width: 64%;
+  height: 170rpx;
+}
+
+.num-price {
+  font-size: 48rpx;
+  margin-bottom: 25rpx;
+}
+
+.lable-pro {
+  display: block;
+  font-size: 24rpx;
+}
+
+/* item-3 */
+
+.item-3 {
+  padding: 15rpx;
+  margin-top: 25px;
+}
+
+.backlog-lists {
+  padding: 15rpx 25rpx;
+}
+
+.backlog-list {
+  width: 600rpx;
+  height: 180rpx;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+}
+
+.backlog-image {
+  float: left;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 70rpx 25rpx 0 25rpx;
+}
+
+.backlog-text {
+  width: 82%;
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0;
+  line-height: 45rpx;
+  margin: 50rpx 0 0 100rpx;
+}
+
+/* item-4 */
+
+.item-4 {
+  padding-left: 15rpx;
+}
+
+.health {
+  float: right;
+  margin-right: 25rpx;
+  font-size: 20rpx;
+  letter-spacing: 0;
+}
+
+.degree {
+  display: inline-block;
+}
+
+.health-degree-image {
+  width: 20rpx;
+  height: 20rpx;
+  margin: 0 10rpx 0 20rpx;
+}
+
+.health-degree-text_1 {
+  color: #07b985;
+}
+
+.health-degree-text_2 {
+  color: #f0a33f;
+}
+
+.health-degree-text_3 {
+  color: #e55449;
+}
+
+.health-degree {
+  margin-top: 50rpx;
+}
+
+.health-degree-detail {
+  width: 700rpx;
+  height: 180rpx;
+  margin-top: 16rpx;
+}
+
+.health-degree-title {
+  margin: 30rpx 0 16rpx 26rpx;
+  font-size: 30rpx;
+  color: #4a4a4a;
+  letter-spacing: 0;
+  font-weight: bold;
+  width: 450rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.health-degree-issue {
+  float: right;
+  width: 170rpx;
+  height: 42rpx;
+  padding-top: 10rpx;
+  background: #c0e9d4;
+  border-top-left-radius: 22rpx;
+  border-bottom-left-radius: 22rpx;
+  font-size: 24rpx;
+  color: #07b985;
+  letter-spacing: 0;
+  text-align: center;
+  margin-top: -58rpx;
+}
+
+.health-degree-subitem {
+  margin-top: 30rpx;
+}
+
+/* item-5 */
+
+/* item-6 */
+
+.item-6 {
+  padding: 0rpx 15rpx 15rpx 15rpx;
+  margin-top: 25px;
+  padding-left: 45rpx;
+}
+
+.item-6 .item-title {
+  margin-left: -30rpx;
+}
+
+.code-detail {
+  width: 650rpx;
+  height: 450rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/img/page/index/3.png');
+  background-size: 100% 100%;
+  margin-top: 15rpx;
+  border-radius: 15rpx;
+  margin-left: 25rpx;
+}
+
+.code-quality-all {
+  float: left;
+  margin: 40rpx 0 0 40rpx;
+}
+
+.code-order-name {
+  width: 300rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+  color: #4a4a4a;
+  letter-spacing: 0;
+  font-weight: bold;
+}
+
+.code-order-flag {
+  margin-top: 15rpx;
+  font-size: 20rpx;
+  color: #666;
+  letter-spacing: 0;
+}
+
+.total-points, .subentry-score {
+  display: inline-block;
+}
+
+.total-points {
+  float: right;
+  width: 45%;
+  height: 260rpx;
+  text-align: center;
+}
+
+.total-points>view:nth-child(1) {
+  width: 100%;
+  margin-top: 50rpx;
+  font-size: 38rpx;
+}
+
+.subentry-score {
+  width: 60%;
+  height: 80rpx;
+  float: left;
+  margin-bottom: 25rpx;
+}
+
+.subentry-score1 {
+  display: inline-block;
+  height: 45rpx;
+  line-height: 40rpx;
+  margin: 0 10rpx;
+}
+
+.subentry-score-label {
+  display: block;
+  width: 72rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #9b9b9b;
+  letter-spacing: 0;
+}
+
+.subentry-score-value {
+  display: inline-block;
+  width: 72rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #4a4a4a;
+  letter-spacing: 0;
+}
+
+.codeImage {
+  width: 16rpx;
+  height: 16rpx;
+}
+
+/*  begin 圆形进度条 */
+
+.progress_box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 30rpx; */
+}
+
+.progress_bg {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+}
+
+.progress_canvas {
+  width: 120px;
+  height: 120px;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/img/page/index/4.png');
+}
+
+.progress_text {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  top: 20%;
+}
+
+.progress_info {
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  color: #999;
+}
+
+.progress_info text {
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.green {
+  color: #10bf8f;
+}
+
+/*这里是代码质量分数的颜色，从上到下分数从高到低，具体参考首页代码质量平均分板块*/
+
+.blue {
+  color: #2c8ac7;
+}
+
+.orange {
+  color: #faa12e;
+}
+
+.red {
+  color: #eb3757;
+}
+
+.progress_info2 {
+  font-size: 16rpx;
+  color: #bababa;
+  letter-spacing: 0;
+}
+
+.canvas {
+  width: 100%;
+  height: 250px;
+  margin-top: 25rpx;
+}
+
+/*  end 圆形进度条 */
+
+.code-zan {
+  width: 80%;
+  display: flex;
+  bottom: 0rpx;
+  border-radius: 30rpx;
+  padding: 10rpx;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 91%;
+}
+
+/* .code-zan image{ width: 42rpx; height: 42rpx; margin-left: 10rpx;} */
+
+.code-zan-you {
+  background: #e3f6f0;
+  color: #06b37f;
+}
+
+.code-zan-shangke {
+  background: #c0daec;
+  color: #317ebd;
+}
+
+.code-zan-fenxian {
+  background: #fbddc1;
+  color: #f89436;
+}
+
+.code-zan-gaofenxian {
+  background: #f9c8cd;
+  color: #f14d5c;
+}
+
+.code-quality-company {
+  width: 100%;
+  margin-top: 50rpx;
+}
+
+.subentry {
+  display: inline-block;
+  width: 32%;
+  /* height: 240rpx; */
+  text-align: center;
+  margin: 0 auto;
+}
+
+.subentry:nth-child(2) {
+  border-right: 1rpx dashed #bebebe;
+  border-left: 1rpx dashed #bebebe;
+}
+
+/* .subentry.active {
+  background: linear-gradient(-225deg, #fad961 0%, #f76b1c 100%);
+  background-size: 100% 100%;
+} */
+
+.subentry.green {
+  background: linear-gradient(-205deg, #76f8a9 0%, #6dddbe 42%, #3ea3c8 100%);
+   background-size: 100% 100%;
+}
+
+.subentry.blue {
+  background: linear-gradient(-225deg, #79c1ff 0%, #3d43e8 100%);
+   background-size: 100% 100%;
+}
+
+.subentry.orange {
+  background: linear-gradient(-225deg, #fad961 0%, #f76b1c 100%);
+   background-size: 100% 100%;
+}
+
+.subentry.red {
+  background: linear-gradient(-141deg, #dd2476 1%, #fe5030 100%);
+   background-size: 100% 100%;
+}
+
+.order-name {
+  width: 128rpx;
+  height: 60rpx;
+  line-height: 34rpx;
+  margin: 0 auto;
+  margin-top: 25rpx;
+  margin-bottom: 80rpx;
+  font-size: 24rpx;
+  color: #7e8ab0;
+  letter-spacing: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.order-name-active {
+  color: #fff;
+}
+
+.green .code-total-active {
+  color: #2CC779
+}
+
+.blue .code-total-active {
+  color: #597FF3;
+}
+
+.orange .code-total-active {
+  color: #ffba74
+}
+
+.red .code-total-active {
+  color: #e55449
+}
+
+.code-total {
+  font-size: 28rpx;
+  color: #597ff3;
+  text-align: center;
+  margin-bottom: 25rpx;
+}
+
+
+.code_image {
+  filter: brightness(0%) invert(100%);
+}
+
+.triangle-whitd {
+  display: none;
+}
+
+.triangle-whitd-active {
+  width: 0;
+  height: 0;
+  border-left: 12rpx solid transparent;
+  border-right: 12rpx solid transparent;
+  border-bottom: 24rpx solid #fff;
+  position: relative;
+  left: 45%;
+  top: 20rpx;
+}
+
+/* item-7 */
+
+.item-7 {
+  padding: 15rpx;
+  margin-top: 25px;
+}
+
+/*  item-8 */
+
+.item-8 {
+  padding: 15rpx;
+  margin-top: 25px;
+}
+
+.document-type {
+  float: right;
+  margin-right: 25rpx;
+}
+
+.document-type>view {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #4a4a4a;
+  letter-spacing: 0;
+}
+
+.document-icon {
+  display: inline-block;
+  width: 24rpx;
+  height: 12rpx;
+  border-radius: 20rpx;
+  margin: 0 15rpx 0 25rpx;
+}
+
+.icon_1 {
+  background: #c9d5fa;
+}
+
+.icon_2 {
+  background: #6493f7;
+}
+
+/*  */
+
+.supplier-list {
+  padding: 15rpx 0;
+}
+
+.rate-radar {
+  height: 800rpx;
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.rate-radar-bar {
+  width: 710rpx;
+  height: 516rpx;
+  margin: 0 auto;
+}

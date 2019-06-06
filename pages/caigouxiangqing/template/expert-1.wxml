@@ -1,0 +1,39 @@
+<template name="expert-1">
+  <navigator style="display: inline-block" url="/pages/expertMessage/index?jfId={{jfId}}">
+    <image class="avatar" style="width: 84rpx; height: 84rpx;" src="{{expertAvatarUrl}}/{{jfId}}"></image>
+  </navigator>
+  <view class="expert-1-content">
+    <view class="expert-1-line1">
+      <text style="font-size: 26rpx; font-weight: 600">{{expertName || '暂无'}}</text>
+      <block wx:if="{{ receive }}">
+        <block wx:if="{{expertStatus == 1 || expertStatus == 0 }}">
+          <text style="color:#E55449 ; float:right">未确认</text>
+          <image src="../../img/wqr1.png" style="width: 24rpx; height: 24rpx; float:right;margin: 5rpx 10rpx 0 0"></image>
+        </block>
+        <block wx:else>
+          <text style="color:#2CC779; float:right">已接受邀请</text>
+          <image src="../../img/jsyq1.png" style="width: 24rpx; height: 24rpx; float:right;margin: 5rpx 10rpx 0 0"></image>
+        </block>
+      </block>
+    </view>
+    <view class="expert-1-line2">
+      <text>{{abilitieLevel}} | {{expertCompanyName || '暂无'}}</text>
+    </view>
+    <view class="expert-1-line3">
+      <view class="expert-1-attributes" style="width: 150rpx">评标
+        <text>{{bidEvaluationCount}}</text> 次</view>
+      <view wx:if="{{expertScore}}" class="expert-1-attributes">客户评价：
+        <text>{{expertScore}}</text>分</view>
+
+      <view wx:if="{{!expertScore}}" class="expert-1-attributes">客户评价：暂无
+      </view>
+
+      <!-- <view class="expert-1-share">
+        <button open-type="share" data-url="/pages/expertMessage/index?jfId={{jfId}}" style="border: none;background-color: transparent; height: 40rpx; padding: 0;border-radius:0px; padding: 8rpx 0">
+          <image class="share-icon" style="" src="../../img/fx1.png"></image>
+        </button>
+      </view> -->
+    </view>
+  </view>
+
+</template>

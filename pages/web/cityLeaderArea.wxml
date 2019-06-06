@@ -1,0 +1,287 @@
+<view style="position: absolute; top: 0;bottom: 0; width: 100%;overflow: hidden " bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+      <view class='scroll one {{dir}}'>
+        <view class='topBkg'>
+          <view class='tabContent'>
+            <view wx:for="{{tabDatas}}" class='{{currentTab == index ? "choosedTab" :""}}' data-tab="{{index}}" wx:key="tabUnique" bindtap='tabChange'>
+              <text>{{_currentArea.name + item.title}}</text>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{(currentTab == 0 && _hasCaiGou) || (currentTab == 1 && _hasJianShe)}}">
+          <view class='mainContent'>
+            <view wx:if="{{ currentTab === 0 }}" class='totalDataContent'>
+              <view class='totalArea2'>
+                <view class='totalNum2'>
+                  <text>{{currentYear}}</text>
+                  <text>已成交金额</text>
+                </view>
+                <view class='totalImg'>
+                  <image src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_1.png' />
+                </view>
+              </view>
+              <view class='stateGrp2'>
+                <view>
+                  <text>{{_deal}}</text>
+                  <text>元</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{ currentTab === 1 }}" class='totalDataContent'>
+              <view class='totalArea'>
+                <view class='totalImg'>
+                  <image src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_2.png' />
+                </view>
+                <view class='totalNum'>
+                  <text>总建设项目数(个)</text>
+                  <text>{{_totalProject}}</text>
+                </view>
+              </view>
+              <view class='stateGrp'>
+                <view>
+                  <text>建设中(个)</text>
+                  <view>{{_jianshe}}</view>
+                </view>
+                <view>
+                  <text>已验收(个)</text>
+                  <view>{{_yanshou}}</view>
+                </view>
+              </view>
+            </view>
+            <view class='mapContent'>
+              <view style="position:relative; z-index: 1000">
+                <view wx:if="{{ currentTab == 0 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block;veritcal-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已成交项目金额单位排行</view>
+                </view>
+                <view wx:if="{{ currentTab == 1 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block; veritcal-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已建设项目数量单位排行</view>
+                </view>
+                <block wx:if="{{ currentTab == 0}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{_moneyList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.purchaseName}}</view>
+                    <view class="right" style="font-weight: 600">元</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.singalDeaPrice}}</view>
+                  </view>
+                </block>
+                <block wx:if="{{ currentTab == 1}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{_projectList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.buName}}</view>
+                    <view class="right" style="font-weight: 600">个</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.total}}</view>
+                  </view>
+                </block>
+              </view>
+              <!-- <view class="mapContainer">
+            <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec1 }}"></ec-canvas>
+          </view> -->
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view style="position: absolute;top: 180rpx;bottom: 0;width: 100%;background-color: #fff;text-align: center">
+            <image src="http://qdrc.jfh.com/qingdao/webchat/img/no-data.png" style="width:496rpx;height: 398rpx;margin: 252rpx auto 0 auto"></image>
+            <view style="font-size: 24rpx; color: #6c6c6c;text-align:center">暂无数据</view>
+          </view>
+        </block>
+      </view>
+      <view class='scroll two {{dir}}'>
+        <view class='topBkg'>
+          <view class='tabContent'>
+            <view wx:for="{{tabDatas}}" class='{{currentTab == index ? "choosedTab" :""}}' data-tab="{{index}}" wx:key="tabUnique" bindtap='tabChange'>
+              <text>{{currentArea.name + item.title}}</text>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{(currentTab == 0 && hasCaiGou) || (currentTab == 1 && hasJianShe)}}">
+          <view class='mainContent'>
+            <view wx:if="{{ currentTab === 0 }}" class='totalDataContent'>
+              <view class='totalArea2'>
+                <view class='totalNum2'>
+                  <!-- <image alt="2018" src='../../img/2018.png' /> -->
+                  <text>{{currentYear}}</text>
+                  <view><view></view><text>已成交金额</text></view>
+                </view>
+                <view class='totalImg'>
+                  <image src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_1.png' />
+                </view>
+              </view>
+              <view class='stateGrp2'>
+                <view>
+                  <text>{{deal}}</text>
+                  <text>元</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{ currentTab === 1 }}" class='totalDataContent'>
+              <view class='totalArea'>
+                <view class='totalImg'>
+                  <image style='margin-top:16rpx' src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_2.png' />
+                </view>
+                <view class='totalNum'>
+                  <text>总建设项目数(个)</text>
+                  <text>{{totalProject}}</text>
+                </view>
+              </view>
+              <view class='stateGrp'>
+                <view>
+                  <text>建设中(个)</text>
+                  <view>{{jianshe}}</view>
+                </view>
+                <view>
+                  <text>已验收(个)</text>
+                  <view>{{yanshou}}</view>
+                </view>
+              </view>
+            </view>
+
+            <view class='mapContent'>
+              <view style="position:relative; z-index: 1000">
+                <view wx:if="{{ currentTab == 0 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block;vertical-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已成交项目金额单位排行</view>
+                </view>
+                <view wx:if="{{ currentTab == 1 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block;veritcal-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已建设项目数量单位排行</view>
+                </view>
+                <block wx:if="{{ currentTab == 0}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{moneyList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.purchaseName}}</view>
+                    <view class="right" style="font-weight: 600">元</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.singalDeaPrice}}</view>
+                  </view>
+                </block>
+                <block wx:if="{{ currentTab == 1}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{projectList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.buName}}</view>
+                    <view class="right" style="font-weight: 600">个</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.total}}</view>
+                  </view>
+                </block>
+              </view>
+              <!-- <view class="mapContainer">
+            <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec3 }}"></ec-canvas>
+          </view> -->
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view style="position: absolute;top: 180rpx;bottom: 0;width: 100%;background-color: #fff;text-align: center">
+            <image src="http://qdrc.jfh.com/qingdao/webchat/img/no-data.png" style="width:496rpx;height: 398rpx;margin: 252rpx auto 0 auto"></image>
+            <view style="font-size: 24rpx; color: #6c6c6c;text-align:center">暂无数据</view>
+          </view>
+        </block>
+      </view>
+      <view class='scroll three {{dir}}'>
+        <view class='topBkg'>
+          <view class='tabContent'>
+            <view wx:for="{{tabDatas}}" class='{{currentTab == index ? "choosedTab" :""}}' data-tab="{{index}}" wx:key="tabUnique" bindtap='tabChange'>
+              <text>{{_currentArea.name + item.title}}</text>
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{(currentTab == 0 && _hasCaiGou) || (currentTab == 1 && _hasJianShe)}}">
+          <view class='mainContent'>
+            <view wx:if="{{ currentTab === 0 }}" class='totalDataContent'>
+              <view class='totalArea2'>
+                <view class='totalNum2'>
+                  <text>{{currentYear}}</text>
+                  <text>已成交金额</text>
+                </view>
+                <view class='totalImg'>
+                  <image src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_1.png' />
+                </view>
+              </view>
+              <view class='stateGrp2'>
+                <view>
+                  <text>{{_deal}}</text>
+                  <text>元</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{ currentTab === 1 }}" class='totalDataContent'>
+              <view class='totalArea'>
+                <view class='totalImg'>
+                  <image src='http://qdrc.jfh.com/qingdao/webchat/img/undraw_2.png' />
+                </view>
+                <view class='totalNum'>
+                  <text>总建设项目数(个)</text>
+                  <text>{{_totalProject}}</text>
+                </view>
+              </view>
+              <view class='stateGrp'>
+                <view>
+                  <text>建设中(个)</text>
+                  <view>{{_jianshe}}</view>
+                </view>
+                <view>
+                  <text>已验收(个)</text>
+                  <view>{{_yanshou}}</view>
+                </view>
+              </view>
+            </view>
+
+            <view class='mapContent'>
+              <view style="position:relative; z-index: 1000">
+                <view wx:if="{{ currentTab == 0 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block;veritcal-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已成交项目金额单位排行</view>
+                </view>
+                <view wx:if="{{ currentTab == 1 }}" class="list-title">
+                  <image src="../../img/paiming.png" style="width: 42rpx;height: 34rpx; display:inline-block;veritcal-align: middle"></image>
+                  <view style="height: 40rpx;line-height: 40rpx;display: inline-block;veritcal-align: middle">已建设项目数量单位排行</view>
+                </view>
+                <block wx:if="{{ currentTab == 0}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{_moneyList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.purchaseName}}</view>
+                    <view class="right" style="font-weight: 600">元</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.singalDeaPrice}}</view>
+                  </view>
+                </block>
+                <block wx:if="{{ currentTab == 1}}">
+                  <view class="list-item {{index < 3 ? 'with-icon' : ''}}" wx:for="{{_projectList}}">
+                    <image class="list-hot-icon" wx:if="{{ index == 0 }}" src="../../img/top1.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 1 }}" src="../../img/top2.png"></image>
+                    <image class="list-hot-icon" wx:if="{{ index == 2 }}" src="../../img/top3.png"></image>
+                    <image class="list-point-icon" wx:if="{{ index > 2 }}" src="../../img/tuoyuan.png"></image>
+                    <view class="left">{{item.buName}}</view>
+                    <view class="right" style="font-weight: 600">个</view>
+                    <view class="right tuchu" style="font-weight: 600">{{item.total}}</view>
+                  </view>
+                </block>
+              </view>
+              <!-- <view class="mapContainer">
+            <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec2 }}"></ec-canvas>
+          </view> -->
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view style="position: absolute;top: 180rpx;bottom: 0;width: 100%;background-color: #fff;text-align: center">
+            <image src="http://qdrc.jfh.com/qingdao/webchat/img/no-data.png" style="width:496rpx;height: 398rpx;margin: 252rpx auto 0 auto"></image>
+            <view style="font-size: 24rpx; color: #6c6c6c;text-align:center">暂无数据</view>
+          </view>
+        </block>
+      </view>
+</view>

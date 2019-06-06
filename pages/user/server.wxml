@@ -1,0 +1,39 @@
+<!--pages/server/index.wxml-->
+<view class="server_container">
+  <view class="server_list">
+    <view class="server_xianer">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/001.png"></image>
+    </view>
+    <view class="server_title">限额以下项目采购服务</view>
+    <view class="server_contetn">通过互联网的采购方式，积累各类需求模板，解决采购需求编写难、组织难的问题，提高采购管理效能、实现采购信息对等、采购过程透明化监管和采购过程信息全程追溯，通过AI、大数据不断提升软件估价能力。</view>
+  </view>
+  <view class="server_list">
+    <view class="server_rexianimg">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/002-1.png"></image>
+    </view>
+    <view class="server_rexian">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/002.png"></image>
+      <view class="server_title">项目热链接</view>
+      <view class="server_contetn">提供一站式的软件开发协作环境，不同地点随时参与项目进展讨论、疑难问题解决，不再受时间、地点的限制，随时掌握项目最新动态，浏览项目参与人员，发现问题快速追本溯源、及时沟通解决，解决问题更从容。</view>
+    </view>
+  </view>
+  <view class="server_list">
+    <view class="server_rkzy">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/003.png"></image>
+    </view>
+    <view class="server_guanli">
+      <view class="server_title">软件资产管理</view>
+      <view class="server_contetn">提供线上全过程软件管理服务，对软件资产的采购、分发、维护、使用及报废整个生命周期进行有效管理，提高软件资产利用率和工作效率。</view>
+    </view>
+  </view>
+  <view class="server_list">
+    <view class="server_xsys">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/004-1.png"></image>
+    </view>
+    <view class="server_fuwu">
+      <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/004.png"></image>
+      <view class="server_title">线上验收服务</view>
+      <view class="server_contetn">个性化项目验收模版、项目关键节点交付物管理，为项目提供便捷的验收方式，结合平台项目数据分析能力及代码服务（代码医生），进一步提供代码质量及交付过程数据支持，帮助采购方完成在线验收并保障项目的交付质量及更有效的验收环境。</view>
+    </view>
+  </view>
+</view>

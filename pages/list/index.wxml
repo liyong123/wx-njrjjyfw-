@@ -1,0 +1,54 @@
+<wxs module="filter" src="index.wxs"></wxs>
+<import src="./list-item.wxml" />
+
+<wux-tabs auto="{{ false }}" bgColor="linear-gradient(#597ff3, #7091f9)" current="{{ activeTabKey }}" bindchange="onTabsChange">
+  <block wx:for="{{ tabs }}" wx:key="key">
+    <wux-tab key="{{ item.key }}" title="{{ item.title }}"></wux-tab>
+  </block>
+</wux-tabs>
+
+<view class="picker">
+  <view style="width: 120rpx; margin-left:44rpx; font-size: 26rpx; color: '#597FF3'" bindtap="toggleState">{{selections[activeSelectionIndex].title || '筛选'}}
+    <text style="font-size:20rpx;color:#C0C4CC">{{ isShowStates ? '▲' : '▼' }}</text>
+  </view>
+  <input value="{{searchName}}" style="width: 506rpx;height: 80rpx;display: inline-block;vertical-align: top;color: #9b9b9b" bindinput="onEnterSearchName"></input>
+  <view  style="width: 0rpx;margin: 20rpx 0; height: 40rpx; border-right: 1px solid #e0e0e0;transform: scaleX(0.5) "></view>
+  <view style="width: 75rpx; color: #9b9b9b;text-align: center;font-size: 26rpx" bindtap='onSearch'>搜索</view>
+</view>
+
+<view class="picker-drop {{isShowStates ? 'show' : 'hide'}}">
+
+  <block wx:for="{{selections}}" wx:key="selections">
+    <view data-key="{{index}}" bindtap="onPickerChange">
+      <view style="text-align: center; margin-top: 40rpx">
+        <image style="width: 28rpx; height: 28rpx;margin: 0 auto" src="../../img/{{item.image}}{{index == activeSelectionIndex ? '2' : '1'}}.png"></image>
+      </view>
+
+      <view style="color:{{index == activeSelectionIndex ? '#597FF3' : '#9b9b9b'}};text-align: center;width: 100%">{{item.title}}</view>
+    </view>
+  </block>
+</view>
+
+<scroll-view class="scroll-container" scroll-top="{{scrollTop}}" style="top: 170rpx;bottom: 100rpx" scroll-y="true" bindscrolltolower="onReachBottom">
+  <view class="block-content">
+    <block wx:if="{{ list.length > 0 }}">
+      <view data-tookit="{{item}}" bindtap="toDetail" style="display: {{ loading && pageNO == 1 ? 'none' : 'block' }}" class="block" wx:for="{{ list }}" wx:key="{{index}}">
+        <template is="b" data="{{ ...item, ...constants, activeTabKey: activeTabKey, loading: loading }}"></template>
+      </view>
+      <view class="loadingmore" wx:if='{{ listIsEnd }}'>──────没有更多─────</view>
+    </block>
+    <block wx:if="{{ (!list[0] || list.length == 0) && !loading }}">
+      <view class="no-order">
+        <block wx:if="{{activeTabKey == 'cgzb'}}">
+          <image class="photo" src="http://qdrc.jfh.com/qingdao/webchat/img/xmlb_kong.png"></image>
+          <view class="tip">暂无已归档的项目，快到电脑端发布需求，正式开始您的项目吧！</view>
+        </block>
+        <block wx:if="{{activeTabKey == 'xmjs'}}">
+          <image class="photo" src="http://qdrc.jfh.com/qingdao/webchat/img/xmlb_kong.png"></image>
+          <view class="tip">暂无项目，快到电脑端发布需求，正式开始您的项目吧！</view>
+        </block>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<tab-bar pages="{{pages}}"></tab-bar>

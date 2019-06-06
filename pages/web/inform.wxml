@@ -1,0 +1,20 @@
+<!--pages/web/inform.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class='content'>
+  <view class='content-list' wx:for="{{proList}}" wx:key="property">
+    <view class='content-title'>
+      <image wx:if="{{true}}" src='../../img/Group-6.png'></image>
+      <image wx:if="{{false}}" src='../../img/Group-8.png'></image>
+      <image wx:if="{{false}}" src='../../img/Group-10.png'></image>
+      <text class='content-title-detail'>{{item.content}}</text>
+    </view>
+    <view class='operation'>
+      <view class='content-time'>{{tools.timeFormatting(item.sendTime)}}</view>
+      <view class='evaluate' data-id="{{item.msgId}}" wx:if="{{item.readed==0}}" bindtap="evaluate">评价</view>
+      <view class='evaluate' data-id="{{item.msgId}}" wx:if="{{item.readed==1}}" bindtap="signRead">标记已读</view>
+      <view class='evaluate' data-id="{{item.msgId}}" wx:if="{{item.readed==1}}">待验收</view>
+      <view class='evaluate' data-id="{{item.msgId}}" wx:if="{{item.readed==1}}">待签约</view>
+      <view class='evaluate' data-id="{{item.msgId}}" wx:if="{{item.readed==1}}" bindtap="examine">查看</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,112 @@
+<!--pages/jieyinghui/index.wxml-->
+<view class='jyh1'>
+  <span>杰</span>英会是由中软国际旗下解放号平台发起的面向CIO、CTO、企业IT领袖、技术专家等高端IT人才的社群，旨在通过连接IT领袖人物，推动IT技术的应用落地及价值变现，实现产业融合的转型升级，盘活、整合行业资源，发现商机，共赢合作，形成IT服务产业健康生态。<image class="desc-inner-icon" src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/3-jt1.png'></image>
+</view>
+<view class='jyh2'>
+  <view class='jyh2_1'>
+    <view class='jyh2_11'>聚焦大咖.追求卓越</view>
+    <view class='jyh2_12'>
+      <view class='jyh2_121'>高端人才汇聚，顶级思维的碰撞与升华</view>
+      <view class='jyh2_122'>汇聚信息化行业领导者，沉淀高端人脉资源，提升自身职业价值，实现产业融合的转型升级</view>
+    </view>
+  </view>
+  <view class='jyh2_2'>
+    <view class='jyh2_21'>
+      <view class='jyh2_211'>高频活动，开拓视野</view>
+      <view class='jyh2_212'>通过 10 余种多维度的活动形式，深入解读热门话题，丰富行业观察视角，获取最佳实践路径</view>
+    </view>
+    <view class='clear'></view>
+    <navigator class='jyh2_22' url="./activity_list/index?page=0">查看更多</navigator>
+  </view>
+  <view class='jyh2_3'>
+    <navigator url="./activity_detail/index" class='jyh2_31'>
+      <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/1.jpg'></image></view>
+      <view class='jyh2_312'>
+        <view class='jyh2_3121'>项目风险管理</view>
+        <view class='jyh2_3122'>2018-09-06</view>
+        <view class='jyh2_3123'>软件项目风险识别有哪些方法？如何对风险进行量化和预测？如何制定风险规避计划？有什么工具可以更方便的进行风险管理？</view>
+      </view>
+    </navigator>
+    <navigator url="./activity_detail/index2" class='jyh2_31'>
+      <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/2.jpg'></image></view>
+      <view class='jyh2_312'>
+        <view class='jyh2_3121'>质量管理：项目知识管理计划</view>
+        <view class='jyh2_3122'>2018-09-11</view>
+        <view class='jyh2_3123'>新项目面对技术、管理多项挑战，如何保障项目获取前人的成功经验和教训？人员流动大，项目经验如何传承？组织经验如何沉淀？</view>
+      </view>
+    </navigator>
+    <navigator url="./activity_detail/index3" class='jyh2_31'>
+      <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/3.jpg'></image></view>
+      <view class='jyh2_312'>
+        <view class='jyh2_3121'>绩效管理</view>
+        <view class='jyh2_3122'>2018-09-13</view>
+        <view class='jyh2_3123'>如何公平公正的评定绩效，做好绩效沟通和正向激励，是提升企业核心竞争力，促进企业文化、组织氛围和产出效率的重中之重。</view>
+      </view>
+    </navigator>
+    <navigator url="./activity_detail/index4" class='jyh2_31'>
+      <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/4.jpg'></image></view>
+      <view class='jyh2_312'>
+        <view class='jyh2_3121'>DevOps理论＋实践之路（思想篇）</view>
+        <view class='jyh2_3122'>2018-09-18</view>
+        <view class='jyh2_3123'>DevOps作为一套实践方法，它能够在保证高质量的前提下缩短系统变更从提交到部署至生产环境的时间，使企业能够以更加精简、高效的方式运作。</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class='jyh3'>
+  <view class='jyh3_pos'>
+    <view class='jyh3_1'>
+      <view class='jyh3_11'>
+        <view class='jyh3_111'>会员权益 . 唯你独尊</view>
+        <view class='jyh3_112'>
+          <text>尊享会员7大权益\n</text>
+          <text>在轻松的社交活动中\n</text>
+          <text>积累人脉、收获成长</text>
+          </view>
+      </view>
+      <view class='jyh3_12'>NO.888888</view>
+    </view>
+  </view>
+  <view class='jyh3_2'>
+    <view class='jyh3_21'>
+      <view class='jyh3_211'></view>
+      <view class='jyh3_212'>走进名企</view>
+      <view class='jyh3_213'>组织走访国内知名企业、猿智库成员企业间互访</view>
+    </view>
+    <view class='jyh3_21'>
+      <view class='jyh3_211 jyh3_211_r2'></view>
+      <view class='jyh3_212'>资源对接会</view>
+      <view class='jyh3_213'>市场资源、渠道资源、合作伙伴资源互通有无</view>
+    </view>
+    <view class='jyh3_21'>
+      <view class='jyh3_211 jyh3_211_r3'></view>
+      <view class='jyh3_212'>学术论坛</view>
+      <view class='jyh3_213'>IT软件服务行业的高端学术交流活动</view>
+    </view>
+    <view class='jyh3_21'>
+      <view class='jyh3_211 jyh3_211_r4'></view>
+      <view class='jyh3_212'>休闲活动</view>
+      <view class='jyh3_213'>CIO一家亲、户外休闲、茶艺、公益等</view>
+    </view>
+    <view class='jyh3_21'>
+      <view class='jyh3_211 jyh3_211_r5'></view>
+      <view class='jyh3_212'>内推</view>
+      <view class='jyh3_213'>成员间互相推荐优质职业机会、引荐行业人脉等</view>
+    </view>
+    <view class='jyh3_21'>
+      <view class='jyh3_211 jyh3_211_r6'></view>
+      <view class='jyh3_212'>行业大数据一手资料解读</view>
+      <view class='jyh3_213'>向社群成员发放、解读由中软中央研究院、中软合作伙伴发布的行业分析报告等一手资料</view>
+    </view>
+    <view class='jyh3_21' style=' border-bottom: 0;'>
+      <view class='jyh3_211 jyh3_211_r7'></view>
+      <view class='jyh3_212'>CIO成长训练营</view>
+      <view class='jyh3_213'>一系列有助于IT领袖个人成长、职业发展的课程/活动打包服务</view>
+    </view>
+  </view>
+
+
+</view>
+
+
+<view class=''></view>

@@ -1,0 +1,21 @@
+<template name="supplier-1">
+
+<navigator style="display: inline-block" style="display:inline-block" url="{{ spid ? '/pages/findSupplier/detail?spid=' + spid : ''}}">
+  <image class="avatar" style="width: 84rpx; height: 84rpx;" src="{{supplierAvatarUrl +'/' + jfid}}"></image>
+  </navigator>
+  <view class="supplier-1-content">
+    <view style="color: #4a4a4a;font-weight: 600; font-size: 26rpx">{{buName || '暂无'}}</view>
+    <view class="supplier-1-line2">
+      <view style="color: #9b9b9b">
+        投标金额：
+      </view>
+      <view style="color: #FFA000;margin-left: 8rpx">{{bidMoney==null?'暂无报价':bidMoney+'元' || '暂无' }}</view>
+      <view wx:if="{{spid}}" class="supplier-1-share">
+        <button open-type="share" data-url="/pages/findSupplier/detail?spid={{spid}}" style="border: none;background-color: transparent; height: 40rpx; padding: 0;border-radius:0px; padding: 8rpx 0">
+          <image class="share-icon" style="" src="../../img/fx1.png"></image>
+        </button>
+      </view>
+    </view>
+    <image wx:if="{{isBid == 1 }}" class="supplier-1-zhongbiao" src="../../img/yzb1.png"></image>
+  </view>
+</template>

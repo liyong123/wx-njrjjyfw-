@@ -1,0 +1,34 @@
+/*!
+  Ionicons, v4.3.0
+  Github: http://ionicons.com/
+  Convert to base64: https://transfonter.org/
+*/
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "Ionicons";
+  src: url('//at.alicdn.com/t/font_870881_tbbxjeqxei.eot');
+  src: url('//at.alicdn.com/t/font_870881_tbbxjeqxei.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_870881_tbbxjeqxei.woff') format('woff'),
+  url('//at.alicdn.com/t/font_870881_tbbxjeqxei.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_870881_tbbxjeqxei.svg#iconfont') format('svg');
+}
+
+.icon{
+  display: inline-block;
+  font-family: "Ionicons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-star:before {
+  content: "\e60a";
+}

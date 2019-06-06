@@ -1,0 +1,65 @@
+
+  <view class="container">
+    <view class="user-info">
+      <block wx:if="{{isLogin}}">
+      <image class="photo" src="{{headicon}}"></image>
+      <text class="name">{{loginName}}</text>
+      <!-- <view class="company">{{realname}}</view> -->
+      </block>
+      <block wx:else>
+        <text class="login-title">登录云集，开启项目</text>
+        <navigator class="login-button" url="/pages/user/login">
+        <!-- open-type='redirect'  -->
+           登录/注册
+        </navigator>
+      </block>
+    </view>
+    <view class="sass">
+      <navigator class="sass_ptfw" url='{{myProjectUrl?"/pages/user/login":(userData1?"":"/pages/list/index")}}'>
+        <view class="sass_ptfw_1">
+          <image src="../../img/myIndexProject.png" style='width:30rpx;height:28rpx'></image>
+          <view class="sass_title">我的项目</view>
+        </view>
+        <view class="sass_ptfw_2"><image src="../../img/group_8.png"></image></view>
+      </navigator>
+      <navigator class="sass_ptfw" url='{{navigatorFailed ?"/pages/user/login":(userData1?"":"/pages/user/cooperation/index")}}'>
+        <view class="sass_ptfw_1">
+          <image src="../../img/myIndexCop.png" style='width:28rpx;height:28rpx'></image>
+          <view class="sass_title">我合作的</view>
+        </view>
+        <view class="sass_ptfw_2"><image src="../../img/group_8.png"></image></view>
+      </navigator>
+      <navigator class="sass_ptfw" url='{{navigatorFailedFocus?"/pages/user/login":"/pages/user/myFocus/index"}}'>
+        <view class="sass_ptfw_1">
+          <image src="../../img/myIndexFocus.png" style='width:32rpx;height:28rpx'></image>
+          <view class="sass_title" style='margin-left:26rpx'>我关注的</view>
+        </view>
+        <view class="sass_ptfw_2"><image src="../../img/group_8.png"></image></view>
+      </navigator>
+      <navigator wx:if="{{isLogin && userData == 3}}" class="sass_ptfw" url='/pages/user/changePassWord'>
+        <view class="sass_ptfw_1">
+          <image src="../../img/pass.png" style='width:32rpx;height:28rpx'></image>
+          <view class="sass_title" style='margin-left:26rpx'>修改密码</view>
+        </view>
+        <view class="sass_ptfw_2"><image src="../../img/group_8.png"></image></view>
+      </navigator>
+      <navigator class="sass_ptfw"  url='/pages/user/platformService/index'>
+        <view class="sass_ptfw_1">
+          <image src="../../img/myIndexSer.png" style='width:28rpx;height:32rpx'></image>
+          <view class="sass_title">平台服务介绍</view>
+        </view>
+        <view class="sass_ptfw_2"><image src="../../img/group_8.png"></image></view>
+      </navigator>
+      <view class="sass_ptfw" bindtap="tel_call">
+        <view class="sass_ptfw_1">
+          <image src="../../img/myIndexCall.png" style='width:28rpx;height:32rpx'></image>
+          <view class="sass_title">联系我们</view>
+        </view>
+        <view class="sass_ptfw_2"><view>025-52821888</view><image src="../../img/group_8.png"></image></view>
+      </view>
+    </view>
+    <view wx:if="{{isLogin}}" class="sass_tuichu" bindtap="loginout">退出</view>
+  </view>
+  <tab-bar pages="{{pages}}"></tab-bar>
+
+

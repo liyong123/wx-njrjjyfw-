@@ -1,0 +1,111 @@
+/* pages/content_cygx/cygx.wxss */
+.codeline{
+  width:100%;
+  height: 60rpx; line-height: 60rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+  margin:0 auto 10rpx;
+}
+.coderight{
+  width:400rpx;
+  height:50rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.codelist_a{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size:24rpx;
+  color:#9B9B9B;
+  align-items:center;
+  margin-right:10rpx;
+}
+.gx_a{
+  width:24rpx;
+  height:24rpx;
+  background:#0AC18A;
+  border-radius:30rpx;
+  margin-right:10rpx;
+}
+.codelist_b{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size:24rpx;
+  color:#9B9B9B;
+  align-items:center;
+  
+}
+.gx_b{
+  width:24rpx;
+  height:24rpx;
+  background:#FF8830;
+  border-radius:30rpx;
+  margin-right:10rpx;
+}
+.gx_content{
+  width:100%;
+  margin:0 auto;
+}
+.gx_list{
+  background:#fff;
+  width:100%;
+  margin:0 auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding:30rpx 0 30rpx 0;
+}
+.gx_name{
+  padding:0 0 20rpx 0;
+  width:100%;
+  justify-content: flex-start;
+  align-items:center;
+  border-bottom:1px solid #ccc;
+}
+
+.gx_name > view {
+  display: inline-block;
+}
+
+.xlf{
+  font-size:28rpx;
+  font-weight:bold; 
+  margin-left:20rpx;
+}
+.xlf_xiao{
+  font-size:22rpx;
+  line-height: 30rpx;
+  margin-left:10rpx;
+}
+.gx_shuju{
+  display:flex;
+  justify-content: flex-start;
+  align-items:center;
+  padding:20rpx;
+}
+.commit{
+  font-size:26rpx;
+  font-weight:bold;
+}
+.gx_xy{
+  display:flex;
+  justify-content: space-around;
+}
+.gx_lu{
+  color:#66D1BC;
+  font-weight:bold;
+  }
+.gx_hong{
+  color:#FF9242;
+  font-weight:bold;
+  }
+.gx_echart{
+  width: 100%;
+  height: 200px;
+  margin:0 auto;
+  background:#fff;
+}

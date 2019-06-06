@@ -1,0 +1,122 @@
+<!--pages/caigouxiangqing/xmht.wxml-->
+<view class='listpadding'>
+  <view class='zbgg'>
+    <view class='zbgg_1'>
+      <view class='zbgg_11'>南京市政府采购合同</view>
+      <view class='zbgg_12' wx:if="{{contractStatus==0}}">合同草稿</view>
+      <view class='zbgg_12' wx:if="{{contractStatus==1}}">合同已生成</view>
+      <view class='zbgg_12' wx:if="{{contractStatus==2}}">合同已经向乙方公开</view>
+      <view class='zbgg_12' wx:if="{{contractStatus==3}}">合同已经签订</view>
+      <view class='zbgg_12' wx:if="{{contractStatus==4}}">合同已生效</view>
+    </view>
+    <view class='zbgg_2'>
+      <view class='zbgg_22'>电子合同编号：</view>
+      <view class='zbgg_21'><text>{{planNo==null?'':planNo}}</text></view>
+      <view class='zbgg_22'>政府采购计划号：</view>
+      <view class='zbgg_21'><text>{{caigouNo==null?'':caigouNo}}</text></view>
+      <view class='zbgg_22'>采购人（甲方）：</view>
+      <view class='zbgg_21'><text>{{buName==null?'':buName}}</text></view>
+      <view class='zbgg_22'>联系人：</view>
+      <view class='zbgg_21'><text>{{legalName==null?'':legalName}}</text></view>
+      <view class='zbgg_22'>供应商（乙方）：</view>
+      <view class='zbgg_21'><text>{{partyBBUName==null?'':partyBBUName}}</text></view>
+      <view class='zbgg_22'>联系人：</view>
+      <view class='zbgg_21'><text>{{supplyerName==null?'':supplyerName}}</text></view>
+      <view class='zbgg_22'>第一条 货物名称及数量：</view>
+      <view class='zbgg_21'><text>乙方根据甲方需求提供下列货物：货物名称、规格及数量详见“报价表”</text></view>
+      <view class='zbgg_22'>第二条 合同总价款：</view>
+      <view class='zbgg_21'>
+        <text>1、本合同项下货物总价款为{{contractSingedPrice==null?'':contractSingedPrice}}（大写：{{signPriceCN==null?'':signPriceCN}}）人民币，分项价款在“投标报价表”中有明确规定；</text>
+        <text>2、本合同总价款是货物设计、制造、包装、仓储、运输、安装及验收合格前和保修期内备品备件发生的所有含税费用；</text>
+        <text>3、本合同总价款还包含乙方应当提供的伴随服务/售后服务费用。</text>
+      </view>
+      <view class='zbgg_22'>第三条 组成本合同的有关文件：</view>
+      <view class='zbgg_21'>
+        <text>下列关于南京市政府采购{{planNo==null?'':planNo}}号的采购文件及有关附件是本合同不可分割的组成部分，与本合同具有同等法律效应，这些文件包括但不限于：</text>
+        <text>（1）乙方提供的报价文件（报价单）；</text>
+        <text>（2）技术规格响应表；</text>
+        <text>（3）服务承诺；</text>
+        <text>（4）甲乙双方商定的其他文件。</text>
+      </view>
+      <view class='zbgg_22'>第四条 质量保证：</view>
+      <view class='zbgg_21'><text>乙方应保证货物是全新、未使用过的原装合格正品，并完全符合合同规定的质量、规格和性能的要求。乙方应保证其提供的货物在正确安装、正常使用和保养条件下，在其使用寿命内具有良好的性能</text></view>
+      <view class='zbgg_22'>第五条 交货和验收：</view>
+      <view class='zbgg_21'>
+        <text>1、乙方应在{{dueendtime_fmt==null?'':dueendtime_fmt}}前将货物交付甲方</text>
+        <text>2、乙方交付的货物应当完全符合本合同或者招投标文件所规定的货物、数量和规格要求；</text>
+        <text>3、甲方应当在到货后的2个工作日内对货物进行验收，验收包括：型号、规格、数量、外观质量、及货物包装是否完好，安装调试是否合格，用户手册、原厂保修卡、随机资料及配件、随机工具等是否齐全。</text>
+      </view>
+      <view class='zbgg_22'>第六条伴随服务／售后服务：</view>
+      <view class='zbgg_21'>
+        <text>1、乙方应按照国家有关法律法规规章和“三包”规定以及合同所附的“服务承诺”提供服务；</text>
+        <text>2、所有货物保修服务方式均为乙方上门保修，由乙方派员到货物使用现场维修，所产生的一切费用由乙方承担。</text>
+      </view>
+      <view class='zbgg_22'>第七条货款支付：</view>
+      <view class='zbgg_21'>
+        <text>1、本合同项下所有款项均以人民币支付；</text>
+        <text>2、合同款项的支付进度以招标文件的有关规定为准。</text>
+      </view>
+      <view class='zbgg_22'>第八条履约保证金</view>
+      <view class='zbgg_21'>
+        <text>1、乙方在签订本合同时向甲方交纳{{cashDeposit==null?'':cashDeposit}}万元的履约保证金；</text>
+        <text>2、验收合格后无息退还。</text>
+      </view>
+      <view class='zbgg_22'>第九条 知识产权</view>
+      <view class='zbgg_21'>
+        <text>乙方提供的采购标的应符合国家知识产权法律、法规的规定且非假冒伪劣品；乙方还应保证甲方不受到第三方关于侵犯知识产权及专利权、商标权或工业设计权等知识产权方面的指控，任何第三方如果提出此方面指控均与甲方无关，乙方应与第三方交涉，并承担可能发生的一切法律责任、费用和后果；若甲方因此而遭致损失，则乙方应赔偿该损失。</text>
+        <text>若乙方提供的采购标的不符合国家知识产权法律、法规的规定或被有关主管机关认定为假冒伪劣品，则乙方中标资格将被取消；甲方还将按照有关法律、法规和规章的规定进行处理，具体如下： 乙方应当保证其所提供的产品为符合国家知识产权法律法规要求的正规正版产品，且上述产品不属于假冒伪劣商品；投标人还应保证甲方在使用该产品或其任何一部分时不受到第三方关于侵犯知识产权以及专利权、商标权或工业设计权等知识产权方面的指控，任何第三方如果提出此方面指控均与甲方无关，乙方应与第三方交涉，并承担可能发生的一切法律责任、费用和后果；若甲方因此而遭致损失的，乙方应赔偿该损失 。</text>
+      </view>
+      <view class='zbgg_22'>第十条 违约责任</view>
+      <view class='zbgg_21'>
+        <text>1、甲方无正当理由拒收货物、拒付货物款的，由甲方向乙方偿付合同总价的{{delayMoney1==null?'0':delayMoney1}}%违约金；</text>
+        <text>2、甲方未按合同规定的期限向乙方支付货款的，每逾期1天甲方向乙方偿付欠款总额的{{delayMoney==null?'0':delayMoney}}‰滞纳金，但累计滞纳金总额不超过欠款总额的5% ；</text>
+        <text>3、如乙方不能交付货物，甲方有权扣留全部履约保证金；同时乙方应向甲方支付合同总价{{delayMoney1==null?'0':delayMoney1}}%的违约金；</text>
+        <text>4、乙方逾期交付货物的，每逾期1天，乙方向甲方偿付逾期交货部分货款总额的{{delayMoney==null?'':delayMoney}}‰的滞纳金。如乙方逾期交货达（10）天，甲方有权解除合同，解除合同的通知自到达乙方时生效；</text>
+        <text>5、乙方所交付的货物品种、型号、规格不符合合同规定的，甲方有权拒收。甲方拒收的，乙方应向甲方支付货款总额{{delayMoney1}}%的违约金。甲方未拒收的，发现后将向有关部门反映，并责成乙方按照采购结果提供货物和服务，同时视情给予不退还部分或全部履约保证金、暂停一至三年参加南京市政府采购中心组织的政府采购活动的处理；</text>
+        <text>6、在乙方承诺的或国家规定的质量保证期内（取两者中最长的期限），如经乙方两次维修或更换，货物仍不能达到合同约定的质量标准，甲方有权退货，乙方应退回全部货款，并按第3款处理，同时，乙方还须赔偿甲方因此遭受的损失；</text>
+        <text>7、乙方未按本合同的规定和“服务承诺”提供伴随服务/售后服务的，应按合同总价款的1% 向甲方承担违约责任。</text>
+      </view>
+      <view class='zbgg_22'>第十一条 争议的解决</view>
+      <view class='zbgg_21'>
+        <text>1、因货物的质量问题发生争议的，应当邀请国家认可的质量检测机构对货物质量进行鉴定。货物符合标准的，鉴定费由甲方承担；货物不符合质量标准的，鉴定费由乙方承担；</text>
+        <text>2、因履行本合同引起的或与本合同有关的争议，甲、乙双方应首先通过友好协商解决，如果协商不能解决争议，则采取以下第（2）种方式解决争议：</text>
+        <text>（1）向甲方所在地有管辖权的人民法院提起诉讼；</text>
+        <text>（2）向南京仲裁委员会按其仲裁规则申请仲裁。</text>
+      </view>
+      <view class='zbgg_22'>第十二条 诚实信用</view>
+      <view class='zbgg_21'>
+        <text>乙方应诚实信用，严格按照招标文件要求和投标承诺履行合同，不向甲方进行商业贿赂或者提供不正当利益。</text>
+      </view>
+      <view class='zbgg_22'>第十三条 合同生效及其他</view>
+      <view class='zbgg_21'>
+        <text>1、本合同自签订之日起生效。</text>
+        <text>2、本合同一式四份，甲乙双方各执。</text>
+        <text>3、本合同应按照中华人民共和国的现行法律进行解释。</text>
+      </view>
+      <view class='zbgg_22'>第十四条 合同附件</view>
+      <view class='zbgg_22'>甲方（盖章）：</view>
+      <view class='zbgg_21'><text>{{buName==null?'':buName}}</text></view>
+      <view class='zbgg_22'>代表姓名：</view>
+      <view class='zbgg_21'><text>{{legalName==null?'':legalName}}</text></view>
+      <view class='zbgg_22'>签署日期：</view>
+      <view class='zbgg_21'><text>{{agree_time==null?'':agree_time}}</text></view>
+      <view class='zbgg_22'>乙方（盖章）：</view>
+      <view class='zbgg_21'><text>{{partyBBUName==null?'':partyBBUName}}</text></view>
+      <view class='zbgg_22'>联系人：</view>
+      <view class='zbgg_21'><text>{{supplyerName==null?'':supplyerName}}</text></view>
+      <view class='zbgg_22'>签署日期：</view>
+      <view class='zbgg_21'><text>{{sign_time==null?'':sign_time}}</text></view>
+      <view class='zbgg_22'>签约状态：</view>
+      <view class='zbgg_21'>
+        <text wx:if="{{status==0}}">初始化状态，未发送</text>
+        <text wx:if="{{status==1}}">已发送</text>
+        <text wx:if="{{status==2}}">合同提交企业负责人审核</text>
+        <text wx:if="{{status==3}}">企业负责人退回合同</text>
+        <text wx:if="{{status==4}}">企业负责人同意签订合同</text>
+        <text wx:if="{{status==5}}">PM确认签订</text>
+        <text wx:if="{{status==8}}">甲方签订合同</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class=''></view>

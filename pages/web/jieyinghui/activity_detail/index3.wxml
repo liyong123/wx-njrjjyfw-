@@ -1,0 +1,48 @@
+<!--pages/jieyinghui/activity_detail/index3.wxml-->
+<view class='detailpadding'>
+  <view class='activity_detail1'>绩效管理</view>
+  <view class='activity_detail2'>
+    <view class='activity_detail2_1'>杰英会</view>
+    <view class='activity_detail2_2'>绩效管理</view>
+    <view class='activity_detail2_3'>9月13日</view>
+  </view>
+  <view class='activity_detail3'>
+    <text>如何公平公正的评定绩效，做好绩效沟通和正向激励，是提升企业核心竞争力，促进企业文化、组织氛围和产出效率的重中之重。
+
+软件行业市场变化快，竞争激烈，产品开发具有高智力投入的特征，开发过程的关联性强，通常需要严格的过程控制和较大的投资资本，要求各环节的紧密配合和开发人员良好的团队协作，因此，软件项目的绩效管理与一般的企业绩效管理相比也有其自身的特性。
+
+作为企业IT管理人员，掌握软件项目绩效管理的方法，提升项目开发效率和团队效能，是必备的知识。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">面向对象：</view>
+    <text>\n</text>
+    <text>CIO、CTO、技术总监、技术经理、项目经理等项目管理者。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程概述：</view>
+    <text>\n</text>
+    <text>通过本课程你将学到：如何搭建最优绩效制度体系，量化考核指标；掌握PBC绩效计划，提升团队工作效率；建立高效的绩效沟通制度，打造绩效文化。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程大纲：</view>
+    <text>\n</text>
+    <text>1. 绩效制度和体系
+2. 可量化的绩效考核指标
+3. 如何制定PBC的绩效计划
+4. 有效的绩效沟通和指导
+5. 实例分析\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">讲师简介：</view>
+    <text>\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/172528qrlln4f5wnor4lvw.png.thumb.jpg'></image>
+    <text>马爽，中软国际培训学院高级讲师。
+西北工业大学软件工程硕士； 曾就职于微软亚洲工程院、IBM中国系统技术实验室，历任软件测试经理、软件开发负责人,； 现任华为流程IT iBuy产品经理， 熟悉 Scrum XP等敏捷方法，有丰富的敏捷实施经验，在产品推行敏捷过程中承担过敏捷教练，指导过多个开发团队的敏捷转型。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">加入课程直播群：</view>
+    <text>\n添加解小媛微信（微信号：JFHC-1），备注：CXO进化营直播群，小媛将拉你进群。\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/28/135645kcw1ds13vs6f1ecd.jpg.thumb.jpg'></image>
+    <text>扫码添加解小媛微信\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">关于《CXO进化营》系列课程：</view>
+    <text>\n</text>
+    <text>解放号《CXO进化营》系列课程，以IT企业里的CTO、技术总监等技术团队管理者为主要对象，从大数据等热门技术知识分享，到项目管理、绩效管理等管理类课程分享，全方位提升IT服务企业的核心竞争力。
+
+系列课程安排：\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/171626b56f4fgfd56fe7hh.png.thumb.jpg'></image>
+    <text>查看系列课详情点击：http://live.jfh.com\n\n</text>
+
+  </view>
+</view>
+<view class='activity_detail4'></view>
+

@@ -1,0 +1,40 @@
+<!--pages/jieyinghui/activity_detail/index2.wxml-->
+<view class='detailpadding'>
+  <view class='activity_detail1'>质量管理：项目知识管理计划</view>
+  <view class='activity_detail2'>
+    <view class='activity_detail2_1'>杰英会</view>
+    <view class='activity_detail2_2'>项目管理</view>
+    <view class='activity_detail2_3'>9月11日</view>
+  </view>
+  <view class='activity_detail3'>
+    <text>新项目面对技术、管理多项挑战，如何保障项目获取前人的成功经验和教训？人员流动大，项目经验如何传承？组织经验如何沉淀？如何把知识应用到项目管理过程中？知识管理计划能够解决您的疑惑和困难。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">面向对象：</view>
+    <text>\n</text>
+    <text>CIO、CTO、技术总监、技术经理、项目经理等项目管理者。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程概述：</view>
+    <text>\n</text>
+    <text>本课程从项目中的知识管理出发，介绍了项目知识管理计划的目标、价值及具体开展方式，旨在帮助项目识别能力GAP、提升绩效，减少风险或解决问题，定义用于促进项目学习工作所需采取的必要行动计划，确保项目产生的知识能够完全反馈到组织，为管理层提供知识能够被有效管理的保证。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程大纲：</view>
+    <text>\n</text>
+    <text>1.项目管理（PMP）中的知识管理要求 
+2.项目中知识管理计划的目的和价值
+3.知识管理计划的制定和实施\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">讲师简介：</view>
+    <text>\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/172253t5idmovzd41754xg.jpg.thumb.jpg'></image>
+    <text>陈昊，中软国际研发顾问、质量管理专家/中软国际知识管理专家、持续改进专家。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">加入课程直播群：</view>
+    <text>\n添加解小媛微信（微信号：JFHC-1），备注：CXO进化营直播群，小媛将拉你进群。\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/28/135645kcw1ds13vs6f1ecd.jpg.thumb.jpg'></image>
+    <text>扫码添加解小媛微信\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">关于《CXO进化营》系列课程：</view>
+    <text>\n</text>
+    <text>解放号《CXO进化营》系列课程，以IT企业里的CTO、技术总监等技术团队管理者为主要对象，从大数据等热门技术知识分享，到项目管理、绩效管理等管理类课程分享，全方位提升IT服务企业的核心竞争力。
+
+系列课程安排：\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/171626b56f4fgfd56fe7hh.png.thumb.jpg'></image>
+    <text>查看系列课详情点击：http://live.jfh.com\n\n</text>
+
+  </view>
+</view>
+<view class='activity_detail4'></view>

@@ -1,0 +1,255 @@
+/* pages/user/index.wxss */
+@import "/pages/user/login.wxss";
+page{
+  height:100%;
+}
+@keyframes fade {
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0.3
+  }
+}
+
+@keyframes points {
+  33% {
+    content: '.'
+  }
+  66% {
+    content: '..'
+  }
+  99% {
+    content: '...'
+  }
+}
+
+.login-title::after {
+  content: '';
+  animation: points linear 3s infinite;
+}
+
+.login-title {
+  color:#fff;
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-top: 30rpx;
+  letter-spacing: 5rpx;
+  /* animation: fade 2s ease-in-out infinite; */
+}
+
+.login-button {
+  font-size:28rpx;
+  border-radius: 30rpx;
+  width: 280rpx;
+  margin-top: 30rpx; 
+  height: 60rpx; 
+  line-height: 60rpx;
+  text-align: center;
+  background-color:#fff;
+  color: #6487f4;
+  font-weight: 500;
+  box-shadow: 0 4rpx 4rpx 0 #6487f4,
+              0 0 10rpx 0 #6487f4;
+}
+
+.container {
+  padding: 0;
+  height:100%;
+  /* margin-bottom: 120rpx; */
+}
+
+.user-info {
+  padding: 55rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #6487f4;
+  background-image:url('http://qdrc.jfh.com/qingdao/webchat/jyh/page/caigouxiangqing/user-info.png')
+  }
+
+.photo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%; border-width: 8rpx; border-style: solid; border-color: rgba(255,255,255,0.60);
+}
+
+.login-label {
+  font-size: 15px;
+  margin-top: 15px;
+  color: gray;
+}
+
+.login-btn {
+  padding: 0px 35px;
+  border-radius: 40rpx;
+  margin-top: 20px;
+  height: 32px;
+}
+.name {
+  font-size: 32rpx;
+  margin-top: 24rpx;
+  color: #fff;
+}
+.company{ 
+  font-size: 32rpx;
+  color: #fff;
+  margin-top: 10rpx;
+}
+.my-card {
+  margin-top: 0;
+}
+
+.user-bill-area {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 0 50rpx;
+}
+
+.user-bill-label {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.user-bill-label-icon {
+  padding-top: 20rpx;
+}
+
+.user-bill-label-icon image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.user-bill-label-text {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  letter-spacing: 2rpx;
+  padding-left: 25rpx;
+}
+
+.user-bill-block {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  border-top: 1px solid #eee;
+}
+
+.user-bill-row {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  padding: 10rpx 0;
+}
+
+.user-bill-block-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.user-bill-block-item-imgae {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  padding: 15rpx 0;
+}
+
+.user-bill-block-item-imgae image {
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.user-bill-block-item-text {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  color: #8f9aa8;
+  padding: 15rpx 0;
+}
+
+.user-center{
+    margin-top: 20rpx;
+}
+.sass{
+  width:100%;
+  height:auto;
+  background:#fff;
+  margin-top:20rpx; font-size: 28rpx;
+}
+.sass_ptfw{
+  padding: 25rpx 40rpx;
+  width: 100%; 
+  box-sizing: border-box;
+  border-bottom:1rpx solid #D8D8D8;
+}
+.sass_ptfw::after{
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.sass_ptfw_1{ 
+  float: left; 
+  display: flex; 
+  height: 50rpx; 
+  line-height: 50rpx;
+  align-items: center
+}
+.sass_ptfw_2{ float: right; display: flex; height: 50rpx; line-height: 50rpx;}
+.sass_ptfw_1 image{
+  width:41rpx;
+  height:50rpx;
+}
+.sass_ptfw_2 image{ 
+  width:16rpx;
+  margin-left: 15rpx;
+  flex-direction:column; 
+  align-items:center;
+  height:30rpx; 
+  margin-top: 10rpx;
+}
+.sass_ptfw_2 view{ 
+  flex-direction:column;
+  align-items:center;
+  font-size:26rpx;
+  color:#606060
+ }
+.sass_ptfw:last-child{
+  border-bottom:none;
+}
+.sass_title{
+  margin-left:30rpx;
+  color: #4A4A4A;
+  font-size:28rpx;
+}
+navigator:hover{ background: none;}
+navigator:active{ background: none;}
+.sass_tuichu{
+  width:92%;
+  height:90rpx;
+  line-height: 90rpx;
+  background:#fff;
+  margin:105rpx auto 125rpx;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  color:#FF2626; 
+  font-size: 35rpx;
+  border-radius: 45rpx;
+}
+
+.container {
+  overflow: auto;
+}

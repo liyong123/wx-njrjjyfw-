@@ -1,0 +1,45 @@
+<!--pages/jieyinghui/activity_detail/index.wxml-->
+<view class='detailpadding'>
+  <view class='activity_detail1'>项目风险管理</view>
+  <view class='activity_detail2'>
+    <view class='activity_detail2_1'>杰英会</view>
+    <view class='activity_detail2_2'>项目管理</view>
+    <view class='activity_detail2_3'>9月6日</view>
+  </view>
+  <view class='activity_detail3'>
+    <text>一个软件项目从进入开发到结束，中途会面临各种各样的风险。风险一旦变成现实，就会影响项目的进度，增加项目的成本，甚至使软件项目不能实现。提前预判这些风险并做好风险管理和预防，对保证项目顺利完成至关重要。\n
+软件项目风险识别有哪些方法？如何对风险进行量化和预测？如何制定风险规避计划？有什么工具可以更方便的进行风险管理？在本节《项目风险管理》课中，来自中软国际集团培训学院的马爽老师将为您一一揭晓。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">面向对象：</view>
+    <text>\n</text>
+    <text>CIO、CTO、技术总监、技术经理、项目经理等项目管理者。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程概述：</view>
+    <text>\n</text>
+    <text>项目风险管理，是产品高质量交付的关键。按照克劳斯比零缺陷产品的理念，及时识别风险，注重事前和事中的风险管理，是项目成败的关键。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程大纲：</view>
+    <text>\n</text>
+    <text>1. 风险的分类
+    2. 风险的识别方法
+    3. 风险的监控
+    4. 风险管理过程和方法
+    5. 实例分析\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">讲师简介：</view>
+    <text>\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/171617jn222qjje92ekzkh.jpg.thumb.jpg'></image>
+    <text>马爽，中软国际培训学院高级讲师。
+西北工业大学软件工程硕士； 曾就职于微软亚洲工程院、IBM中国系统技术实验室，历任软件测试经理、软件开发负责人,； 现任华为流程IT iBuy产品经理， 熟悉 Scrum XP等敏捷方法，有丰富的敏捷实施经验，在产品推行敏捷过程中承担过敏捷教练，指导过多个开发团队的敏捷转型。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">加入课程直播群：</view>
+    <text>\n</text>
+    <text>添加解小媛微信（微信号：JFHC-1），备注：CXO进化营直播群，小媛将拉你进群。\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/28/135645kcw1ds13vs6f1ecd.jpg.thumb.jpg'></image>
+    <text>扫码添加解小媛微信\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">关于《CXO进化营》系列课程：</view>
+    <text>\n</text>
+    <text>解放号《CXO进化营》系列课程，以IT企业里的CTO、技术总监等技术团队管理者为主要对象，从大数据等热门技术知识分享，到项目管理、绩效管理等管理类课程分享，全方位提升IT服务企业的核心竞争力。
+
+系列课程安排：\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/171626b56f4fgfd56fe7hh.png.thumb.jpg'></image>
+    <text>查看系列课详情点击：http://live.jfh.com\n\n</text>
+
+  </view>
+</view>
+<view class='activity_detail4'></view>

@@ -1,0 +1,76 @@
+/* pages/jieyinghui/index.wxss */
+page{ background-color: #f6f6f6;}
+.listpadding {
+  padding: 20rpx;
+}
+.clear{ clear: both;}
+.jyh1{ width: 100%; height: 360rpx; padding: 60rpx 40rpx 40rpx; box-sizing: border-box; color: #E0C79E; font-size: 26rpx; line-height: 40rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/1.png'); background-repeat: no-repeat; background-size: 100% auto;
+  }
+.jyh1 span{ font-size: 37rpx;}
+.jyh1 .desc-inner-icon {
+  width:33rpx;
+  height:22rpx;
+  position:relative;
+  top:4rpx;
+}
+
+.jyh2{ width: 100%; padding: 0 20rpx 120rpx; box-sizing: border-box;}
+.jyh2_1{ margin-top: -55rpx; width: 100%; height: 432rpx; box-sizing: border-box;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/2.png'); background-repeat: no-repeat; background-size: 100% auto;}
+.jyh2_11{ text-align: center; font-size: 36rpx; padding-top: 35rpx; color: #4A4A4A; font-weight: bold;}
+.jyh2_12{ width: 53%; float: right; margin-right: 17rpx; line-height: 36rpx; margin-top: 44rpx; font-size: 24rpx;}
+.jyh2_12 .jyh2_122{ margin-top: 20rpx;}
+
+.jyh2_2{ width: 100%; height: 432rpx; box-sizing: border-box;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/5.png'); background-repeat: no-repeat; background-size: 100% auto;}
+.jyh2_21{ width: 53%; float: left; margin-left: 35rpx; line-height: 36rpx; padding-top: 100rpx; color: #fff;}
+.jyh2_211{ font-size: 36rpx; font-weight: bold;}
+.jyh2_212{ color: #FFF6E8; margin-top: 36rpx; font-size: 24rpx;}
+.jyh2_22{ width: 200rpx; height: 51rpx; line-height: 51rpx; margin: 47rpx auto 0; text-align: center; color: #fff;background: rgba(255,255,255,0.15);border: 1px solid #FFFFFF;border-radius: 25.5px;}
+
+.jyh2_3 .jyh2_31{ background: #fff; padding: 25rpx; border-radius: 18rpx; box-shadow: 0 2rpx 10rpx 0 rgba(0,0,0,0.04); margin-bottom: 15rpx; position: relative;}
+.jyh2_3 .jyh2_31::after{
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.jyh2_3 .jyh2_31 .jyh2_311{ float: left; margin-right: 15rpx;}
+.jyh2_3 .jyh2_31 .jyh2_311 image{ width: 200rpx; height: 150rpx; border-radius: 8rpx;}
+.jyh2_3121{ font-size: 28rpx; line-height: 40rpx; white-space: nowrap; overflow:hidden; text-overflow:ellipsis;}
+.jyh2_3122{ font-size: 25rpx; color: #9B9B9B; margin-top: 10rpx;}
+.jyh2_3123{ font-size: 25rpx; color: #9B9B9B; overflow: hidden; text-overflow: ellipsis; -o-text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;}
+.jyh2_313{ position: absolute; width: 140rpx; height: 140rpx; right: 25rpx; bottom: 15rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/6.png'); background-repeat: no-repeat; background-size: 100% auto;
+}
+.jyh2_314{ position: absolute; width: 140rpx; height: 92rpx; right: 25rpx; bottom: 15rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/7.png'); background-repeat: no-repeat; background-size: 100% auto;
+}
+
+.jyh3{ width: 100%; height: auto; padding: 0 20rpx; box-sizing: border-box; background-image: linear-gradient(-180deg, #636363 0%, #3B3B3B 100%);}
+.jyh3_pos{ width: 100%; position: relative; height: 229rpx;}
+.jyh3_1{ width: 102%; height: 329rpx; box-sizing: border-box; position: absolute; left: -10rpx; top: -100rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/3.png'); background-repeat: no-repeat; background-size: 100% auto;}
+.jyh3_11{ width: 50%; float: right; margin-right: 0 ; line-height: 36rpx; padding-top: 70rpx; color: #FFDFAB;}
+.jyh3_111{ font-size: 36rpx;}
+.jyh3_112{ font-size: 25rpx; color: #FCE9CA; margin-top: 20rpx;}
+.jyh3_12{ float: left; font-size: 22rpx; color: #828282; padding-left: 48rpx; padding-top: 260rpx;}
+
+.jyh3_2{ padding: 15rpx 25rpx 40rpx; color: #fff;}
+.jyh3_21{ padding: 20rpx 0 20rpx 30rpx; position: relative; border-bottom: 1rpx dashed #707070;}
+.jyh3_211{ width: 14.08rpx; height: 32rpx; position: absolute; left: 0; top:27rpx;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/4.png'); background-repeat: no-repeat; background-size: 100% auto; background-position: 0 0;
+}
+.jyh3_211_r2{ background-position: 0 -70px;}
+.jyh3_211_r3{ background-position: 0 -140px;}
+.jyh3_211_r4{ background-position: 0 -210px;}
+.jyh3_211_r5{ background-position: 0 -280px;}
+.jyh3_211_r6{ background-position: 0 -350px;}
+.jyh3_211_r7{ background-position: 0 -445px;}
+
+.jyh3_212{ font-size: 33rpx; color: #F8CC7F;}
+.jyh3_213{ font-size: 25rpx; color: #E9E9E9; margin-top: 9rpx; line-height: 37rpx;}
+
+
+

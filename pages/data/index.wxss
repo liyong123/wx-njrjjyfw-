@@ -1,0 +1,42 @@
+/* pages/data/index.wxss */
+.box {
+  display: block;
+  margin: 10px;
+  background:#fff;
+}
+
+.box-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  flex-flow: nowrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 14.2%;
+}
+
+.item-content {
+  margin: 5px;
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+  color: #000;
+  font-weight:bold;
+}
+.item-content image{
+  width:50rpx;
+  height:50rpx;
+}
+.bk-color-day {
+  background-color: #597FF3;
+  border-radius:100rpx;
+  color:#fff;
+}
+
+.item-content-current-day {
+  flex-grow: 2;
+}

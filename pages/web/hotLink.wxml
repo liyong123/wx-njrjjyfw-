@@ -1,0 +1,12 @@
+<view class='swiperAll'>
+ <view class="topBg"></view>
+ <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" vertical="{{isVertical}}" duration="{{duration}}" circular='false' indicator-color='rgba(0, 0, 0, .1)' indicator-active-color="#4A90E2">
+      <swiper-item wx:for="{{imgUrls}}" wx:key="imgUrls">
+        <image src="{{item}}" />
+      </swiper-item>
+    </swiper>
+</view>
+
+<!-- <view class="btnGrp" wx:if="{{jfIdExist}}">
+   <button  bindtap='toLogin'>立即体验</button>
+</view> -->

@@ -1,0 +1,87 @@
+/* bu_pages/serviceMarket/search.wxss */
+page {
+  color:#626262;
+}
+.searchBar-container{
+  padding: 5px 10px;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bk-gray {
+  background: #f0f0f0;
+}
+.searchBar {
+  width : 100%;
+  height: 30px;
+  padding: 0 10px;
+  margin-right: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-input {
+  width: 100%;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
+.search-view {
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 28rpx;
+}
+.search-btn {
+  opacity: 0;
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+.search-category-container{
+  padding: 15px 0 0;
+  width : 100%;
+}
+
+.search-category-header {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-title {
+  color: #999;
+}
+.recents-delete {
+  width: 15px;
+  height: 15px;
+}
+
+.search-items-container {
+  padding: 0 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: space-between;
+}
+.search-item {
+  background: #eee;
+  padding: 8px 10px;
+  margin: 5px;
+  border-radius: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}

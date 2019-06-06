@@ -1,0 +1,251 @@
+<view>
+  <view class='topHeaderBcg'></view>
+</view>
+<view class='expert_header'>
+  <view class='picture_item'>
+    <image src='{{photo_url}}'></image>
+    <view class='addFocus'>
+      <view class="focusBtn" bindtap='addFocus' hidden = '{{(saveApplyExpertStatus == "1")}}'>
+          <image src='../../img/focus.png' />
+          <text>关注</text>
+      </view>
+      <view class="focusBtn focusBtn2" bindtap='deleteFocus' hidden='{{(saveApplyExpertStatus == "0")}}' >
+          <image src='../../img/focusNo.png' />
+          <text>取消关注</text>
+      </view>
+    </view>
+  </view>
+  <view class='nameGroup'>
+    <text>{{name?name:"暂无"}}</text>
+  </view>
+  <view class='personalMessage'>
+    <text>{{sex?sex:"暂无"}}</text>
+    <text style='margin:0 12rpx'>|</text>
+    <text>{{age?(age + "岁"):"暂无"}}</text>
+    <text>{{"(" + (birth_date?birth_date:"暂无") + ")"}}</text>
+  </view>
+  <view class='personalIntrodution'>
+    <view class='introdutionEach'>
+       <view>
+          <image src="../../img/expertlevel.png" />
+       </view>
+       <view>
+          <text>{{positional_title?positional_title:"暂无"}}</text>
+          <text>工作职称</text>
+       </view>
+    </view>
+    <view class='introdutionEach' style='margin:0 40rpx'>
+       <view>
+          <image src="../../img/workExperience.png" />
+       </view>
+       <view>
+          <text>{{workinglife?(workinglife + "年"):"暂无"}}</text>
+          <text>工作经验</text>
+       </view>
+    </view>
+    <view class='introdutionEach'>
+       <view>
+          <image src="../../img/expertAddress.png" />
+       </view>
+       <view>
+          <text>{{city?city:"暂无"}}</text>
+          <text>工作地点</text>
+       </view>
+    </view>
+  </view>
+</view>
+<view class='mainContent'>
+  <view class='eachModule' style='padding-bottom:0'>
+    <view class='identitySelf' style='margin-bottom:14rpx'>
+      <view class="circle"><text></text></view>
+      <view class='identityTitle' style='width:70px'>身份：</view>
+      <view class='identityContent' style='width:{{identityContentWidth2}}'>
+          <text class='identityEach' wx:for="{{expert_label}}" wx:key="identityLabel">{{item}}</text>
+          <view class='showDown' hidden='{{showDownDisabled}}' bindtap='identityShowDownClick'>
+             <text>展开</text>
+             <image src='../../img/down-lod.png'/>
+          </view>
+          <view class='showDown' hidden='{{showUpDisabled}}' bindtap='identityShowUpClick'>
+            <text>收起</text>
+            <image src='../../img/up-lod.png'/>
+          </view>
+      </view>
+    </view>
+    <view class='identitySelf'>
+      <view class="circle"><text></text></view>
+      <view class='identityTitle' style='width:70px'>工作单位：</view>
+      <view class='identityContent' style='width:{{identityContentWidth2}}'>{{unit_name?unit_name:"暂无"}}</view>
+    </view>
+    <view class='identitySelf'>
+      <view class="circle"><text></text></view>
+      <view class='identityTitle' style='width:70px'>职务：</view>
+      <view class='identityContent' style='width:{{identityContentWidth2}}'>{{job?job:"暂无"}}</view>
+    </view>
+    <view class='scoreGroup'>
+      <view class='scoreEach'>
+        <view>
+            <image src="../../img/score.png" />
+        </view>
+        <view>
+            <text>{{score?(score + "分"):"暂无"}}</text>
+            <text>客户评分</text>
+        </view>
+      </view>
+      <view class='scoreEachLine'></view>
+      <view class='scoreEach'>
+        <view>
+            <image src="../../img/scorePerson.png" />
+        </view>
+        <view>
+            <text>{{count?(count + "位"):"暂无"}}</text>
+            <text>参与评分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='eachModule' style='padding-bottom:100rpx;position:relative'>
+    <view class='eachModuleTitle'>
+       <view class='titleBckground'>
+          <view>
+             <text></text>
+             <text>工作经历</text>
+             <view>
+                <image src='../../img/workExpericenceMin.png' />
+             </view>
+          </view>
+       </view>
+    </view>
+    <view class = "eachExperience" wx:for="{{workExperience}}" wx:key="workExperience">
+      <view class='eachExperienceLeft'>
+        <view class='expericenceCircle'></view>
+      </view>
+      <view class='expericenceContent'>
+        <view class='expericenceTime'>
+            <text>{{item.start_time}}</text>
+            <text>~</text>
+            <text>{{item.end_time}}</text>
+            <text hidden='{{item.yearTime == 0&&item.monthTime == 0 ? true : false}}'>（</text>
+            <text hidden='{{item.yearTime == 0 ? true : false}}'>{{item.yearTime + "年"}}</text>
+            <text hidden='{{item.monthTime == 0 ? true : false}}'>{{item.monthTime + "个月"}}</text>
+            <text hidden='{{item.yearTime == 0&&item.monthTime == 0 ? true : false}}'>）</text>
+        </view>
+        <view class='workDuty'>
+            <text>{{item.company_name}}</text>
+            <text style='margin: 0 40rpx;color:#999'>|</text>
+            <text>{{item.position_name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='seeWorkExpericenceAll' hidden='{{showExpericencedBtn}}' bindtap='seeWorkExpericenceAllClick' >
+       <view>
+          <text>查看全部工作经历</text>
+          <image src='../../img/down-lod.png'/>
+       </view>
+    </view>
+    <view class='seeWorkExpericenceAll' hidden='{{hideExpericencedBtn}}' bindtap='seeWorkExpericencePartClick' >
+       <view>
+          <text>收起部分工作经历</text>
+          <image src='../../img/up-lod.png'/>
+       </view>
+    </view>
+  </view>
+
+  <view class='eachModule'>
+    <view class='eachModuleTitle'>
+        <view class='titleBckground'>
+          <view>
+             <text></text>
+             <text>个人成果</text>
+             <view>
+                <image src='../../img/personResultMin.png' />
+             </view>
+          </view>
+       </view>
+    </view>
+    <view class='workContent'>
+        <view class='workResultTitle'>工作内容及研究成果描述：</view>
+        <view class='workResultContent'>{{personal_achievement?personal_achievement:"暂无"}}</view>
+    </view>
+    <view class='workContent workContent2'>
+        <view class='workResultTitle'>参与评审的项目：</view>
+        <view class='joinContent' wx:for="{{projects}}" wx:key="joinProjects">
+            <text>{{index+1}}</text>
+            <text>{{item.projects}}</text>
+        </view>
+    </view>
+  </view>
+
+  <view class='eachModule'>
+    <view class='eachModuleTitle'>
+      <view class='titleBckground'>
+          <view>
+            <text></text>
+            <text>个人简介</text>
+            <view>
+                <image src='../../img/personIntroduceMin.png' />
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class='workContent'>{{expert_remark?expert_remark:"暂无"}}</view>
+    <view class='introdutionPersonal' hidden='{{showIntrodutionBtn}}' bindtap='showIntrodutionBtnClick' >
+       <text>展开</text>
+       <image src='../../img/down-lod.png'/>
+    </view>
+    <view class='introdutionPersonal' hidden='{{hideIntrodutionBtn}}' bindtap='hideIntrodutionBtnClick' >
+       <text>收起</text>
+       <image src='../../img/up-lod.png'/>
+    </view>
+  </view>
+
+  <view class='eachModule'>
+    <view class='eachModuleTitle'>
+      <view class='titleBckground'>
+          <view>
+            <text></text>
+            <text>联系专家</text>
+            <view>
+                <image src='../../img/expertCallMin.png' />
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class='illustration'>留下您的联系方式和需求，我们会联系您的</view>
+    <view class='workContent' style='padding-left:0;padding-right:0'>
+       <form bindsubmit="formSubmit" name="formGroup">
+          <view class="formItem">
+            <view style='width:90px'>
+              <text>*</text>
+              <text>您的姓名</text>
+            </view>
+            <view style='width:{{identityContentWidth}}'>
+              <input type='text' name="applyName" />
+            </view>
+          </view>
+          <view class="formItem">
+            <view style='width:90px'>
+              <text>*</text>
+              <text>联系方式</text>
+            </view>
+            <view style='width:{{identityContentWidth}}'>
+              <input type='number' name="applyPhone" />
+            </view>
+          </view>
+          <view class="formItem formItem2" style='height:auto'>
+            <view  style='width:80px;margin:30rpx 0 30rpx 12rpx;'>
+              <text></text>
+              <text>需求意向</text>
+            </view>
+            <view style='margin:0 auto'>
+               <textarea auto-height='true'  name="demandInterntion"/>
+            </view>
+          </view>
+          <view class="submitBtnArea">
+            <button  formType="submit">提交</button>
+          </view>
+       </form>
+    </view>
+   
+  </view>
+</view>

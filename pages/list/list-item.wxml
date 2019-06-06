@@ -1,0 +1,133 @@
+<template name="b">
+<!-- 采购中 -->
+  <block wx:if="{{ activeTabKey == 'cgzb' }}">
+    <view>
+      <image class="list-item-icon" src="../../img/xm1.png"></image>
+      <view class="list-item-title">{{orderName || '暂无' }}</view>
+      <view wx:if="{{ filterStatus == 1 }}" class="list-item-status" style="color: #597FF3">招标中</view>
+      <view wx:if="{{ filterStatus == 2 }}" class="list-item-status" style="color: #597FF3">评标中</view>
+      <view wx:if="{{ filterStatus == 3 }}" class="list-item-status" style="color: #597FF3">已评标</view>
+      <view wx:if="{{ filterStatus == 4 }}" class="list-item-status" style="color: #07B985">签约中</view>
+      <view wx:if="{{ filterStatus == 5 }}" class="list-item-status" style="color: #07B985">已签约</view>
+      <view wx:if="{{ filterStatus == 6 }}" class="list-item-status" style="color: #C0C4CC">已终止</view>
+    </view>
+    <view class="list-item-content">
+      <view class="list-item-col">
+        <view class="list-item-col-value">{{ finalTime || '暂无' }}</view>
+        <view class="list-item-col-name">{{ finalTimeName }} </view>
+      </view>
+      <view class="list-item-col">
+        <view class="list-item-col-value">{{finalPrice || 0}}</view>
+        <view class="list-item-col-name">{{ finalPriceName }}(元)</view>
+      </view>
+      <view wx:if="{{filterStatus != 4 && filterStatus != 5}}" class="list-item-col">
+        <view class="list-item-col-value">{{ supplyerCount }}家</view>
+        <view class="list-item-col-name">供应商</view>
+      </view>
+      <view wx:if="{{filterStatus == 4 || filterStatus == 5}}" class="list-item-col">
+        <view class="list-item-col-value">{{ supplierName }}</view>
+        <view class="list-item-col-name">中标供应商</view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{ activeTabKey == 'xmjs' }}">
+    <view style="position: relative">
+      <image class="list-item-icon" src="../../img/xm1.png"></image>
+      <view class="list-item-title">{{orderName}}</view>
+      <view class="stageName" style="color: {{pstatus == 2 || pstatus == 3 || pstatus == 4 ? '#07B985' : '#597FF3'}}">{{_stageName || '尚未设置阶段计划'}}</view>
+      <image wx:if="{{guidang}}" style="position:absolute;right: -20rpx;top: 56rpx;width:120rpx; height: 100rpx;" src="../../img/yiguidang.png"></image>
+    </view>
+    <view class="detail-list">
+      <view>供应商:</view>
+      <view>{{supplyName || '暂无'}}</view>
+    </view>
+    <view class="detail-list">
+      <view>项目人员:</view>
+      <view>{{orderMembers}}人</view>
+    </view>
+    <view class="detail-list">
+      <view>交付时间:</view>
+      <view>{{opDueendtime}}</view>
+    </view>
+    <view class='detail-footer'>
+      <view>
+        <text>项目进度：</text>
+        <block wx:if="{{ healtyDegree.proPlan == 1 }}">
+        <image src="../../img/project_normal.png"></image>
+          <view class="status-wrapper" >
+          <text class='normal'>正常</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.proPlan == 2 }}">
+        <image src="../../img/project_risk.png"></image>
+          <view class="status-wrapper" >
+          <text class='warning'>有风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.proPlan == 3 }}">
+        <image src="../../img/project_high_warning.png"></image>
+          <view class="status-wrapper" >
+          <text class='high-warning'>高风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.proPlan == 4 }}">
+          <view class="status-wrapper" >
+          <text>暂无数据</text>
+        </view>
+        </block>
+      </view>
+      <view>
+        <text>人力投入：</text>
+        <block wx:if="{{ healtyDegree.menberDelivery == 1 }}">
+        <image src="../../img/project_normal.png"></image>
+          <view class="status-wrapper" >
+          <text class='normal'>正常</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.menberDelivery == 2 }}">
+        <image src="../../img/project_risk.png"></image>
+          <view class="status-wrapper" >
+          <text class='warning'>有风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.menberDelivery == 3 }}">
+        <image src="../../img/project_high_warning.png"></image>
+          <view class="status-wrapper" >
+          <text class='high-warning'>高风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.menberDelivery >= 4 }}">
+          <view class="status-wrapper" >
+          <text>暂无数据</text>
+        </view>
+        </block>
+      </view>
+      <view>
+        <text>代码质量：</text>
+        <block wx:if="{{ healtyDegree.codeQuali == 1 }}">
+        <image src="../../img/project_normal.png"></image>
+          <view class="status-wrapper" >
+          <text class='normal'>正常</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.codeQuali == 2 }}">
+        <image src="../../img/project_risk.png"></image>
+          <view class="status-wrapper" >
+          <text class='warning'>有风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.codeQuali == 3 }}">
+        <image src="../../img/project_high_warning.png"></image>
+          <view class="status-wrapper" >
+          <text class='high-warning'>高风险</text>
+        </view>
+        </block>
+        <block wx:if="{{ healtyDegree.codeQuali == 4 }}">
+          <view class="status-wrapper" >
+          <text>暂无数据</text>
+        </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</template>

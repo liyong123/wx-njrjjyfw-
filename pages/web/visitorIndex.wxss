@@ -1,0 +1,369 @@
+/* pages/web/visitorIndex.wxss */
+
+.content {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 60rpx;
+}
+
+.latest-title {
+  width: 100%;
+  height: 40rpx;
+  border-left: 4rpx solid #597ff3;
+}
+
+.latest-title-text {
+  display: inline-block;
+  margin: 0 20rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.latest-title-image {
+  width: 28rpx;
+  height: 30rpx;
+}
+
+.view-more {
+  float: right;
+  font-size: 24rpx;
+  color: #597ff3;
+  margin-right: 25rpx;
+  margin-top: 15rpx;
+}
+
+.view-more-1 {
+  float: right;
+  transform: scale(0.6, 2);
+  -ms-transform: scale(0.6, 2);
+  -webkit-transform: scale(0.6, 2);
+  -moz-transform: scale(0.6, 2);
+  -o-transform: scale(0.6, 2);
+  margin-top: -2rpx;
+}
+
+/* 搜索供应商 */
+
+.search {
+  width: 100%;
+  height: 100rpx;
+  background-color: #597ff8;
+  padding-top: 10rpx;
+}
+
+.search-content {
+  width: 90%;
+  height: 60rpx;
+  background-color: #8ba6fa;
+  margin: 0 auto;
+  border-radius: 30rpx;
+}
+
+.search-image {
+  float: left;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 14rpx 10rpx 0 35rpx;
+}
+
+.input-search {
+  display: inline-block;
+  width: 70%;
+  height: 30rpx;
+  margin: 5rpx;
+  color: #fff;
+}
+
+.phcolor {
+  color: #fff;
+  opacity: 0.6;
+}
+
+/*  华为广告位*/
+
+.advertising-post-background {
+  width: 100%;
+  height: 200rpx;
+  /* border-bottom-left-radius: 300%;
+  border-bottom-right-radius: 300%;
+  background-color: #597ff3; */
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAEbCAYAAACFqgH9AAASl0lEQVR4nO3de5DvZ13Y8XcCKqBcJXIJkECACIGgQOUqF5lYbrZYSmmKU1qrgnToTLXtyDiVtjqMOq3OFFuFQSkWsVyKyB2BGkgFIsQg4V7DRROIuZCc3CC3c/rH81v3EJOQc87ufn/P7us188zu2Q3nfIbJmXnvk+f7fI869aWXHwgAAFhrRy89AAAA8K0JdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiAcAcAgAkIdwAAmIBwBwCACQh3AACYgHAHAIAJCHcAAJiA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);
+  background-size: 100% 100%;
+}
+
+.advertising-post {
+  width: 90%;
+  height: 280rpx;
+  margin: 0 auto;
+  border-radius: 15rpx;
+  margin-top: -200rpx;
+  box-shadow: 0 0 10rpx 0 #545fdf;
+  background-color: #fff;
+}
+
+.advertising-post image {
+  width: 100%;
+  height: 280rpx;
+  border-radius: 15rpx;
+}
+
+/* 需求大厅  找供应商  项目热链接  杰英会 */
+
+.itemize {
+  width: 100%;
+  padding: 15rpx 15rpx 25rpx 15rpx;
+  border-bottom: 1rpx solid #dedede;
+}
+
+.itemize-classfiy {
+  display: inline-block;
+  width: 24%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.itemize-image {
+  width: 122rpx;
+  height: 122rpx;
+}
+
+/* 最新标讯 */
+
+.burberry-glasses {
+  width: 100%;
+  height: 80rpx;
+  margin: 15rpx 25rpx;
+}
+
+/* .burberry-glasses-image {
+  width: 107rpx;
+  height: 27rpx;
+  margin-top: 35rpx;
+} */
+
+.burberry-black, .burberry-red {
+  float: left;
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-top: 22rpx;
+}
+
+.burberry-black {
+  color: #333;
+}
+
+.burberry-red {
+  color: #e18273;
+}
+
+.burberry-glasses-content {
+  float: right;
+  width: calc(100% - 125rpx);
+  height: 73rpx;
+  padding-top: 13rpx;
+  /* border-left: 1rpx solid #dedede; */
+}
+
+.burberry-glasses-newest {
+  float: left;
+  border: 1rpx solid #597ff3;
+  color: #597ff3;
+  padding: 5rpx;
+  border-radius: 5rpx;
+  font-size: 24rpx;
+  margin: 10rpx 10rpx 0 10rpx;
+  display: block;
+}
+
+.burberry-glasses-name {
+  float: left;
+  max-width: 350rpx;
+  font-size: 26rpx;
+  color: #4a4a4a;
+  margin: 12rpx 10rpx 0;
+  margin-right: 10rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.burberry-glasses-status {
+  display: block;
+  float: right;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #e18273;
+  margin: 12rpx 50rpx 0 0;
+}
+
+/* 最新需求 */
+
+.latest-demand {
+  padding-bottom: 30rpx;
+  border-top: 20rpx solid #f8f8f8;
+  border-bottom: 20rpx solid #f8f8f8;
+  padding-top: 30rpx;
+}
+
+.demand-list {
+  margin-top: 30rpx;
+  border-top: 1rpx dashed #dedede;
+}
+
+.demand-list-con {
+  width: 90%;
+  margin: 0 auto;
+  height: 140rpx;
+  padding: 30rpx 0 0;
+  border-bottom: 1rpx solid #dedede;
+  font-size: 22rpx;
+}
+
+.demand-list-con-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.demand-list-con-title-sub {
+  width: 450rpx;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.demand-list-time, .demand-list-price {
+  display: inline-block;
+  /* font-size: 24rpx; */
+}
+
+.demand-list-time {
+  width: 60%;
+  border-right: 1rpx solid #dee5fe;
+}
+
+.demand-list-time>view {
+  margin-bottom: 10rpx;
+}
+
+.demand-list-price {
+  float: right;
+  width: 180rpx;
+  text-align: right;
+  font-size: 28rpx;
+}
+
+.red {
+  color: #e18273;
+}
+
+.demand-list-address {
+  margin-top: 15rpx;
+}
+
+.demand-list-image {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 8rpx;
+}
+
+.icon_1776 {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 8rpx;
+  margin-left: 30rpx;
+}
+
+.icon_1781 {
+  width: 25rpx;
+  height: 15rpx;
+  margin-left: 30rpx;
+  margin-right: 8rpx;
+}
+
+.icon1780 {
+  width: 20rpx;
+  height: 25rpx;
+  margin-left: 30rpx;
+  margin-right: 8rpx;
+}
+
+/* 最热门供应商 */
+
+.hot-supplier {
+  padding: 30rpx 0;
+  margin-bottom: 100rpx;
+}
+
+.hot-supplier-con {
+  margin-top: 30rpx;
+  border-top: 1rpx dashed #dedede;
+  padding-top: 30rpx;
+}
+
+.hot-supplier-list {
+  display: inline-block;
+  width: 170rpx;
+  height: 170rpx;
+  border: 1rpx solid #dedede;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  margin-top: 15rpx;
+}
+
+.hot-supplier-list>image {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 14rpx;
+}
+
+/* 登录云集  开启项目 */
+
+.login-shade {
+  width: 700rpx;
+  height: 80rpx;
+  background-color: #333;
+  border-radius: 40rpx;
+  opacity: 0.6;
+  position: fixed;
+  bottom: 140rpx;
+  left: 10rpx;
+}
+
+.login {
+  width: 700rpx;
+  height: 80rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 140rpx;
+  left: 10rpx;
+}
+
+.login-text {
+  display: inline-block;
+  font-size: 26rpx;
+  margin: 20rpx 0 0 60rpx;
+}
+
+.login-operation {
+  float: right;
+  width: 225rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #597ff3;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+}
+
+.publishGrp {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}

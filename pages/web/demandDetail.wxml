@@ -1,0 +1,99 @@
+<!--pages/web/demandDetail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view class='fix-header'>
+  <!-- <view style='position:relative;' wx:if='{{showAd}}'>
+    <image class='ad-image' src='../../img/supplier/temp.jpg'></image>
+    <icon class='ad-close' size='15' type='clear' bindtap='closeAd'></icon>
+   </view> -->
+  <view class='swiperAll' wx:if="{{imgUrls.length > 0}}">
+    <swiper style="height: 180rpx;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='false'>
+      <swiper-item wx:for="{{imgUrls}}" wx:key="imgUrlEach">
+        <image src="{{item.linkUrl}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='list-search'>
+    <view class='list-search-box' bindtap='searchClick'>
+      <icon type="search" size="15" />
+      <input placeholder="请输入需求名称" value="{{ searchName }}" bindconfirm="searchDemand" placeholder-style='color:#9B9B9B' />
+    </view>
+
+    <!-- <view class="filter-container" bindtap="filterClick">
+      <text>筛选</text>
+      <image class="filter-icon" src='../../img/find_supplier_filter.png'></image>
+    </view> -->
+  </view>
+  <!-- 列表头部 过滤 -->
+  <view class='sort-list'>
+    <view class="sort-item {{listSort['putTime']['type']}}" data-sort-type='putTime' bindtap="sortItemClick">
+      <text class="{{sortStatusList.putTime ? 'choosed': ''}}">发布时间</text>
+      <image wx:if="{{listSort.putTime.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort.putTime.type === 'desc'}}" src='../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort.putTime.type === 'asc'}}" src='../../img/icon_asc.png'></image>
+    </view>
+    <view class="sort-item {{listSort['bidValidtime']['type']}}" data-sort-type='bidValidtime' bindtap="sortItemClick">
+      <text class="{{sortStatusList.bidValidtime ? 'choosed': ''}}">投标截止时间</text>
+      <image wx:if="{{listSort.bidValidtime.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort.bidValidtime.type === 'desc'}}" src='../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort.bidValidtime.type === 'asc'}}" src='../../img/icon_asc.png'></image>
+    </view>
+    <view class="sort-item {{listSort['planPrice']['type']}}" data-sort-type='planPrice' bindtap="sortItemClick">
+      <text class="{{sortStatusList.planPrice ? 'choosed': ''}}">预算</text>
+      <image wx:if="{{listSort.planPrice.type === 'icon'}}" src='../../../img/sort_icon.png'></image>
+      <image wx:if="{{listSort.planPrice.type === 'desc'}}" src='../../img/icon_desc.png'></image>
+      <image wx:if="{{listSort.planPrice.type === 'asc'}}" src='../../img/icon_asc.png'></image>
+    </view>
+  </view>
+</view>
+
+<view class='supplier-list-wrapper' style='margin-top:{{ imgUrls.length > 0 ? "380rpx" : "180rpx" }}; margin-bottom:{{ showTabbar ? "100rpx" : "0rpx" }}'>
+  <block wx:if="{{ list.length > 0 }}">
+    <block wx:for="{{list}}" wx:key='orderId'>
+      <view class='supplier-item-wrapper'  data-spid="{{item.orderId}}" data-spno="{{item.orderNo}}" bindtap='supplierItemCilck'>
+      <!-- bindtap='supplierItemCilck' -->
+        <view class='supplier-item-header'>
+          <view class='supplier-item-detail'>
+            <view class='supplier-item-name'>{{item.orderName}}</view>
+            <view class='supplier-item-text' style='color:#777e85;width:70%'>
+              <text>预算：</text>
+              <text style='color:#597FF3;'>{{item.changePlanPrice}}</text>
+            </view>
+            <!-- <view class='supplier-item-1781' style='width:82rpx;margin:0 20rpx 0 0'>
+              <image class='supplier_image_1781' src='../../img/icon_1781.png'></image>
+              <text>{{item.orderNo}}</text>
+            </view> -->
+            <view class='supplier-item-ocity' style='width:24%;margin-right:5%;'>
+              <view style='display:flex;justify-content:flex-end;flex-direction:row;align-items:center;'>
+                <image class='supplier_image' src='../../img/location_space.png'></image>
+                <text>{{item.ocity || '暂无'}}</text>
+              </view>
+            </view>
+            <view class='supplier-item-text' style='display:flex;'>
+              <view>发布时间：{{item.putTime || '暂无'}}</view>
+              <view style='margin-left:50rpx;'>投标截止时间：{{item.bidValidtime || '暂无'}}</view>
+            </view>
+            <view class='supplier-item-detail-right'>
+              <!-- <view class='supplier-item-detail-right-item' style='position:relative'>
+              <image src='../../img/icon_1781.png' style='width:33rpx;'></image>
+              <text style='position:absolute'>1024</text>
+            </view> -->
+              <!-- <view class='supplier-item-detail-right-item'>
+                <image src='../../img/location_space.png'></image>
+                <text>{{item.ocity || '暂无'}}</text>
+              </view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="loadingmore" wx:if='{{ listIsEnd }}'>──────没有更多─────</view>
+  </block>
+
+  <block wx:elif="{{ list && list.length == 0 }}">
+    <view class="no-order">
+      <image class="photo" src="../../img/kzt1.png"></image>
+      <view class="tip">没有找到相应的需求，换个词搜搜吧！</view>
+    </view>
+  </block>
+</view>
+<tab-bar wx:if='{{showTabbar}}' pages="{{pages}}"></tab-bar>

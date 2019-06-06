@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas",
+    "wux-rater": "../../component/rater/index",
+    "tab-bar": "../../component/tabbar/tabbar"
+  },
+  "navigationBarTitleText": "我的工作台"
+}

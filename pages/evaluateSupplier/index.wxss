@@ -1,0 +1,34 @@
+@import "../../styles/common.wxss";
+
+.supplier-name, .supplier-post {
+  display: inline-block;
+  padding: 13rpx;
+  vertical-align: middle;
+}
+
+.supplier-name {
+  font-size: 32rpx;
+  color: #4a4a4a;
+}
+
+.supplier-post {
+  font-size: 26rpx;
+  color: #9b9b9b;
+}
+
+.row {
+  vertical-align: center;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+
+.quota {
+  width: 230rpx;
+  font-size:28rpx;
+  color:#666666;
+}
+
+.star {
+  width: 380rpx;
+  margin-top: -4rpx;
+}

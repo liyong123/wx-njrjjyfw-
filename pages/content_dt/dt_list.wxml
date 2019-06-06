@@ -1,0 +1,130 @@
+<view class="content-dt">
+    <view class="dt-time" bindtap="stot">
+        <view class="dt-times">{{currYear}}-{{currMonth}}-{{currDay}}</view>
+        <view class="dt-times-img">
+            <image src="../../img/data.png"></image>
+        </view>
+    </view>
+    <biock wx:if="{{xmdt.length>0}}">
+        <block wx:for="{{xmdt}}" wx:key="xmdt">
+            <block wx:if="{{item.type == 3}}">
+                <view class="dt-list-ys">
+                    <view class="dt-ys-1">
+                        <image src="{{item.jfid}}"></image>
+                        <text>{{item.userName}}</text>
+                        <text>{{item.doTime}}</text>
+                        <text>发起验收申请</text>
+                    </view>
+                    <view class="dt-ys-2">
+                        <view class="dt_des">
+                            <text>{{item.content}}</text>
+                        </view>
+                        <view class="dt-ys-3">
+                            <image src="../../img/assets/icon_dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{item.type == 4}}">
+                <view class="dt-list-ys">
+                    <view class="dt-ys-1">
+                        <image src="{{item.jfid}}"></image>
+                        <text>{{item.userName}}</text>
+                        <text>{{item.doTime}}</text>
+                        <text>发起了会议</text>
+                    </view>
+                    <view class="dt-ys-2">
+                        <view class="dt_des">
+                            <text>会议主题：{{item.title}}</text>
+                            <text>会议时间：{{item.startTime}}</text>
+                            <text>参会人数：{{item.members}}</text>
+                            <text>会议总结：{{item.content}}</text>
+                        </view>
+                        <view class="dt-ys-3">
+                            <image src="../../img/assets/icon_dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{item.type == 0}}">
+                <view class="dt-list-ys">
+                    <view class="dt-ys-1">
+                        <image src="{{item.jfid}}"></image>
+                        <text>{{item.userName}}</text>
+                        <text>{{item.doTime}}</text>
+                        <text>上传文件</text>
+                    </view>
+                    <view class="dt-ys-2">
+                        <view class="dt_des">
+                            <block wx:for="{{fill_icon}}" wx:key="fill_icon" wx:for-item="fill">
+                                <block wx:if="{{fill.name=='pdf'}}">
+                                    <image src="{{fill.icon}}"></image>
+                                </block>
+                            </block>
+                            <view class="meeting">{{item.content}}</view>
+                        </view>
+                        <view class="dt-ys-3">
+                            <image src="../../img/assets/icon_dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{item.type == 1}}">
+                <view class="dt-list-ys">
+                    <view class="dt-ys-1">
+                        <image src="{{item.jfid}}"></image>
+                        <text>{{item.userName}}</text>
+                        <text>{{item.doTime}}</text>
+                        <text>提交周报</text>
+                    </view>
+                    <view class="dt-ys-2">
+                        <view class="dt_des">
+                            <text>{{item.content}}</text>
+                        </view>
+                        <view class="dt-ys-3">
+                            <image src="../../img/assets/icon_dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{item.type == 2}}">
+                <view class="dt-list-ys">
+                    <view class="dt-ys-1">
+                        <image src="{{item.jfid}}"></image>
+                        <text>{{item.userName}}</text>
+                        <text>{{item.doTime}}</text>
+                        <text>程序开发阶段已完成</text>
+                    </view>
+                    <view class="dt-ys-2">
+                        <view class="dt_des">
+                            <view class='commun2_223_ab'>
+                                <view class='commun2_223_flex' wx:for="{{stagePointInfo}}" wx:key="stagePointInfo"
+                                      wx:for-item="jieduan">
+                                    <view class='commun2_223line_text'>
+                                        <view class='commun2_223line'></view>
+                                    </view>
+                                    <image class='commun2_2231' wx:if="{{jieduan.status==2}}"
+                                           src='../../img/conten_xmdt04.png'></image>
+                                    <image class='commun2_2231' wx:if="{{jieduan.status==1}}"
+                                           src='../../img/conten_xmdt05.png'></image>
+                                    <image class='commun2_2231' wx:if="{{jieduan.status==0}}"
+                                           src='../../img/conten_xmdt07.png'></image>
+                                    <view class='commun2_2232'>{{jieduan.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="dt-ys-3">
+                            <image src="../../img/assets/icon_dh.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </biock>
+    <block wx:else>
+        <view class="dt_tu">
+            <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/conten_xmdt06.png"></image>
+            <view class="dt_wen">服务商是不是偷懒，还没有开工？</view>
+        </view>
+    </block>
+</view>

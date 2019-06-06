@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "我关注的",
+  "backgroundColor": "#dcdcdc",
+  "enablePullDownRefresh":true
+}

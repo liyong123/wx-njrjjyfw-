@@ -1,0 +1,47 @@
+.expert-1-content {
+  display: inline-block;
+  width: 582rpx;
+  height: 124rpx;
+  vertical-align: middle;
+  color: #4a4a4a;
+  padding: 0 15rpx;
+}
+
+.expert-1-share {
+  float: right;
+  margin-top: 10rpx;
+}
+
+.expert-1-share button::after {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.expert-1-line1 {
+  height: 34rpx;
+  line-height: 34rpx;
+}
+
+.expert-1-line2{
+  height: 34rpx;
+  line-height: 34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expert-1-line3 view {
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.expert-1-attributes {
+  color: #9b9b9b;
+}
+
+.expert-1-attributes text {
+  color: #E55449;
+}
+

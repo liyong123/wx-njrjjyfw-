@@ -1,0 +1,100 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.2",
+	"appid": "wxb84cfc38e9602f54",
+	"projectname": "caigou",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 9,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/web/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/user/scope",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "列表",
+					"pathName": "pages/list/index",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "阶段进展",
+					"pathName": "pages/content/index",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "采购详情",
+					"pathName": "pages/caigouxiangqing/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/user/login",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "领导首页",
+					"pathName": "pages/web/leadership-index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "普通会员首页",
+					"pathName": "pages/web/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "员工首页",
+					"pathName": "pages/web/index",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "分析报告",
+					"pathName": "pages/findSupplier/maturityAnalysis",
+					"query": "spid=114538"
+				}
+			]
+		}
+	}
+}

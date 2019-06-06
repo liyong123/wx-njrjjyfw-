@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "评价专家",
+  "usingComponents": {
+    "wux-rater": "../../component/rater/index"
+  }
+}

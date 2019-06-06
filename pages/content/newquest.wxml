@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view>
+  <scroll-view class="tab-h" scroll-x='true' scroll-left="{{scrollLift}}">
+    <view class="tab-item {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">阶段进展</view>
+    <view class="tab-item {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">项目动态</view>
+    <view class="tab-item {{currentTab==2 ? 'active' : ''}}" data-current="2" bindtap="swichNav">成员贡献</view>
+    <view class="tab-item {{currentTab==3 ? 'active' : ''}}" data-current="3" bindtap="swichNav">代码质量</view>
+    <view class="tab-item {{currentTab==4 ? 'active' : ''}}" data-current="4" bindtap="swichNav">问题沟通</view>
+  </scroll-view>
+  <view class='tab-h_pad'></view>
+  
+  <!-- 问题沟通 -->
+  <swiper-item>
+      <scroll-view scroll-y="true" class='scoll-h'>
+        <view class='listpadding'>
+              <view class='commun3'>
+                  <view class='commun3_1'>
+                      <image class='commun2_41' src='../../img/assets/icon_dh.png'></image>
+                      提问
+                  </view>
+
+                  <view class='commun3_2 area-box'>
+                      <textarea bindblur="bindTextAreaBlur" class='textarea' placeholder='请输入问题内容' value="{{qustestarea}}" maxlength='{{noteMaxLen}}' bindinput="bindWordLimit"></textarea>
+                      <view class="limit">{{currentNoteLen|0}}/{{noteMaxLen}}个字</view>
+                  </view>
+
+                  <view class='commun3_3' wx:if='{{choosephase.length > 0}}'>
+                      <picker value="{{choosephase[choose].id}}" range="{{choosephase}}"
+                              data-selecthx="{{choosephase[choose].name}}" range="{{choosephase}}"
+                              range-key="{{'name'}}" bindchange="choosephaseChange">
+                          <view class="pickerpro up">
+                              {{choosephase[choose].name}}
+                              <view class='pickerpro_1'>选择阶段</view>
+                          </view>
+                      </picker>
+                  </view>
+
+                  <view class='commun3_3'>
+                      <view class="pickerpro {{showView?'up':'down'}}" bindtap="onChangeStateLook">
+                          <view class='pickerpro_1'>提醒谁看</view>
+                          <view class="checked">选中 {{userid.length}} 人</view>
+                      </view>
+                  </view>
+
+                  <view class="">
+                      <view class="hide {{showView?'':'show'}}">
+                          <checkbox-group bindchange="checkboxChange">
+                              <label class="personcheckbox" wx:for="{{personsee}}" wx:key="personsee">
+                                  <checkbox value="{{item.value}}" checked="{{item.checked}}"/>
+                                  <image class='commun2_2211' src="{{item.icon}}"></image>
+                                  {{item.name}}
+                              </label>
+                          </checkbox-group>
+                      </view>
+                  </view>
+
+                  <view class='commun3_4' bindtap="questionSubmit" style="background:{{color}}">
+                      提交
+                  </view>
+
+              </view>
+        </view>
+      </scroll-view>
+  </swiper-item>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "找供应商",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tab-bar": "../../component/tabbar/tabbar"
+  }
+}

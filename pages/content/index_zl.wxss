@@ -1,0 +1,238 @@
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff; 
+  margin-bottom:20rpx; 
+}  
+.navbar .item{  
+  position: relative;  
+  flex: 1;  
+  text-align: center;  
+  line-height: 100rpx;  
+  font-size:32rpx;
+}  
+
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 10rpx;  
+  background: #3CC39B;  
+} 
+.zl_title{
+  color: #000000;
+  font-size:26rpx;
+  font-family: PingFangSC-Regular;
+  line-height: 40rpx;
+}
+.zl_dmzl{
+  margin:0rpx auto;
+  background:#fff;
+  border-bottom:1rpx solid #ccc;
+  padding:50rpx 0 20rpx 0;
+}
+.zl_tubiao{
+  display:flex;
+  flex-direction: column;
+  position:relative;
+  align-items:center;
+}
+.progress_box image{
+  width:500rpx;
+  height:500rpx;
+  position: absolute;
+  flex-direction: column;
+  align-items:center;
+}
+.zl_fs{
+  position:absolute;
+  display:flex;
+  top:100rpx;
+  flex-direction: column;
+  align-items:center;
+}
+.fen{
+  position:absolute;
+  top:0;
+  right:130rpx;
+  color:#C7C7C7;
+}
+.progress_data{
+  color:#C7C7C7;
+}
+.zl_defen{
+  font-size:30rpx;
+  color:#ccc;
+  display:flex;
+  justify-content: space-around;
+  align-items:flex-start;
+}
+.zl_defen text{
+  font-size:100rpx;
+  font-weight:bold;
+  color:#3CC39B;
+}
+.zl_date{
+  font-size:30rpx;
+  color:#ccc;
+}
+
+.zl_dianzan{
+  width:500rpx;
+  height:60rpx;
+  border-radius:30rpx;
+  background:#A6E7D3;
+  margin:40rpx 0 30rpx;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.zl_dianzan text{
+  color:#25BC90;
+}
+.zl_lister{
+  width:95%;
+  margin:0 auto;
+  background:#fff;
+  padding:30rpx auto;
+}
+.zl_list{
+  padding:50rpx 10rpx 20rpx 10rpx;
+  border-bottom:1px dotted #ccc;
+  flex:1;
+  justify-content: space-between;
+}
+.zl_tpro{
+  padding:20rpx 15rpx 0 15rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.zl_por{
+  width:550rpx;
+  height:40rpx;
+  background:#ccc;
+  border-radius:30rpx;
+  position:relative;
+}
+
+.zl_pro_lu{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#29AE89;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_lan{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#2F6FB4;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_chen{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#F76B1C;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_hong{
+  position:absolute;
+  width:300rpx;
+  height:40rpx;
+  background:#DD2476;
+  border-radius:30rpx;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.zl_pro_lu_zi{
+  font-size:20rpx;
+  color:#fff;
+}
+.zl_wenzi{
+  width:95%;
+  margin:20rpx auto;
+  display:flex;
+  align-items:flex-start;
+}
+.zl_wenzi text{
+  font-size:30rpx;
+  color:#B3B3B3;
+}
+.progress_box{
+  position: relative;
+  width:220px;
+  height: 220px;  
+  display: flex;  
+  align-items: center;
+  justify-content: center; 
+  margin-top: 30rpx;
+  background-size: 100% auto; 
+  background-position: center top; 
+  background-repeat: no-repeat; 
+}
+.progress_bg{
+  position: absolute;
+  width:220px;
+  height: 220px;
+}
+.progress_canvas{ 
+  width:220px; 
+  height: 220px; 
+} 
+.progress_text{ 
+  position: absolute; 
+  text-align: center;
+  width:100%;
+  left:10rpx;
+  top:15%;
+}
+.progress_in{
+  color:#fff;
+}
+.progress_info{   
+  font-size: 24rpx;
+  padding-left: 16rpx;
+  letter-spacing: 2rpx; color: #999;
+} 
+.progress_info text{ font-size: 100rpx; font-weight: bold;}
+.green{ color: #fff;font-size:150rpx;}
+.blue{ color: #fff;font-size:150rpx;}
+.orange{ color: #fff;font-size:150rpx;}
+.red{ color: #fff;font-size:150rpx;}
+.gray{color: #fff;font-size:150rpx;}
+.progress_info2{ color: #fff; font-size: 35rpx;}
+.canvas{ width: 100%; height: 250px; margin-top: 25rpx;}
+.ec-canvas {
+  width: 100%; height: 300px;
+} 
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.code-sk{ background:#c0daec; }
+.code-sk text{color:#317EBD;}
+.code-fx{ background:#fbddc1;}
+.code-fx text{color:#F89436;}
+.code-gfx{ background:#f9c8cd;}
+.code-gfx text{color:#F14D5C;}

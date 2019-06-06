@@ -1,0 +1,63 @@
+<!--pages/caigouxiangqing/zbgs.wxml-->
+<view class='listpadding'>
+  <view class='zbgg'>
+    <view class='zbgg_1'>
+      <view class='zbgg_11'>{{orderName}}采购结果公告</view>
+      <view class='zbgg_12'>【信息发布时间：{{putDate}}】</view>
+    </view>
+    <view class='zbgg_2'>
+      <view class='zbgg_21'><text>{{orderName}}（以下简称项目名
+称 ）政府采购活动，采购结果公告如下：</text></view>
+      <view class='zbgg_22'>一、项目编号：</view>
+      <view class='zbgg_21'><text>{{projectNo}}</text></view>
+      <view class='zbgg_22'>二、项目名称：</view>
+      <view class='zbgg_21'><text>{{orderName}}</text></view>
+      <view class='zbgg_22'>三、项目简要说明：</view>
+      <view class='zbgg_21'><text>详见采购文件</text> </view>
+      <view class='zbgg_22'>四、采购公告媒体及日期：</view>
+      <view class='zbgg_21'><text>{{bulletinDate}}</text></view>
+      <view class='zbgg_22'>五、采购方式：</view>
+      <view class='zbgg_21'><text></text>{{purchaseWay}}</view>
+      <view class='zbgg_22'>六、评标信息：</view>
+      <view class='zbgg_21'>
+        <text>评标委员会成员名单：{{bidEval}}
+          评标地点：{{bidEvalAddress}}
+          评标日期：{{bidEvalDate}}
+        </text>
+      </view>
+      <view class='zbgg_22'>七、中标信息：</view>
+      <view class='zbgg_21'>
+        <text>中标供应商名称：{{name}}
+          中标供应商地址：{{address}}
+          中标金额：￥ {{price}}(元) 
+        </text>
+      </view>
+      <view class='zbgg_22'>八、采购单位信息</view>
+      <view class='zbgg_21'>
+        <text>采购单位名称：{{company}}
+          采购单位地址：{{companyAddress}}
+          采购单位联系人姓名：{{contactsName}}
+          采购单位联系人电话：{{contactsPhone}} 
+        </text>
+      </view>
+      <view class='zbgg_22'>九、备注</view>
+      <view class='zbgg_21'>
+        <text>1、本中标公告自发布之日起公告期限为5个工作日。供应商如果认为采购过程和结果使自己的合法权益受到损害提 出质疑的，应按照《政府采购法实施条例》、《江苏省政府采购供应商监督管理暂行办法》 (苏财规〔2013〕28号)规定，在法定时间内（可自公告期届满之日起5个工作日内书面提出）。将质疑文件，包括权益受到损害的证明材料送至南京 市公共资源交易中心一楼北大厅柜台，采购中心不直接受理供应商的质疑。
+          2、自采购结果公告之日起5个工作日后，中标供应商在本平台右上角“我是供应商”-“交易管理”中查看签约情况。
+          <!--3、附：采购文件（ 免费下载地址： https://www.jfh.com/jftrade/order/file/download/MTg0ODE7OTA=/重要信息系统等级测评项目招标文件V1.0.docx -->
+        </text>
+      </view>
+      <view class='zbgg_22'>十、公告附件</view>
+      <view class='zbgg_21'>
+        <text>暂无公告附件 
+        </text>
+      </view>
+      <view class='zbgg_21'>
+        <text>南京市互联网+软件交易服务平台
+          公告日期： {{putDate}}
+        </text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class=''></view>

@@ -1,0 +1,3 @@
+<!--pages/web/detailBar.wxml-->
+<!-- <text>pages/web/detailBar.wxml</text> -->
+<web-view src="http://nj.jfh.com{{imageURL}}"></web-view>

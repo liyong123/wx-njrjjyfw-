@@ -1,0 +1,272 @@
+<!--pages/web/index.wxml-->
+<view class="contariner">
+  <!-- 采购中  建设中  已完成 -->
+  <view class='blue-backgraund'></view>
+  <view class='item-1'>
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=cgzb&orderStatus={{QUERY_STATE_CAIGOUZHONG}}">
+      <view class='pro-classify'>
+        <text wx:if="{{titleUrlData.tenderNum}}" class='pro-number'>{{titleUrlData.tenderNum}}</text>
+        <image src='../../img/addicon1.png'></image>
+      </view>
+      <text class='pro-name'>采购中</text>
+    </navigator>
+
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=xmjs&orderStatus={{QUERY_STATE_JIANSHEZHONG}}">
+      <view class='pro-classify'>
+        <text wx:if="{{titleUrlData.unFinishedNum}}" class='pro-number'>{{titleUrlData.unFinishedNum}}</text>
+        <image src='../../img/addicon2.png'></image>
+      </view>
+      <text class='pro-name'>建设中</text>
+    </navigator>
+
+    <navigator open-type="redirect" url="/pages/list/index?activeTabKey=xmjs&orderStatus={{QUERY_STATE_YIWANCHENG}}">
+      <view class='pro-classify'>
+        <text wx:if="{{titleUrlData.filedNum}}" class='pro-number'>{{titleUrlData.filedNum}}</text>
+        <image src='../../img/addicon3.png'></image>
+      </view>
+      <text class='pro-name'>已完成</text>
+    </navigator>
+
+  </view>
+
+  <!-- 项目总览 -->
+  <view class='item-2'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>项目总览</text>
+    </view>
+
+    <view class='all-pro'>
+      <view class='contract-num'>
+        <text class='num-price'>{{contractNum?contractNum:'暂无'}}</text>
+        <text class='lable-pro'>项目总数量</text>
+      </view>
+
+      <view class='total-price'>
+        <text class='num-price'>{{totalPrice?totalPrice:'暂无'}}</text>
+        <text wx:if="{{totalPrice}}">(元)</text>
+        <text class='lable-pro'>项目总金额</text>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 待办通知 -->
+  <view class='item-3'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>待办事项(</text>
+      <text class='item-number' wx:if="{{msgSumBacklogList!=0}}">{{msgSumBacklogList}}</text>)
+      <view class='more-item' bindtap='backlogListBin'>更多></view>
+    </view>
+
+    <view wx:if="{{backlogList.length==0}}">暂无数据</view>
+
+    <view wx:if="{{backlogList.length>0}}" class='backlog-lists'>
+      <swiper style="height: 200rpx;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" vertical="{{isVertical}}" duration="{{duration}}" circular='false'>
+        <swiper-item class='backlog-list' wx:for="{{backlogList}}" wx:key="backlogList" wx:if="{{index<3}}">
+          <image wx:if="{{item.readed==0}}" class='backlog-image' src='../../img/Group-8.png'></image>
+          <image wx:if="{{item.readed==1}}" class='backlog-image' src='../../img/Group-6.png'></image>
+          <image wx:if="{{false}}" class='backlog-image' src='../../img/Group-10.png'></image>
+          <view class='backlog-text'>{{item.content}}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+  </view>
+
+  <!-- 项目健康度 -->
+  <view class='item-4'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>项目健康度</text>
+      <view class='health'>
+        <view class='degree'>
+          <image class='health-degree-image' src='../../img/project_normal.png'></image>
+          <text class='health-degree-text_1'>正常</text>
+        </view>
+        <view class='degree'>
+          <image class='health-degree-image' src='../../img/project_risk.png'></image>
+          <text class='health-degree-text_2'>有风险</text>
+        </view>
+        <view class='degree'>
+          <image class='health-degree-image' src='../../img/project_high_warning.png'></image>
+          <text class='health-degree-text_3'>高风险</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='health-degree'>
+      <view class='health-degree-detail' wx:for="{{healthDegreeList}}" wx:key="healthDegreeList">
+        <view class='health-degree-title' data-tookit="{{item}}" bindtap='degreeTitle'>{{item.orderName}}</view>
+        <view class='health-degree-issue' data-tookit="{{item}}" bindtap='degreeIssue'>问题沟通</view>
+        <view class='health-degree-subitem'>
+          <view class='degree'>
+            <image wx:if="{{item.data.proPlan==1}}" class='health-degree-image' src='../../img/project_normal.png'></image>
+            <image wx:if="{{item.data.proPlan==2}}" class='health-degree-image' src='../../img/project_risk.png'></image>
+            <image wx:if="{{item.data.proPlan==3 || item.data.proPlan==4}}" class='health-degree-image' src='../../img/project_high_warning.png'></image>
+            <text>项目进度</text>
+          </view>
+          <view class='degree'>
+            <image wx:if="{{item.data.codeQuali==1}}" class='health-degree-image' src='../../img/project_normal.png'></image>
+            <image wx:if="{{item.data.codeQuali==2}}" class='health-degree-image' src='../../img/project_risk.png'></image>
+            <image wx:if="{{item.data.codeQuali==3 || item.data.codeQuali==4}}" class='health-degree-image' src='../../img/project_high_warning.png'></image>
+            <text>代码质量</text>
+          </view>
+          <view class='degree'>
+            <image wx:if="{{item.data.menberDelivery==1}}" class='health-degree-image' src='../../img/project_normal.png'></image>
+            <image wx:if="{{item.data.menberDelivery==2}}" class='health-degree-image' src='../../img/project_risk.png'></image>
+            <image wx:if="{{item.data.menberDelivery==3 || item.data.menberDelivery==4}}" class='health-degree-image' src='../../img/project_high_warning.png'></image>
+            <text>人力交付</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <!-- 代码质量 -->
+  <view class='item-6'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>代码质量</text>
+    </view>
+
+    <view class='code-detail'>
+      <view class='code-quality-all'>
+        <view class='code-order-name'>{{codeQuality[codeIndex].orderName}}</view>
+        <view class='code-order-flag'>代码质量
+          <image class='codeImage' wx:if="{{codeQuality[codeIndex].codeFlag==0}}" src='../../img/arrowup1.png'></image>
+          <image class='codeImage' wx:if="{{codeQuality[codeIndex].codeFlag==1}}" src='../../img/arrowup2.png'></image>
+        </view>
+      </view>
+
+      <!-- begin 圆形进度条-->
+      <view class='code-quality'>
+        <view class='total-points'>
+          <view class='progress_box'>
+            <canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
+            <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
+            <view class="progress_text">
+              <view class='progress_info'>
+                <text class='green' wx:if="{{fenshu>=80 && fenshu<=100}}">{{fenshu}}</text>
+                <text class='blue' wx:if="{{fenshu>=70 && fenshu<80}}">{{fenshu}}</text>
+                <text class='orange' wx:if="{{fenshu>=60 && fenshu<70}}">{{fenshu}}</text>
+                <text class='red' wx:if="{{fenshu>0 && fenshu<60}}">{{fenshu}}</text>分
+              </view>
+              <view class='progress_info2'>{{codeQuality[codeIndex].reportDate}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- end 圆形进度条-->
+
+      <view class='subentry-score'>
+        <view class='subentry-score1'>
+          <text class='subentry-score-value'>{{codeQuality[codeIndex].maintain?codeQuality[codeIndex].maintain:'暂无'}}</text>
+          <text class='subentry-score-label'>编译</text>
+        </view>
+        <view class='subentry-score1'>
+          <text class='subentry-score-value'>{{codeQuality[codeIndex].rule?codeQuality[codeIndex].rule:'暂无'}}</text>
+          <text class='subentry-score-label'>规范性</text>
+        </view>
+        <view class='subentry-score1'>
+          <text class='subentry-score-value'>{{codeQuality[codeIndex].rely?codeQuality[codeIndex].rely:'暂无'}}</text>
+          <text class='subentry-score-label'>可靠性</text>
+        </view>
+        <view class='subentry-score1'>
+          <text class='subentry-score-value'>{{codeQuality[codeIndex].apply?codeQuality[codeIndex].apply:'暂无'}}</text>
+          <text class='subentry-score-label'>应用</text>
+        </view>
+
+      </view>
+
+      <view class=''>
+        <view class="code-zan code-zan-you" wx:if="{{fenshu>=80 && fenshu<=100}}">
+          <text>代码非常健康，给您的供应商点赞~</text>
+        </view>
+        <view class="code-zan code-zan-shangke" wx:if="{{fenshu>=70 && fenshu<80}}">
+          <text>还有提升空间，继续努力！</text>
+        </view>
+        <view class="code-zan code-zan-fenxian" wx:if="{{fenshu>=60 && fenshu<70}}">
+          <text>托管的代码质量有潜在风险，请您加强管理！</text>
+        </view>
+        <view class="code-zan code-zan-gaofenxian" wx:if="{{fenshu>0 && fenshu<60}}">
+          <text>代码质量风险很高，可能影响您的项目成果！</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- {{active=='green':'green active':''}}  {{active=='blue':'blue active':''}} {{active=='orange':'orange active':''}} {{active=='red':'red active':''}} -->
+
+    <view class='code-quality-company'>
+
+      <view wx:for="{{codeQuality}}" wx:kew="codeQuality" class="subentry {{codeIndex==index && active=='green'?'green':''}} {{codeIndex==index && active=='blue'?'blue':''}} {{codeIndex==index && active=='orange'?'orange':''}} {{codeIndex==index && active=='red'?'red':''}}"
+        data-index="{{index}}" bindtap='codeQualityBind'>
+
+
+
+        <view class=" {{codeIndex==index ? 'triangle-whitd-active':'triangle-whitd'}} "></view>
+        <view class="order-name {{codeIndex==index ? 'order-name-active':''}}">{{item.orderName}}</view>
+
+        <view class="code-total {{codeIndex==index ? 'code-total-active':''}}">
+          <text class='green' wx:if="{{item.codeTotal>=80 && item.codeTotal<=100}}">{{item.codeTotal}}分</text>
+          <text class='blue' wx:if="{{item.codeTotal>=70 && item.codeTotal<80}}">{{item.codeTotal}}分</text>
+          <text class='orange' wx:if="{{item.codeTotal>=60 && item.codeTotal<70}}">{{item.codeTotal}}分</text>
+          <text class='red' wx:if="{{item.codeTotal>0 && item.codeTotal<60}}">{{item.codeTotal}}分</text>
+
+
+
+
+          <image wx:if="{{codeQuality[index].codeFlag==1}}" class="{{codeIndex==index ? 'code_image':''}}" style="width: 16rpx;height: 16rpx;" src='../../img/arrowup2.png'></image>
+          <image wx:if="{{codeQuality[index].codeFlag==0}}" class="{{codeIndex==index ? 'code_image':''}}" style="width: 16rpx;height: 16rpx;" src='../../img/arrowup1.png'></image>
+        </view>
+
+
+
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 项目代码总量 -->
+  <view class='item-7'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>项目代码总量</text>
+    </view>
+
+    <view class='rate-radar'>
+      <ec-canvas id="areaChart" canvas-id="areaChart" ec="{{ecArea}}"></ec-canvas>
+    </view>
+  </view>
+
+  <!-- 项目人力交付情况 -->
+  <view class='item-8'>
+    <view class='item-title'>
+      <text class='item-title-left'></text>
+      <text>项目人力交付情况</text>
+
+      <view class='document-type'>
+        <view>
+          <text class='document-icon icon_1'></text>
+          <text class='document-text'>检查点</text>
+        </view>
+        <view>
+          <text class='document-icon icon_2'></text>
+          <text class='document-text'>有提交物的检查点</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='rate-radar-bar'>
+      <ec-canvas id="barChart" canvas-id="barChart" ec="{{ecBar}}"></ec-canvas>
+    </view>
+  </view>
+
+</view>
+
+<tab-bar pages="{{pages}}"></tab-bar>

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "我的",
+  "usingComponents": {
+    "tab-bar": "../../component/tabbar/tabbar"
+  }
+}

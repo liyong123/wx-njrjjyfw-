@@ -1,0 +1,27 @@
+module.exports = {
+  // 订单状态
+  ORDER_STATE_ZHAOBIAO: "3",  // 招标
+  ORDER_STATE_PINGBIAO: "3",  // 评标中 & 已评标
+  ORDER_STATE_YIQIANYUE: "6", // 已签约
+  ORDER_STATE_QIANYUEZHONG: "5", // 签约中
+  ORDER_STATE_YIZHONGZHI: "0", // 已终止
+  ORDER_STATE_JIANSHEZHONG1: "0", // 建设中  
+  ORDER_STATE_JIANSHEZHONG: "1", // 建设中
+  ORDER_STATE_DAIYANSHOU: "2", // 待验收
+  ORDER_STATE_YIWANCHENG: "3", // 已完成
+  ORDER_STATE_YIGUIDANG: "4", // 已归档
+
+  // 查询状态
+  QUERY_STATE_QUANBU: '0',
+  QUERY_STATE_CAIGOUZHONG: '1,2,3,4', // 招标中
+  QUERY_STATE_YIQIANYUE: '5', // 已签约
+  QUERY_STATE_YIZHONGZHI: '6', // 已终止
+  QUERY_STATE_QIANYUEZHONG: 'wait_sig', //签约中 
+  QUERY_STATE_YIPINGBIAO: 'end_evaluation',// 已评标
+  QUERY_STATE_PINGBIAOZHONG: 'bid_evaluation', //评标中
+  QUERY_STATE_QUANBU1: '0',
+  QUERY_STATE_JIANSHEZHONG: '1', // 进行中
+  QUERY_STATE_DAIYANSHOU: '2', // 验收中
+  QUERY_STATE_YIWANCHENG: '3', // 验收完成
+  QUERY_STATE_YIGUIDANG: '4', // 已归档
+}

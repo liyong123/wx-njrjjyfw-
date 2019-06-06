@@ -1,0 +1,80 @@
+<!-- <wxs src="login.js"></wxs> -->
+<view class="login">
+  <view class='login_1'>
+    <view class='login_11'>南京市互联网+</view>
+    <view class='login_12'>软件交易服务平台</view>
+  </view>
+
+
+  <!-- my-card -->
+  <view class="login_2">
+    <view class="login_21">
+      <view>
+        <scroll-view class="tab-h" scroll-x='true' scroll-left="{{scrollLift}}">
+          <view class="tab-item {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">账号密码登录</view>
+          <view class="tab-item {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">手机验证登录</view>
+        </scroll-view>
+        <swiper current="{{currentTab}}" class="tab-content" duration="300" style="height:606rpx" bindchange="switchTab">
+          <!-- 账号密码登录 -->
+          <swiper-item>
+            <scroll-view scroll-y="true" class='scoll-h'>
+              <view class="my-cell-wrapper">
+                <label class="my-cell my-field">
+                  <input class="my-field-core" id="login-name" value='{{loginName}}' bindinput="personal_username_input" placeholder="请输入您的用户名" />
+                </label>
+                <label class="my-cell my-field">
+                  <input type="password" bindinput="personal_password_input" class="my-field-core" placeholder="请输入您的登录密码" value='{{password}}' />
+                </label>
+                <label class="my-cell my-field">
+                  <view class="btn btn-primary btn-large login-btn" hover-class="button-hover" bindtap="login">登录</view>
+                </label>
+              </view>
+              <label class="my-cell my-field blank-cell"></label>
+            </scroll-view>
+          </swiper-item>
+          <!-- 手机验证登录 -->
+          <swiper-item>
+            <scroll-view scroll-y="true" class='scoll-h'>
+              <view class="my-cell-wrapper">
+                <label class="my-cell my-field">
+                  <input class="my-field-core" placeholder="请输入您的手机号" bindinput="getMobile" value='{{mobile}}' type="number" confirm-type="go" />
+                </label>
+                <label class="my-cell my-field">
+                  <view class='hqyzm'>
+                    <input class="my-field-core" placeholder="请输入校验码" bindinput="getImgCode" />
+                  </view>
+                  <view class='hqyzm_1' bindtap='refreshverify'>
+                    <image class='hqyzm_12' src='{{imgcodeUrl}}'></image>
+                  </view>
+                </label>
+                <label class="my-cell my-field">
+                  <view class='hqyzm'>
+                    <input type="number" class="my-field-core" placeholder="请输入验证码" bindinput="getSmsCode" confirm-type="go" />
+                    <view class='hqyzm_2' style="z-index:9999">
+                      <view wx:if="{{!sendSmsCodeShow}}" class="hqyzm_11 hqyzm_11_green" bindtap="sendSmsCode">获取验证码</view>
+                      <!--获取验证码默认背景色为灰色 输入手机号后变为绿色可点击状态增加 hqyzm_11_green 样式-->
+                      <view wx:if="{{sendSmsCodeShow}}" class='hqyzm_11'>{{time}}s重新发送</view>
+                    </view>
+                  </view>
+                </label>
+                <view class='explain'>未注册手机验证后自动登录</view>
+                <label class="my-cell my-field">
+                  <view class="btn btn-primary btn-large login-btn" hover-class="button-hover" bindtap="login">登录</view>
+                </label>
+                
+              </view>
+            </scroll-view>
+          </swiper-item>
+        </swiper>
+      </view>
+
+    </view>
+
+    <label class='agreeSecret' wx:if="{{currentTab==1}}">
+        <text>登录代表您已同意</text>
+        <text bindtap='toSecret'>《平台安全保密协议》</text>
+    </label>  
+  </view>
+</view>
+
+<view class=''></view>

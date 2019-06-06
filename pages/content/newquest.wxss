@@ -1,0 +1,3 @@
+/* pages/content/newquest.wxss */
+@import "/pages/content/gt_index.wxss";
+@import "/pages/content/index.wxss";

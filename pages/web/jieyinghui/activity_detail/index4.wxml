@@ -1,0 +1,48 @@
+<!--pages/jieyinghui/activity_detail/index4.wxml-->
+<view class='detailpadding'>
+  <view class='activity_detail1'>DevOps理论＋实践之路（思想篇）</view>
+  <view class='activity_detail2'>
+    <view class='activity_detail2_1'>杰英会</view>
+    <view class='activity_detail2_2'>思想理论</view>
+    <view class='activity_detail2_3'>9月13日</view>
+  </view>
+  <view class='activity_detail3'>
+    <text>在软件行业蓬勃发展的背景下，软件交付质量正在面临巨大的挑战，越来越多的企业开始向DevOps转型。
+
+DevOps作为一套实践方法，它能够在保证高质量的前提下缩短系统变更从提交到部署至生产环境的时间，使企业能够以更加精简、高效的方式运作。
+
+然而，企业在向DevOps转型时，却常常因为理解不到位、执行不彻底的原因导致转型失败，DevOps无法发挥它应用的功效。为了帮助企业更好的理解和应用DevOps，我们推出了《DevOps理论＋实践之路》课程（两期），从思想到实践两个方面深入解读DevOps。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">面向对象：</view>
+    <text>\n</text>
+    <text>CIO、CTO、技术总监、技术经理、项目经理等技术管理者。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程概述：</view>
+    <text>\n</text>
+    <text>学习DevOps概念，从DevOps视角了解软件架构和开发过程，学习敏捷等软件工程理念。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">课程大纲：</view>
+    <text>\n</text>
+    <text>1.软件研发趋势
+2.DevOps的具体定义
+3.DevOps与敏捷开发
+4.企业DevOps转型面临的挑战\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">讲师简介：</view>
+    <text>\n</text>
+    <text>荆明明，中软国际解放号特邀讲师
+华为云认证讲师；HCDP-Cloud Service Systems Instructor认证讲师；腾讯云讲师。6年开发经验，技术全面。精通WEB前端技术体系，掌握jQuery、Angular、React、Vue等主流前端框架以及图表,地图等前端插件。对于响应式布局、WebAPP、HybridAPP开发有深入了解。具有PHP后台开发经验,掌握CI,TP等框架。深入研究Node.js开发，追求开源技术。
+项目经验：内部OA办公系统，代码众包平台，移动微商城，多个微信小程序，大数据可视化交互系统等。\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">加入课程直播群：</view>
+    <text>\n添加解小媛微信（微信号：JFHC-1），备注：CXO进化营直播群，小媛将拉你进群。\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/28/135645kcw1ds13vs6f1ecd.jpg.thumb.jpg'></image>
+    <text>扫码添加解小媛微信\n\n</text>
+    <view style=" color:#ff0000; font-weight:bold;">关于《CXO进化营》系列课程：</view>
+    <text>\n</text>
+    <text>解放号《CXO进化营》系列课程，以IT企业里的CTO、技术总监等技术团队管理者为主要对象，从大数据等热门技术知识分享，到项目管理、绩效管理等管理类课程分享，全方位提升IT服务企业的核心竞争力。
+
+系列课程安排：\n\n</text>
+    <image mode="widthFix"  src='http://bbs.jfh.com/data/attachment/forum/201808/27/171626b56f4fgfd56fe7hh.png.thumb.jpg'></image>
+    <text>查看系列课详情点击：http://live.jfh.com\n\n</text>
+
+  </view>
+</view>
+<view class='activity_detail4'></view>
+
+

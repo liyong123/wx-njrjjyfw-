@@ -1,0 +1,77 @@
+<view class='wrap'>
+  <view class="wrap_data">
+    <view class='date-show'>
+      <view class='lt-arrow' bindtap='lastMonth'>
+        <image src='../../img/assets/conten_xmdt01.png'></image>
+      </view>
+      {{year}}年{{month}}月
+      <view class='rt-arrow' bindtap='nextMonth'>
+        <image src='../../img/assets/conten_xmdt01.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='header'>
+    <view wx:for='{{date}}' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+      <view></view>
+    </view>
+  </view>
+  <view class='date-box'>
+    <view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+      <view class='date-head'>
+        <view bindtap='dt_list' class='dt_list' data-date-day="{{currDay}}" data-date-year="{{year}}" data-date-month="{{month}}">
+          <view class='dt_list_1'>{{item.dateNum}}</view>
+          <view class='dt_list_2'>
+             <!-- <block wx:if="{{currDay == item.dateNum}}"> -->
+                <block wx:if="{{dynamicData.dynamicType == 1}}">
+                  <view class="data_sc data_date_dny"></view>
+                </block>
+                <block wx:if="{{dynamicData.dynamicType1 == 1}}">
+                  <view class="data_bg data_date_dny"></view>
+                </block>
+                <block wx:if="{{dynamicData.dynamicType2 == 1}}">
+                  <view class="data_jd data_date_dny"></view> 
+                </block>
+                <block wx:if="{{dynamicData.dynamicType3 == 1}}">
+                  <view class="data_ys data_date_dny"></view>
+                </block>
+                <block wx:if="{{dynamicData.dynamicType4 == 1}}">
+                  <view class="data_tl data_date_dny"></view> 
+                </block>
+                <block wx:if="{{dynamicData.dynamicType5 == 1}}">
+                  <view class="data_yj data_date_dny"></view>
+                </block>
+             <!-- </block> -->
+          </view>
+        </view>
+      </view>
+      <view class=""></view>
+    </view>
+  </view>
+</view>
+
+<view class="data_stat">
+  <view class="data_list">
+    <view class="data_sc"></view>
+    <view class="data_wen">上传文件</view>
+  </view>
+  <view class="data_list">
+    <view class="data_bg"></view>
+    <view class="data_wen">提交报告</view>
+  </view>
+  <view class="data_list">
+    <view class="data_jd"></view>
+    <view class="data_wen">阶段变更</view>
+  </view>
+  <view class="data_list">
+    <view class="data_ys"></view>
+    <view class="data_wen">项目验收</view>
+  </view>
+  <view class="data_list">
+    <view class="data_tl"></view>
+    <view class="data_wen">会议讨论</view>
+  </view>
+  <view class="data_list">
+    <view class="data_yj"></view>
+    <view class="data_wen">风险预警</view>
+  </view>
+</view>

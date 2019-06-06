@@ -1,0 +1,115 @@
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<scroll-view class='content' style="height: 100%;" scroll-y="true" scroll-top="0">
+  <!--成员基本信息-->
+  <view class='person-bk'>
+      <!--image class='person-bk-image0' src='../../img/supplier/basic_bk.png'></image-->
+      <image class='person-bk-image1' src='http://qdrc.jfh.com/qingdao/webchat/img/supplier/core_member_bg.png'></image>
+  <view class='person-info'>
+    <view class='card'>
+        <view class='person-card-one'>
+          <image class="card-one-photo" src="{{info.memLogoUrl}}"></image>
+          <text class='card-one-name'>{{info.realName}}</text>
+          <text class='card-one-age'>{{info.sex}} | {{info.age}}岁（{{info.birthDate}}）</text>
+        </view>
+        <view class='dash'></view>
+        <view class='person-card-two'>
+          <view class='card-two-item'>
+            <image class='work-icon' src='../../img/icon_work_year.png'></image>
+            <view class='item-work'>
+              <text class='work-text'>{{info.workTime}}年</text>
+              <text class='work-sign'>工作经验</text>
+            </view>
+
+          </view>
+          <view class='card-two-item'>
+            <image class='work-icon' src='../../img/icon_work_location.png'></image>
+            <view class='item-work'>
+              <text class='work-text'>{{info.location}}</text>
+              <text class='work-sign'>工作地点</text>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+  <!--擅长行业/领域-->
+  <view class='resume-part'>
+    <view class='resume-title'>
+      <text>个人擅长</text>
+      <image src='../../img/icon_field.png'></image>
+    </view>
+    <view class="resume-work">
+      <view class='resume-work-1'></view>
+      <p class='resume-work-2'>工作：</p>
+      <view class='resume-field'>
+        <text wx:for="{{workList}}" wx:key="risk">{{item}}</text>
+      </view>
+    </view>
+    <view class="resume-work">
+      <view class='resume-work-1'></view>
+      <text class='resume-work-2'>技能：</text>
+      <view class='resume-field'>
+        <text wx:for="{{skillList}}" wx:key="risk">{{item}}</text>
+      </view>
+    </view>
+    <view class="resume-work" style="border-bottom:0">
+      <view class='resume-work-1'></view>
+      <text class='resume-work-2'>行业：</text>
+      <view class='resume-field'>
+        <text wx:for="{{info.listIndustry}}" wx:key="risk">{{tools.sub(item, 10)}}</text>
+      </view>
+    </view>
+
+  </view>
+  <!--学历-->
+  <view class='resume-part'>
+    <view class='resume-title'>
+      <text>学历</text>
+      <image src='../../img/icon_education.png'></image>
+    </view>
+    <view class='resume-education'>
+      <text class='text-blue'>{{info.degree}}</text>
+      <text class='text-black'> | {{info.school}} | {{info.major}}</text>
+    </view>
+  </view>
+  <!--项目案例-->
+  <view class='resume-part'>
+    <view class='resume-title'>
+      <text>项目案例</text>
+      <image src='../../img/icon_project.png'></image>
+    </view>
+     <view wx:if='{{cases.length == 0}}' style='padding: 20rpx 20rpx 30rpx;'>暂无</view>
+    <view class='resume-project' wx:for="{{cases}}" wx:if="{{index < showSuccessCaseNum}}" wx:for-item="item" wx:key="index">
+      <text class='project-time'>● {{item.time}}</text>
+      <text class='project-name'>{{item.name}} </text>
+      <text class='project-classify'>所属行业： {{item.industry}}</text>
+      <text class='project-classify'>所属类型： {{item.classify}}</text>
+      <text class='project-classify'>案例描述：</text>
+      <view class='project-describe'>
+        <text wx:if="{{lookDetailIndex != index}}">{{tools.sub(item.describe,40)}}</text>
+        <text wx:else>{{item.describe}}</text>
+        <view class='look-detail' wx:if="{{lookDetailIndex != index && item.describe.length>40}}" bindtap="lookDetail" id="{{index}}">查看详情 </view>
+      </view>
+    </view>
+    <view class='look-at-all-classfy' wx:if="{{cases.length>showSuccessCaseNum}}" bindtap="lookAllSuccessfulCase">查看全部成功案例
+      <image src="../../img/down-lod.png"></image>
+    </view>
+
+  </view>
+  <!--自我介绍-->
+  <view class='resume-part' style="margin-bottom:0">
+    <view class='resume-title' style="border-bottom:0">
+      <text>自我介绍</text>
+      <image src='../../img/fieldExpertise.png'></image>
+    </view>
+    <view class='resume-myself'>
+      <text class="self-introduction {{ellipsis ?'ellipsis':'unellipsis'}}">{{info.memDesc}}</text>
+      <view class="unfold" wx:if="{{ellipsis}}" bindtap="ellipsis">
+        <view class='unfold-content'>
+          <text>展开</text>
+          <image src="../../img/down-lod.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

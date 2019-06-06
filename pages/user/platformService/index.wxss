@@ -1,0 +1,43 @@
+page{
+  background-color:#f3f6f7;
+  position: relative
+}
+.swiperAll{
+  margin-top:8%
+}
+.swiperAll image{
+   display: block;
+   width: 670rpx;
+   height:980rpx;
+   margin:0 auto;
+   border-radius: 12rpx;
+}
+swiper{
+  height:980rpx;
+}
+.topBg{
+  width: 100%;
+  height:0;
+  background-color: #597FF3
+}
+.swiperAll .wx-swiper-dots.wx-swiper-dots-horizontal{
+    margin-bottom: 50rpx;
+}
+.btnGrp{
+  position: absolute;
+  left: 50%;
+  margin-left:-172rpx;
+  bottom:10%;
+  display: flex;
+  justify-content: center;
+}
+.btnGrp button{
+  background-color: #587EF3 ;
+  width: 344rpx;
+  height:80rpx;
+  border-radius: 40rpx;
+  font-size:28rpx;
+  color:#fff;
+  line-height: 80rpx;
+
+}

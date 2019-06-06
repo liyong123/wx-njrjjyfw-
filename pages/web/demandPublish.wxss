@@ -1,0 +1,4 @@
+/* pages/caigouxiangqing/zhaobiaogonggao.wxss */
+@import "/pages/content/index.wxss";
+@import "/pages/caigouxiangqing/index.wxss";
+@import "/wxParse/wxParse.wxss";

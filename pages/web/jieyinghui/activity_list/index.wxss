@@ -1,0 +1,42 @@
+/* pages/jieyinghui/activity/index.wxss */
+@import "../index.wxss";
+.tab-h{
+  height: 84rpx;
+  position: fixed; 
+  left: 0; 
+  top: 0; 
+  width: 100%;
+  background: #fff;
+  white-space: nowrap;
+  z-index: 10000;
+  margin-top: 0;
+  margin-bottom:9rpx; box-shadow: 0 2rpx 4rpx 0 rgba(0,0,0,0.1);
+}
+.tab-h_pad{ height: 84rpx;z-index: 10000;background:#fff;}
+.tab-item{
+  margin: 0;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height:78rpx;
+  color:#4A4A4A;
+  z-index: 10000;
+}
+.tab-item.active{
+  color: black;
+  position: relative;
+  border-bottom: 6rpx solid #0ac18a;
+  z-index: 10000;
+}
+
+.activity_ad{
+  position: fixed; 
+  left: 0; 
+  top: 0; z-index: 10000;
+  padding: 15rpx; height: 62rpx; box-shadow: 0 2rpx 4rpx 0 rgba(0,0,0,0.1); background: #fff;}
+.activity_ad .activity_ad_1{ display: inline-block; padding: 9rpx 38rpx; background: #FFFFFF; border: 1rpx solid #9B9B9B; border-radius: 30rpx; color: #4A4A4A; font-size: 24rpx; margin:7rpx 9rpx 7rpx 9rpx;}
+.activity_ad .active{ background: #08B985; border: 1rpx solid #08B985; color: #fff;}
+.activity_ad_pad{ height: 92rpx;}
+.zanwu{ text-align: center;}

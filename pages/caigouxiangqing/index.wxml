@@ -1,0 +1,243 @@
+<!--pages/caigouxiangqing/index.wxml-->
+<import src="./template/supplier.wxml" />
+<import src="./template/supplier-1.wxml" />
+<import src="./template/expert-1.wxml" />
+<import src="./template/expert.wxml" />
+<view class="head-block" style="height: 164rpx">
+  <view class="caigou-detail-title-time" wx:if="{{ filterStatus == 1 }}">
+    <view style="font-size: 28rpx;line-height: 40rpx">招标中</view>
+    <view class="time-rest" wx:if="{{ resSeconds > 0 || resMinutes > 0 || resHours > 0 || resDays > 0 }}">倒计时
+      <block wx:if="{{resDays > 1}}">
+        <view>{{resDays}}</view> 天
+      </block>
+      <block wx:else>
+        <view>{{resHours}}</view> :
+        <view>{{resMinutes}}</view> :
+        <view>{{resSeconds}}</view>
+      </block>
+    </view>
+    <view wx:else class="time-rest">
+      投标已截止
+    </view>
+  </view>
+  <block wx:else>
+  <view wx:if="{{filterStatus == 1}}" class="caigou-detail-title" >招标中</view>
+  <view wx:if="{{filterStatus == 2}}" class="caigou-detail-title" >评标中</view>
+  <view wx:if="{{filterStatus == 3}}" class="caigou-detail-title" >已评标</view>
+  <view wx:if="{{filterStatus == 4}}" class="caigou-detail-title" >签约中</view>
+  <view wx:if="{{filterStatus == 5}}" class="caigou-detail-title" >已签约</view>
+  <view wx:if="{{filterStatus == 6}}" class="caigou-detail-title" >已终止</view>
+  </block>
+  
+  <image style="height: 164rpx; width: 164rpx; margin-right: 29rpx; float: right; vertical-align: middle" src="http://qdrc.jfh.com/qingdao/webchat/img/zbz-a.png"></image>
+</view>
+
+<scroll-view class="scroll-container" scroll-y="true" style="top: 164rpx;bottom: {{ ((filterStatus >3 && experts && experts[0] && experts[0].evaluated) || (filterStatus == 3 && experts && experts[0]))  ? '100rpx' : '0' }}">
+
+  <view class="full-block">
+    <view class="attr">
+      <text>项目类型：\n</text>
+      <text>发布时间：\n</text>
+      <text>{{finalTimeName}}： \n</text>
+      <text>{{finalPriceName}}：\n</text>
+      <text wx:if="{{supName}}">中标供应商：\n</text>
+    </view>
+    <view class="val">
+      <text>{{tech || '暂无'}} \n</text>
+      <text>{{fbTimeFmt}} \n</text>
+      <text>{{finalTime }} \n</text>
+      <text>{{finalPrice}}(元) \n</text>
+      <text wx:if="{{supName}}">{{supName}} \n</text>
+    </view>
+  </view>
+
+  <view wx:if="{{filterStatus == 1}}" class="full-block">
+    <view class="section-title">投标供应商
+      <block wx:if="{{suppliers[0] && suppliers[0].supplierCount}}">
+        （<text style="color:red">{{ suppliers[0].supplierCount * 1 > suppliers.length ? suppliers[0].supplierCount : suppliers.length }}</text>）
+      </block>
+    </view>
+    <view wx:if="{{suppliers[0] && suppliers[0].supplierCount}}" style="padding: 20rpx 0;">
+      <view wx:for="{{suppliers}}" wx:key="{{jfid}}" style="margin: 15rpx 0;">
+        <view class='dashed' wx:if="{{index>0}}"></view>
+        <template is="supplier" data="{{...item, orderId: orderId, supplierAvatarUrl: supplierAvatarUrl}}"></template>
+      </view>
+      <view wx:if="{{suppliers[0] && suppliers[0].supplierCount * 1 > 3 && !isShowAllSuppliers }}" style="width: 351rpx;margin:0 auto">
+        <view class="view-all" bindtap="showAllSuppliers">
+          查看全部 ∨
+        </view>
+      </view>
+    </view>
+    <view wx:else  style="text-align: center">
+      <image src="../../img/nogys.png" style="width: 187rpx;height: 149rpx;padding: 40rpx 0 20rpx 0"></image>
+      <view style="color:#9b9b9b">您的供应商正在飞速赶来！</view>
+    </view>
+  </view>
+
+  <view wx:if="{{filterStatus == 2 || filterStatus == 3 }}" class="full-block">
+    <view class="section-title">投标供应商
+      <block wx:if="{{suppliers[0] && suppliers[0].supplierCount}}">
+        （<text style="color:red">{{ suppliers[0].supplierCount * 1 > suppliers.length ? suppliers[0].supplierCount : suppliers.length }}</text>）
+      </block>
+    </view>
+    <view wx:if="{{suppliers[0] && suppliers[0].supplierCount}}" style="padding: 20rpx 0;">
+      <view class='suppliers_list' wx:for="{{suppliers}}" wx:key="{{jfid}}" style="margin: 15rpx 0;">
+        <view class='dashed' wx:if="{{index>0}}"></view>
+        <template is="supplier-1" data="{{...item, orderId: orderId, supplierAvatarUrl, supplierAvatarUrl}}"></template>
+      </view>
+
+
+
+      <view wx:if="{{suppliers[0] && suppliers[0].supplierCount * 1 > 3 && !isShowAllSuppliers }}" style="width: 351rpx;margin:0 auto">
+        <view class="view-all" bindtap="showAllSuppliers">
+          查看全部 ∨
+        </view>
+      </view>
+    </view>
+
+    <view wx:else  style="text-align: center">
+      <image src="../../img/nogys.png" style="width: 187rpx;height: 149rpx;padding: 40rpx 0 20rpx 0"></image>
+      <view style="color:#9b9b9b">您的供应商正在飞速赶来！</view>
+    </view>
+
+  </view>
+
+  <view wx:if="{{filterStatus == 6}}" class="full-block">
+    <view class="section-title">终止说明</view>
+    <view style="padding: 0rpx 0 20rpx 0;text-align: center">
+      <image src="../../img/ddzz.png" style="width: 187rpx;height: 149rpx;padding: 40rpx 0 20rpx 0"></image>
+      <view style="color:#9b9b9b;padding:40rpx 40rpx;word-break:break-all;text-align: left" >
+        <text style="color: #9b9b9b">{{abortReason || '所有投标单位都不符合招标要求，做流标处理'}}</text>
+    </view>
+    </view>
+  </view>
+  
+  <view wx:if="{{( filterStatus == 1 || filterStatus == 2 || filterStatus == 3)}}" class="full-block">
+    <view class="section-title">{{ filterStatus == 1 ? '邀请的专家' : '评标专家'}}
+      <block wx:if="{{experts[0] && experts[0].expertCount}}">
+        （<text style="color:red">{{ experts[0].expertCount * 1 > experts.length ? experts[0].expertCount : experts.length }}</text>）
+      </block>
+    </view>
+  </view>
+  <view wx:if="{{filterStatus == 4 || filterStatus == 5}}" class="full-block">
+    <view class="section-title">{{ filterStatus == 1 ? '邀请的专家' : '评标专家'}}
+      <block wx:if="{{experts[0] && experts[0].expertCount}}">
+        （<text style="color:red">{{ experts[0].expertCount * 1 > experts.length ? experts[0].expertCount : experts.length }}</text>）
+      </block>
+    </view>
+    <view wx:if="{{experts[0] && experts[0].expertCount}}" style="padding: 20rpx 0;">
+      <view wx:for="{{_experts}}" wx:key="{{jfId}}" style="margin: 15rpx 0;">
+        <view class='dashed' wx:if="{{index>0}}"></view>
+        <template is="expert-1" data="{{...item, orderId: orderId, receive: filterStatus == 1, expertAvatarUrl : expertAvatarUrl }}"></template>
+      </view>
+      <view wx:if="{{experts[0] && experts[0].expertCount * 1 > 3 && !isShowAllExperts }}" style="width: 351rpx;margin:0 auto;margin-top: 30rpx">
+        <view class="view-all" bindtap="showAllExperts">
+          查看全部 ∨
+        </view>
+      </view>
+    </view>
+    <view wx:else  style="text-align: center">
+      <image src="../../img/nozj.png" style="width: 187rpx;height: 149rpx;padding: 40rpx 0 20rpx 0"></image>
+      <view style="color:#9b9b9b">您还未邀请专家，快去电脑端邀请吧</view>
+    </view>
+  </view>
+
+  <!-- <view wx:elif="{{orderStatus != -1 }}" class="full-block" style="position:relative">
+    <view class="section-title">邀请的专家（
+      <text style="color:red">{{experts[0] ? experts[0].expertCount : '0'}}</text>）</view>
+    <view wx:if="{{orderStatus == ORDER_STATE_YIQIANYUE && experts.length > 0 && experts[0].evaluated }}" class="view-all evaluate" bindtap="watchExpert">查看评价结果</view>
+    <view wx:if="{{orderStatus == ORDER_STATE_YIQIANYUE && experts.length > 0 && !experts[0].evaluated }}" class="view-all evaluate" bindtap="evaluateExpert">评价专家</view>
+    <view style="padding: 20rpx 0;display: flex; flex-wrap: wrap;justify-content: space-around">
+      <view wx:for="{{experts}}" style="width: 180rpx;padding: 6rpx">
+        <template is="expert" data="{{...item, orderId: orderId}}"></template>
+      </view>
+      <view wx:if="{{experts[0] && experts[0].expertCount * 1 > 3 && !isShowAllExperts }}" style="width: 351rpx;margin:0 auto">
+        <view class="view-all" bindtap="showAllExperts">
+          查看全部
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+  <view wx:if="{{filterStatus != 6}}" class="full-block">
+    <view class="section-title">公示信息</view>
+    <view class="docs">
+      <view class="able">
+        <image src="../../img/zbgg.png"></image>
+        <!-- <navigator url="/pages/caigouxiangqing/zhaobiaogongshi?orderId={{orderId}}"> -->
+        <navigator url="/pages/caigouxiangqing/zhaobiaogongshi?orderId={{orderId}}&jfid={{jfId}}">
+          <view>招标公示</view>
+          <view>{{orderName}}</view>
+        </navigator>
+        <view class="docs-share">
+          <button open-type="share" data-url="/pages/caigouxiangqing/zhaobiaogonggao?orderId={{orderId}}" style="border: none; background-color:transparent;height: 40rpx;padding: 0;border-radius:0px; padding: 8rpx 0">
+            <image class="share-icon" src="../../img/fx1.png"></image>
+          </button>
+        </view>
+      </view>
+
+      <view class="able" wx:if="{{ !!noticeId }}">
+        <image src="../../img/zbgs1.png"></image>
+        <navigator url="/pages/caigouxiangqing/cjgs?orderId={{noticeId}}">
+        <!-- <navigator url=""> -->
+        <!-- <navigator url=""> -->
+          <view>成交公示</view>
+          <view>{{orderName}}</view>
+        </navigator>
+        <view class="docs-share">
+          <button open-type="share" data-url="/pages/caigouxiangqing/cjgs?orderId={{noticeId}}" style="border: none; background-color:transparent;height: 40rpx;padding: 0;border-radius:0px; padding: 8rpx 0">
+            <image class="share-icon" src="../../img/fx1.png"></image>
+          </button>
+          
+          <!-- <button style="border: none; background-color:transparent;height: 40rpx;padding: 0;border-radius:0px; padding: 8rpx 0">
+            <image class="share-icon" src="../../img/fx1.png"></image> 
+          </button>-->
+        </view>
+      </view>
+
+      <view class="disable" wx:else>
+        <image src="../../img/zbgs2.png"></image>
+        <view>成交公示
+          <text>（暂无）</text>
+        </view>
+      </view>
+
+      <view class="able" wx:if="{{filterStatus == 5}}">
+        <image src="../../img/xmht1.png"></image>
+        <!-- <navigator url="/pages/caigouxiangqing/xmht?orderId={{orderId}}"> -->
+        <navigator url="">
+        <!-- <navigator url=""> -->
+          <view>项目合同</view>
+          <view>{{orderName}}</view>
+        </navigator>
+        <view class="docs-share">
+          <button open-type="share" data-url="/pages/caigouxiangqing/xmht?orderId={{orderId}}" style="border: none; background-color:transparent;height: 40rpx;padding: 0;border-radius:0px; padding: 8rpx 0">
+            <image class="share-icon" src="../../img/fx1.png"></image>
+          </button>
+        </view>
+      </view>
+
+      <view class="disable" wx:else>
+        <image src="../../img/xmht.png"></image>
+        <view>项目合同
+          <text>（暂无）</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</scroll-view>
+
+<view wx:if="{{ filterStatus == 3 && experts.length > 0 }}" class="fixed-bottom">
+  <view wx:if="{{ !experts[0].evaluated }}" class="view-all-1 evaluate-1" bindtap="evaluateExpert">
+    <image src="../../img/edit-fill.png" style="width:24rpx;height:24rpx;vertical-align:middle;"></image>
+    评价专家
+  </view>
+  <view wx:else class="view-all-1 evaluate-1" bindtap="watchExpert">查看评价</view>
+</view>
+
+<!-- <view wx:if="{{filterStatus > 3 && experts.length > 0 }}" class="fixed-bottom"> -->
+<view wx:if="{{filterStatus > 3 && experts.length > 0 && experts[0].evaluated }}" class="fixed-bottom">
+  <view class="view-all-1 evaluate-1" bindtap="watchExpert">查看评价</view>
+</view>

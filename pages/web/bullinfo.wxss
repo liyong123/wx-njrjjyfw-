@@ -1,0 +1,51 @@
+/* pages/web/bullinfo.wxss */
+
+.news-container {
+  margin: 28rpx 24rpx;
+}
+
+.news-title {
+  font-size: 36rpx;
+  color: #4a4a4a;
+  line-height: 1.5;
+}
+
+.news-desc {
+  line-height: 30rpx;
+  margin: 10rpx 0;
+}
+
+.news-desc > view {
+  display: inline-block;
+  color: #9b9b9b;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+}
+
+.news-desc > view > text {
+  color: #4a4a4a;
+  padding: 0 10rpx;
+}
+
+.news-desc > view:nth-child(2) {
+  border-left: 1px solid #979797
+}
+
+.news-content {
+  margin-top: 10rpx;
+}
+
+.news-paragraph {
+  text-indent:48rpx;
+  margin: 15rpx 0;
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+
+.news-content image {
+  width: 100%;
+  margin: 15rpx 0;
+  border-radius: 10rpx;
+}

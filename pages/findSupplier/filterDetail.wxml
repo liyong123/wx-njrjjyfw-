@@ -1,0 +1,42 @@
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<view>
+  <!-- 选择城市 -->
+  <picker range='{{cities}}' range-key='cityName' bindchange='cityChanged' value='{{cityIndex}}' bindcancel='cityCancel'>
+  <view class='part-wrapper'>
+    <view class='part-label'>已选城市</view>  
+    <view class='part-value-wrapper'> 
+      <text class='part-value'>{{tools.sub(choosedCity.cityName,13)}}</text>
+    </view>
+    <image class='part-image' src='../../img/supplier/filter_location.png'></image> 
+  </view>
+  </picker>
+
+  <!-- 选择行业 -->
+  <picker range='{{industries}}' range-key='indName' bindchange='industryChanged' value='{{industryIndex}}' bindcancel='industryCancel'>
+  <view class='part-wrapper'>
+    <view class='part-label'>行业</view>  
+    <view class='part-value-wrapper'> 
+      <text class='part-value'>{{tools.sub(choosedIndustry.indName,13)}}</text>
+    </view>
+    
+    <image class='part-image' src='../../img/supplier/filter_industry.png'></image> 
+  </view>
+</picker>
+
+  <!-- 擅长工作类型 -->
+  <view class='workType-wrapper'>
+    <view class='title'>擅长工作类型</view>
+    <view class='list-wrapper'>
+      <block wx:for="{{workTypes}}" wx:key="workTypes">
+        <text class='list-item' data-index='{{index}}' bindtap='workTypeChanged' class="list-item {{index == workTypeIndex ? 'choosed' : ''}}">{{item.tagName}}</text>
+      </block>
+    </view>
+  </view>
+
+  <!-- 确认按钮 -->
+  <view class='confirm-wrapper'>
+    <button bindtap='resetSearch'>重置</button>
+    <button bindtap='confirmSearch'>确认</button>
+  </view>
+</view>
+

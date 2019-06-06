@@ -1,0 +1,672 @@
+<wxs module="filter" src="../list/index.wxs"></wxs>
+<!--index.wxml-->
+<script src="index.js"></script>
+<scroll-view wx:if="{{expandToolBar}}" class="tab-h" scroll-x='true' scroll-left="{{scrollLift}}">
+  <wux-tabs auto="{{ false }}" theme="energized" current="{{ currentTab }}" bindchange="caigouxqTap">
+    <block wx:for="{{ navbar }}" wx:key="unique">
+      <wux-tab key="{{ index }}" title="{{ item }}"></wux-tab>
+    </block>
+  </wux-tabs>
+</scroll-view>
+<scroll-view class="scroll-container" style="top:84rpx;bottom: {{currentTab == 0 && (yanshou || (guidang && evaluated)) ? '100' : '0'}}rpx" scroll-y="true">
+  <!-- 阶段进展 -->
+  <view hidden="{{currentTab!==0}}">
+    <view class="full-block" style="display: flex">
+      <view class="message-list">
+        <view class="attr">
+          <text>合同金额：\n</text>
+          <text>供应商：\n</text>
+          <text>创建时间：\n</text>
+          <text>交付时间：\n</text>
+          <text>项目成员：\n</text>
+        </view>
+        <view class="val">
+          <text>{{proList.price}}(元) \n</text>
+          <text>{{proList.supplyName || '暂无'}} \n</text>
+          <text>{{proList.createTime || '暂无' }} \n</text>
+          <text>{{proList.opDueendtime || '暂无' }} \n</text>
+          <text>{{proList.orderMembers}} 人 \n</text>
+        </view>
+      </view>
+      <view wx:if="{{!yanshou}}" class="message-status" style="display: flex; flex-direction: column;justify-content:center;border-left:1px dashed #e3e3e3;">
+        <view>{{proList.stageName || '暂无进展'}}</view>
+        <view wx:if="{{health.totalStatus}}" >
+        <image src="../../img/{{health.totalImg}}.png" 
+        style="display: inline-block; width: 28rpx; height: 28rpx; margin-right: 8rpx;vertical-align:middle"></image> 
+        <text style="color: {{ health.totalColor }};vertical-align:middle;line-height: 28rpx;">{{health.totalStatus}}</text></view>
+      </view>
+      <view class="message-status" style="text-align: right;vertical-align: top" wx:if="{{yanshou}}">
+        <view style="color: #07B985;font-weight: 600;margin-right: 20rpx">已验收</view>
+        <image wx:if="{{guidang}}" style="width:120rpx; height: 100rpx;margin-top: 20rpx" src="../../img/yiguidang.png"></image>
+      </view>
+    </view>
+    <view class='block-content'>
+
+      <block wx:if="{{!yanshou}}">
+        <view class="section-title" style="margin-bottom: 20rpx">健康度分析
+        <view class="legend-container">
+          <view style="background-color: #07B985;"></view>
+          <text>正常</text>
+          <view style="background-color: #F0A33F;"></view>
+          <text>有风险</text>
+          <view style="background-color: #E55449;"></view>
+          <text>高风险</text>
+        </view>
+      </view>
+      <view class="block">
+      <!-- wx:if='{{health.proPlan != 4}}' -->
+        <view  class="health-line {{ health.proPlanClass }}">
+          <view class="health-block">项目进度</view>
+          <view class="health-desc">当前阶段：
+            <text>{{health.stageName || '暂无数据'}}</text>
+            <!-- <view style="display: inline;float:right">延期：
+              <text>11</text>天</view> -->
+            <view wx:if="{{currentDelay}}" style="display: inline;float:right">延期：
+              <text>{{currentDelay}}</text>天</view>
+
+              <view wx:if="{{!currentDelay}}" style="display: inline;float:right;">延期：
+              <text>暂无延期</text></view>
+          </view>
+        </view>
+        <!-- wx:if='{{health.menberDelivery != 4}}' -->
+        <view  class="health-line {{ health.menberDeliveryClass }}">
+          <view class="health-block">人力投入</view>
+          <view class="health-desc">
+            <text wx:if='{{health.menberDelivery != 1 && health.menberDelivery != 4}}'>{{health.policeStaName }}交付件未按计划交付</text>
+            <text wx:if='{{health.menberDelivery == 1}}'>人力投入正常</text>
+            <text wx:if='{{health.menberDelivery == 4}}'>暂无数据</text>
+            <!-- <text>{{ policeStaName }}</text> -->
+          </view>
+        </view>
+        <!-- wx:if='{{health.codeQuali != 4}}' -->
+        <view  class="health-line {{ health.codeQualiClass }}">
+          <view class="health-block">代码质量</view>
+          <view class="health-desc">代码质量得分：
+            <text>{{health.codeQualiScore == null ? '暂无' : health.codeQualiScore }}</text>
+            <view style="display: inline-block; float: right">
+              <!-- <text>{{ health.codeQuali == 1 ? '良好' : health.codeQuali == 2 ? '及格' : '不及格' }}</text> -->
+            </view>
+          </view>
+        </view>
+        <!-- <view wx:if="{{ health.proPlan == 4 && health.codeQuali == 4 && health.menberDelivery == 4 }}" style='display:flex;justify-content:center;flex-direction:column;align-items:center;color:#9b9b9b;font-size:28rpx;'>
+           <image style="width: 500rpx;height: 400rpx;" src='../../img/myFocusNoData.png'></image>
+           <text>暂无数据</text>
+        </view> -->
+      </view>
+      </block>
+      
+
+      <block wx:if="{{!yanshou}}">
+        <view class="section-title" style="margin: 20rpx">项目进度</view>
+        <block wx:if="{{ xiala.length > 0 }}">
+          <view class="block" wx:for="{{xiala}}">
+              <view style="margin: 10rpx 0 0 0;font-weight: 600">{{item.name}}
+              <text style="float: right;color: {{item.statusColor}}">{{ item.statusName }}</text>
+            </view>
+            <view style="padding: 20rpx 0;border-bottom: 1px dashed #e5e5e5">
+              <view wx:for="{{item.list}}" wx:for-item="subItem" style="height: 44rpx; line-height: 44rpx;">
+              <block wx:if="{{subItem.status == 0}}">
+                <text style="display:inline-block;vertical-align: middle; margin-left: 30px;width: 500rpx; overflow: hidden;white-space: nowrap;text-overflow: ellipsis">{{subItem.name}}</text>
+              </block>
+              <block wx:if="{{subItem.status == 1}}">
+                <text style="vertical-align: middle; margin-left: 30px">{{subItem.name}}</text>
+              </block>
+              <block wx:if="{{subItem.status == 2}}">
+                <image src="../../img/Group3.png" style="width:28rpx;height: 28rpx;vertical-align: middle"></image>
+                <text style="vertical-align: middle; margin-left: 24rpx">{{subItem.name}}</text>
+              </block>
+              </view>
+            </view>
+            <view style="margin-top: 20rpx;color: #9b9b9b">完成时间: {{item.strDate}}
+              <text wx:if="{{item.delay}}" style="float:right;color:#E55449">已延期{{item.delay}}天</text>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="block" style='display:block;text-align:center;color:#9b9b9b;font-size:28rpx;'>
+            <image style="width: 500rpx;height: 400rpx; margin: 0 auto" src='http://qdrc.jfh.com/qingdao/webchat/img/myFocusNoData.png'></image>
+            <view>暂无项目进度信息</view>
+          </view>
+        </block>
+      </block>
+
+      <block wx:else>
+        <view class="section-title" style="margin: 20rpx">项目过程</view>
+        <block wx:if="{{ xiala.length > 0 }}">
+      <view class="block" style="padding-top: 40rpx">
+        <view wx:for="{{xiala}}" style="border-left:1px solid #597ff3;">
+          <view  style="line-height: 70rpx;height: 70rpx; color: #597ff3; font-weight: 600; font-size: 28rpx">
+            <view style="width: 20rpx;height: 20rpx;margin: 20rpx 50rpx 20rpx -10rpx;display:inline-block;background-color:#597ff3;border-radius: 10rpx;vertical-align:middle">
+            </view>
+            {{item.name}}
+            <text style="float:right;font-size: 24rpx;color:#9b9b9b;font-weight: 400">完成时间： {{ item.strDate }}</text>
+          </view>
+          <view wx:for="{{item.list}}" wx:for-item="subItem"  style="margin-left:70rpx; font-size: 28rpx; color: #4a4a4a; line-height: 60rpx;border-bottom: 1px solid rgba(133,133,133,0.2)">
+            <view style="width: 500rpx">{{ subItem.name}}</view>
+            <image style="float:right; width: 40rpx;height: 40rpx;margin-top: -45rpx" src="../../img/gou.png"></image>
+          </view>
+        </view>
+      </view>
+      </block>
+      <block wx:else>
+          <view class="block" style='display:block;text-align:center;color:#9b9b9b;font-size:28rpx;'>
+            <image style="width: 500rpx;height: 400rpx; margin: 0 auto" src='http://qdrc.jfh.com/qingdao/webchat/img/myFocusNoData.png'></image>
+            <view>暂无项目过程信息</view>
+          </view>
+          </block>
+        </block>
+    </view>
+  </view>
+  <!-- 项目动态 -->
+  <view hidden="{{currentTab!==1}}">
+    <view class="dongtai">
+      <view class="box">
+        <view class="box-flex">
+          <view class="flex-item">
+            <view class="item-content" bindtap="doDay" data-key='left'>
+              <image src="../../img/assets/conten_xmdt02.png"></image>
+            </view>
+          </view>
+          <view class="flex-item item-content-current-day">
+            <view class="item-content">{{currentDate}}</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content" bindtap="doDay" data-key="right">
+              <image src="../../img/assets/conten_xmdt01.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="box-flex">
+          <view class="flex-item">
+            <view class="item-content">一</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">二</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">三</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">四</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">五</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">六</view>
+          </view>
+          <view class="flex-item">
+            <view class="item-content">日</view>
+          </view>
+        </view>
+        <view class="box-flex">
+          <view class="flex-item" wx:for="{{currentDayList}}" wx:for-index='key' wx:for-item="vo" wx:key="{{key}}">
+            <view wx:if="{{vo==''}}"></view>
+            <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{!selectCSS}}" wx:elif="{{currentDay != vo}}">{{vo}}</view>
+            <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{selectCSS}}" wx:else>{{vo}}</view>
+            <view class='dt_list_2'>
+              <block wx:for="{{xmdt}}" wx:key="xmdt" wx:for-item="xmdt">
+                <block wx:if="{{xmdt.daily == calendarList[key]}}">
+                  <block wx:for="{{xmdt.dynamicData}}" wx:key="dynamicData" wx:for-item="dynamicData">
+                    <block wx:if="{{dynamicData.dynamicType == 0}}">
+                      <view class="data_sc data_date_dny"></view>
+                    </block>
+                    <block wx:if="{{dynamicData.dynamicType == 1}}">
+                      <view class="data_bg data_date_dny"></view>
+                    </block>
+                    <block wx:if="{{dynamicData.dynamicType == 2}}">
+                      <view class="data_jd data_date_dny"></view>
+                    </block>
+                    <block wx:if="{{dynamicData.dynamicType == 3}}">
+                      <view class="data_ys data_date_dny"></view>
+                    </block>
+                    <block wx:if="{{dynamicData.dynamicType == 4}}">
+                      <view class="data_tl data_date_dny"></view>
+                    </block>
+                    <block wx:if="{{dynamicData.dynamicType == 5}}">
+                      <view class="data_yj data_date_dny"></view>
+                    </block>
+                  </block>
+                </block>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="data_stat">
+        <view class="data_list">
+          <view class="data_sc"></view>
+          <view class="data_wen">上传文件</view>
+        </view>
+        <view class="data_list">
+          <view class="data_bg"></view>
+          <view class="data_wen">提交报告</view>
+        </view>
+        <view class="data_list">
+          <view class="data_jd"></view>
+          <view class="data_wen">阶段变更</view>
+        </view>
+        <!-- <view class="data_list">
+          <view class="data_ys"></view>
+          <view class="data_wen">项目验收</view>
+        </view>
+        <view class="data_list">
+          <view class="data_tl"></view>
+          <view class="data_wen">会议讨论</view>
+        </view>
+        <view class="data_list">
+          <view class="data_yj"></view>
+          <view class="data_wen">风险预警</view>
+        </view> -->
+      </view>
+    </view>
+
+  </view>
+
+  
+  <!-- 代码质量 -->
+  <view hidden="{{currentTab!==3}}">
+    <view class="zl_dmzl">
+      <view wx:if="{{scoreData.total > 0}}">
+        <view class="zl_tubiao">
+          <view class='progress_box'>
+            <view class="tup" wx:if="{{fenshu==0}}">
+              <image src="http://qdrc.jfh.com/qingdao/webchat/img/yuan_1.png"></image>
+            </view>
+            <view class="tup" wx:if="{{fenshu>0 && fenshu<60}}">
+              <image src="http://qdrc.jfh.com/qingdao/webchat/img/yuan_2.png"></image>
+            </view>
+            <view class="tup" wx:if="{{fenshu>=60 && fenshu<70}}">
+              <image src="http://qdrc.jfh.com/qingdao/webchat/img/yuan_3.png"></image>
+            </view>
+            <view class="tup" wx:if="{{fenshu>=70 && fenshu<80}}">
+              <image src="http://qdrc.jfh.com/qingdao/webchat/img/yuan_4.png"></image>
+            </view>
+            <view class="tup" wx:if="{{fenshu>=80 && fenshu<=100}}">
+              <image src="http://qdrc.jfh.com/qingdao/webchat/img/yuan_5.png"></image>
+            </view>
+            <view class="progress_text">
+              <view class='progress_in'>
+                <text class='green' wx:if="{{fenshu>=80 && fenshu<=100}}">{{chushifenshu}}</text>
+                <text class='blue' wx:if="{{fenshu>=70 && fenshu<80}}">{{chushifenshu}}</text>
+                <text class='orange' wx:if="{{fenshu>=60 && fenshu<70}}">{{chushifenshu}}</text>
+                <text class='red' wx:if="{{fenshu>0 && fenshu<60}}">{{chushifenshu}}</text> 分
+
+              </view>
+              <view class="progress_info2">2018-3-14</view>
+            </view>
+          </view>
+          <view class="zl_dianzan" wx:if="{{fenshu>=80 && fenshu<=100}}">
+            <text>非常棒！给您一个赞！</text>
+          </view>
+          <view class="zl_dianzan code-sk" wx:if="{{fenshu>=70 && fenshu<80}}">
+            <text>还有提升空间，继续努力！</text>
+          </view>
+          <view class="zl_dianzan code-fx" wx:if="{{fenshu>=60 && fenshu<70}}">
+            <text>有潜在风险，请您加强管理！</text>
+          </view>
+          <view class="zl_dianzan code-gfx" wx:if="{{fenshu>0 && fenshu<60}}">
+            <text>风险很高，影响项目成果！</text>
+          </view>
+        </view>
+        <view class="zl_lister">
+          <view class="zl_list" wx:for="{{zl_list}}" wx:key="zl_list">
+            <view class="zl_tpro">
+              <view class='zl_title'>{{item.title}}</view>
+              <view class="zl_por">
+                <view class="zl_pro_lu" wx:if="{{item.score>=80 && item.score<=100}}" style="width:{{item.score}}%">
+                  <view class="zl_pro_lu_zi">{{item.score}}分</view>
+                </view>
+                <view class="zl_pro_lan" wx:if="{{item.score>=70 && item.score<80}}" style="width:{{item.score}}%">
+                  <view class="zl_pro_lu_zi">{{item.score}}分</view>
+                </view>
+                <view class="zl_pro_chen" wx:if="{{item.score>=60 && item.score<70}}" style="width:{{item.score}}%">
+                  <view class="zl_pro_lu_zi">{{item.score}}分</view>
+                </view>
+                <view class="zl_pro_hong" wx:if="{{item.score>0 && item.score<60}}" style="width:{{item.score}}%">
+                  <view class="zl_pro_lu_zi">{{item.score}}分</view>
+                </view>
+              </view>
+            </view>
+            <view class="zl_wenzi">
+              <text>{{item.des}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else="{{scoreData.total <= 0}}">
+        <view class="zl_dmzl">
+          <view class="daima">
+            <image src="http://qdrc.jfh.com/qingdao/webchat/img/assets/conten_dmzl01.png"></image>
+            <view class="daima_des">还没有进行质量检测，您需要转移PC端操作~</view>
+          </view>
+        </view>
+
+        <view class="zl_lister">
+          <view class="zl_list">
+            <view class="zl_tpro">
+              <view class='zl_title'>编译</view>
+              <view class="zl_por">
+                <text>未检测</text>
+              </view>
+            </view>
+            <view class="zl_wenzi">
+              <text>满分100分。代码编译时，出现错误、警告、提示越多，得分越低。合计得分越高，可编译性越好。</text>
+            </view>
+          </view>
+
+          <view class="zl_list">
+            <view class="zl_tpro">
+              <view class='zl_title'>可维护</view>
+              <view class="zl_por">
+                <text>未检测</text>
+              </view>
+            </view>
+            <view class="zl_wenzi">
+              <text>满分100分。代码复杂度低，代码重复性越低，得分越高，代码可维护性越好。</text>
+            </view>
+          </view>
+
+          <view class="zl_list">
+            <view class="zl_tpro">
+              <view class='zl_title'>规范性</view>
+              <view class="zl_por">
+                <text>未检测</text>
+              </view>
+            </view>
+            <view class="zl_wenzi">
+              <text>满分100分。代码注释率越高，得分越高；命名违反规则越多，得分越低。合计得分越高，规范性越好。</text>
+            </view>
+          </view>
+
+          <view class="zl_list">
+            <view class="zl_tpro">
+              <view class='zl_title'>可靠性</view>
+              <view class="zl_por">
+                <text>未检测</text>
+              </view>
+            </view>
+            <view class="zl_wenzi">
+              <text>满分100分。代码违反安全性规则越多，得分越低；代码违反常规编写规则，次数越多，得分越低；代码出现坏习惯越多，得分越低。合计得分越高，代码可靠性越高。</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 问题沟通 -->
+  <view hidden="{{currentTab!==4}}">
+    <view wx:if="{{question.length >0}}" class='listpadding'>
+      <view class='commun1' bindtap="goQuestionPage">
+        <image src="../../img/conten_wtgt01.png"></image>
+        新建问题
+      </view>
+      <block wx:for="{{question}}" wx:key="question">
+        <view class='commun2'>
+          <view class='commun2_pad'>
+            <view class='commun2_1'>
+              <view class='commun2_11'>
+                <image src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                <view class='commun2_111'>
+                  <view class='commun2_1111'>{{item.ownerName}}</view>
+                  <view class='commun2_1112'>{{item.createTime}}</view>
+                </view>
+              </view>
+              <view class='commun2_12'>
+                <view class='commun2_121' bindtap="confirmSubmit" data-id="{{item.id}}" wx:if="{{item.resolved==false}}">确认解决
+                </view>
+                <view class='commun2_122' wx:if="{{item.resolved==true}}">
+                  <image src='../../img/conten_wtgt02.png' class='commun2_1221'></image>
+                </view>
+              </view>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==0}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                      {{cell.userName}} {{cell.doTime}} 上传文件
+                    </view>
+                    <view class='commun2_222'>
+                      <block wx:for="{{fill_icon}}" wx:key="fill_icon" wx:for-item="fill">
+                        <block wx:if="{{fill.name=='excel'}}">
+                          <image src="{{fill.icon}}"></image>
+                        </block>
+                      </block>
+                      {{cell.content}}
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==1}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                      {{cell.userName}} {{cell.doTime}} 提交了
+                      <text wx:if="{{cell.reportType==0}}">日报</text>
+                      <text wx:if="{{cell.reportType==1}}">周报</text>
+                    </view>
+                    <view class='commun2_222'>
+                      {{cell.content}}
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==2}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                      {{cell.userName}} {{cell.doTime}} {{cell.content}}阶段已完成
+                    </view>
+                    <view class='commun2_223'>
+                      <view class='commun2_223_re'>
+                        <view class='commun2_223_ab'>
+                          <view class='commun2_223_flex' wx:for="{{stagePointInfo}}" wx:key="stagePointInfo" wx:for-item="jieduan">
+                            <view class='commun2_223line_text'>
+                              <view class='commun2_223line'></view>
+                            </view>
+                            <image class='commun2_2231' wx:if="{{jieduan.status==2}}" src='../../img/conten_xmdt04.png'></image>
+                            <image class='commun2_2231' wx:if="{{jieduan.status==1}}" src='../../img/conten_xmdt05.png'></image>
+                            <image class='commun2_2231' wx:if="{{jieduan.status==0}}" src='../../img/conten_xmdt07.png'></image>
+                            <view class='commun2_2232'>{{jieduan.name}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==3}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                      {{cell.userName}} {{cell.doTime}} 发起验收申请
+                    </view>
+                    <view class='commun2_222'>
+                      项目已建设完成，您可以登录PC端完成验收！
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==4}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="{{expertAvatarUrl}}/{{item.ownerJfid}}"></image>
+                      {{cell.userName}} {{cell.doTime}} 发起了会议
+                    </view>
+                    <view class='commun2_224'>
+                      <view class='commun2_224_box'>
+                        <view class='commun2_2241'>
+                          <text>会议主题：</text>
+                        </view>
+                        <view class='commun2_2242'>
+                          <text>{{cell.title}}</text>
+                        </view>
+                      </view>
+                      <view class='commun2_224_box'>
+                        <view class='commun2_2241'>
+                          <text>会议时间：</text>
+                        </view>
+                        <view class='commun2_2242'>
+                          <text>{{cell.startTime}} 至 {{cell.endTime}}</text>
+                        </view>
+                      </view>
+                      <view class='commun2_224_box'>
+                        <view class='commun2_2241'>
+                          <text>参与人数：</text>
+                        </view>
+                        <view class='commun2_2242'>
+                          <text>{{cell.members}}</text>
+                        </view>
+                      </view>
+                      <view class='commun2_224_box'>
+                        <view class='commun2_2241'>
+                          <text>会议结论：</text>
+                        </view>
+                        <view class='commun2_2242'>
+                          <text>{{cell.content}}</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_2' wx:if="{{item.relationType==5}}">
+              <block wx:for="{{dynamicDetailMsg}}" wx:key="dynamicDetailMsg" wx:for-item="cell">
+                <block wx:if="{{cell.id==item.relationId}}">
+                  <view class='commun2_21'>关于动态</view>
+                  <view class='commun2_22'>
+                    <view class='commun2_221'>
+                      <image class='commun2_2211' src="../../img/tem/img_1.jpg"></image>
+                      {{cell.userName}} {{cell.doTime}} 提交了
+                      <text class='commun2_2212'>风险提示</text>
+                    </view>
+                    <view class='commun2_222'>
+                      您的项目存在{{cell.content}}，请及时提醒服务商！
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+
+            <view class='commun2_4'>
+              <image class='commun2_41' src='../../img/assets/icon_dh.png'></image>
+              <rich-text class='commun2_42' nodes='{{item.content}}'></rich-text>
+            </view>
+            <view class='commun2_3_mt'>
+              <block wx:for="{{item.replies}}" wx:key="item.replies">
+                <block wx:if="{{item.messageType==1}}">
+                  <view class='commun2_3'>
+                    <view class='commun2_31'>
+                      <image class='commun2_2211' src="../../img/tem/img_1.jpg"></image>
+                    </view>
+                    <view class='commun2_32'>
+                      <view class='commun2_321'>{{item.senderName}}</view>
+                      <view class='commun2_322'>{{item.replyContent}}</view>
+                    </view>
+                  </view>
+                </block>
+              </block>
+            </view>
+            <view class='commun2_5'>
+              <view class='commun2_5_re'>
+                <image class='commun2_52' src="../../img/conten_sr.png"></image>
+                <input class='commun2_51' bindinput="contentInput" bindfocus="getfocus" data-questionid="{{item.id}}" data-idx='{{index}}' value='{{item.contentValue}}' placeholder='请输入回复内容'></input>
+                <view class='commun2_53' wx:if="{{item.btnShow}}" bindtap="questionSend">发送
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view wx:else class='listpadding'>
+      <view class="commun4">
+        <image src="../../img/group_3.png"></image>
+        <view class="commun4_1">
+          <text>您的项目还没有发起过问题哦。
+                      有问题及时沟通，闭环管理，便捷高效
+                  </text>
+        </view>
+        <view class='commun4_2_pad'>
+          <view class='commun4_2' style="background: #507DFA;color: #ffffff" bindtap="creatNewQueestion">新建问题</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  
+</scroll-view>
+
+<!-- 成员贡献 -->
+  <view style="margin-top: 42px" hidden="{{currentTab!==2}}">
+    <view class='block-content'>
+      <view class="codeline">
+        <view class="coderight">
+          <view class="codelist_a">
+            <view class="gx_a"></view>
+            增加代码行数
+          </view>
+          <view class="codelist_b">
+            <view class="gx_b"></view>
+            删除代码行数
+          </view>
+        </view>
+      </view>
+      <view class="gx_content" wx:for="{{ddd}}" wx:key="ddd">
+        <view class="gx_list">
+          <view class="gx_name">
+            <view class="xlf">{{item.userName}}</view>
+            <view class="xlf_xiao">({{item.userId}})</view>
+            <!-- <image src="../../img/Group6.png" style="height: 44rpx;width: 54rpx; float: right"></image> -->
+          </view>
+          <view class="gx_shuju">
+            <view class="commit">{{item.commitNum}}次提交</view>
+            <view class="gx_xy"> /
+              <view class="gx_lu">{{item.addCodeNum}}++</view>
+              /
+              <view class="gx_hong">{{item.delCodeNum}}--</view>
+            </view>
+          </view>
+        </view>
+        <view class="gx_echart">
+          <ec-canvas id="mychart-dom-bar{{index}}" canvas-id="mychart-bar" ec="{{cygx}}"></ec-canvas>
+        </view>
+        <view style="height:20rpx;"></view>
+      </view>
+    </view>
+  </view>
+
+<block wx:if="{{currentTab == 0}}">
+<view wx:if="{{ yanshou && !guidang }}" class="fixed-bottom">
+  <view wx:if="{{ !evaluated }}" class="view-all-1 evaluate-1" bindtap="evaluateExpert">
+    <image src="../../img/edit-fill.png" style="width:24rpx;height:24rpx;vertical-align:middle;"></image>
+    评价供应商
+  </view>
+  <view wx:else class="view-all-1 evaluate-1" bindtap="watchExpert">查看评价</view>
+</view>
+
+<view wx:if="{{ guidang && evaluated }}" class="fixed-bottom">
+  <view class="view-all-1 evaluate-1" bindtap="watchExpert">查看评价</view>
+</view>
+</block>
+

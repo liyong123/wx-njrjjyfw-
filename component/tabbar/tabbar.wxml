@@ -1,0 +1,18 @@
+<cover-view class="tabbar-bottom">
+  <block wx:for="{{pages}}" wx:key="path">
+    <cover-view class="tabbar-nav" data-page="{{item}}" bindtap="navigateTo">
+     <cover-image class="tabbar-icon" src="{{currentPath == item.pagePath ? item.selectedIconPath : item.iconPath }}"></cover-image>
+     <cover-view style="width: 100rpx;font-size: 20rpx;margin-top: 6rpx;text-align: center;color: {{ currentPath == item.pagePath ? '#597FF3' : '#9b9b9b' }}">\n {{item.text}}</cover-view>
+    </cover-view>
+  </block>
+</cover-view>
+
+
+<!-- <view class="tabbar-bottom">
+  <block wx:for="{{pages}}" wx:key="path">
+    <view class="tabbar-nav" data-page="{{item}}" bindtap="navigateTo">
+     <image class="tabbar-icon" src="{{currentPath == item.pagePath ? item.selectedIconPath : item.iconPath }}"></image>
+     <view style="width: 100rpx;font-size: 20rpx;margin-top: 6rpx;text-align: center;color: {{ currentPath == item.pagePath ? '#597FF3' : '#9b9b9b' }}">\n {{item.text}}</view>
+    </view>
+  </block>
+</view> -->

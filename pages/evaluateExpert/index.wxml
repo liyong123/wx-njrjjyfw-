@@ -1,0 +1,15 @@
+<import src="./template/expert-item.wxml" />
+<view class="head-block" style="height: 214rpx;">
+  <view style="padding: 44rpx 0 2rpx 24rpx; font-size: 28rpx;font-weight: 600;line-height: 1.5">{{orderName}}</view>
+  <view style="font-size:28rpx;padding: 2rpx 24rpx;line-height: 1.5">发布时间：{{fbTimeFmt}}</view>
+  <view style="font-size:28rpx;padding: 2rpx 24rpx;line-height: 1.5">{{finalTimeName}}： {{finalTime}}</view>
+</view>
+<scroll-view class="scroll-container" style="top: 214rpx" scroll-y="true">
+  <view class="block-content">
+    <view class="section-title" style="margin: 22rpx 0">评价专家</view>
+    <view wx:for="{{experts}}" wx:key="index" class="block">
+      <template is="expert-item" data="{{...item, disabled: disabled, expertAvatarUrl: expertAvatarUrl}}"></template>
+    </view>
+    <button class="button" style="margin: 10rpx 0 30rpx 0" disabled="{{disabled}}" bindtap="submitEvaluate">提交</button>
+  </view>
+</scroll-view>

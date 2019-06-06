@@ -1,0 +1,2 @@
+<!--pages/web/demandDetail1.wxml-->
+<web-view bindmessage="clickShare" src="{{baseUrl}}/jfbid/allxq/detail/{{orderId}}?orderId={{orderId}}&jfId={{jfId}}&baseUrl={{baseWxUrl}}"></web-view>

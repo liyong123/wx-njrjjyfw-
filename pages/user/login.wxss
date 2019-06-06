@@ -1,0 +1,131 @@
+/* login.wxss */
+
+.login-btn {
+  padding: 0px 35px;
+  margin-top: 20px;
+  height: 40px;
+  line-height: 40px;
+  /* background: rgba(8, 185, 133, 0.70); *//* box-shadow: 0 0 8px 0 #08b985;
+  border-radius: 20px; */
+  background: #597ff3;
+  box-shadow: 0 0 10px 0 #597ff3;
+  border-radius: 100px;
+}
+
+.blank-cell {
+  padding: 10rpx 0;
+  min-height: 10px;
+}
+
+.btn-group {
+  display: flex;
+  padding: 0 35rpx;
+  justify-content: left;
+}
+
+.btn-add {
+  margin-bottom: 20rpx;
+  padding: 0 16rpx;
+  color: #39b9de;
+  font-size: 12px;
+}
+
+.btn-add .i-plus {
+  margin-right: 6px;
+  border-radius: 50%;
+  border: 1rpx solid #39b9de;
+}
+
+.login {
+  width: 100%;
+  height: auto;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-image: url('http://qdrc.jfh.com/qingdao/webchat/jyh/page/caigouxiangqing/login.png');
+}
+
+.login_1 {
+  padding-top: 150rpx;
+  padding-bottom: 38rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+  line-height: 56rpx;
+}
+
+.login_12 {
+  font-size: 30rpx;
+  font-weight: normal;
+}
+
+.login_2 {
+  padding: 0 7%;
+}
+
+.login_21 {
+  background: #fff;
+  height: 820rpx;
+  padding: 90rpx 30rpx 0;
+  border-radius: 18rpx;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
+}
+
+.tab-h {
+  height: 64rpx;
+  width: 80%;
+  white-space: nowrap;
+  z-index: 99;
+  margin-top: 0;
+  margin-bottom: 60rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-item {
+  margin: 0 4%;
+  display: inline-block;
+  width: 42%;
+  text-align: center;
+  /* font-size: 32rpx; */
+  height: 60rpx;
+  line-height: 58rpx;
+  font-size: 28rpx;
+  color: #9b9b9b;
+}
+
+.tab-item.active {
+  color: #597ff3;
+  position: relative;
+  border-bottom: 6rpx solid #597ff3;
+}
+
+.scoll-h {
+  height: 100%;
+}
+
+.explain {
+  font-size: 24rpx;
+  color: #a6a6a6;
+  margin-left: 40rpx;
+}
+.agreeSecret{
+  position:absolute;
+  bottom:20rpx;
+  left:50%;
+  width:506rpx;
+  margin-left:-253rpx;
+  display:flex;
+  align-items:center;
+  z-index:9998;
+}
+.agreeSecret text{
+  color:#9b9b9b;
+  font-size: 28rpx;
+}
+.agreeSecret text:nth-child(2){
+  color:#597FF3;
+  font-size: 28rpx;
+}

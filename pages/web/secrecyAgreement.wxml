@@ -1,0 +1,2 @@
+<!--pages/web/secrecyAgreement.wxml-->
+<web-view src="{{baseUrl}}/yjusers/openapi/cstunit/register"></web-view>

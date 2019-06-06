@@ -1,0 +1,3 @@
+<!--pages/caigouxiangqing/zhaobiaogongshi.wxml-->
+<!-- <web-view src="{{baseUrl}}/jftender/openapi/xcx/orderDetail?oid={{orderId}}&fp=select"></web-view> -->
+<web-view src="{{baseUrl}}/jfbid/allxq/detail/{{orderId}}?orderId={{orderId}}&jfId=123&baseUrl={{baseUrl}}"></web-view>

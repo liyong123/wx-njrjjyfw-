@@ -1,0 +1,127 @@
+<!--pages/jieyinghui/activity/index.wxml-->
+<!--
+<view>
+  <scroll-view class="tab-h" scroll-x='true' scroll-left="{{scrollLift}}">
+    <view wx:for="{{navbar}}" data-idx="{{index}}" class="tab-item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="activitytab">{{item}}</view>
+  </scroll-view>
+  <view class='tab-h_pad'></view> 
+</view>
+
+<view hidden="{{currentTab!==0}}">
+</view>
+
+<view hidden="{{currentTab!==1}}">
+</view>
+-->
+
+<view>
+  <scroll-view class="activity_ad" scroll-x='true' scroll-left="{{scrollLift}}">
+    <view wx:for="{{activity_site}}" data-idx="{{index}}" class="activity_ad_1 {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="activitytab">{{item}}</view>
+  </scroll-view>
+  <view class='activity_ad_pad'></view> 
+</view>
+
+<!--全部-->
+<view hidden="{{currentTab!==0}}">
+  <view class='listpadding'>
+    <view class='jyh2_3'>
+      <navigator url="../activity_detail/index" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/1.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>项目风险管理</view>
+          <view class='jyh2_3122'>2018-09-06</view>
+          <view class='jyh2_3123'>软件项目风险识别有哪些方法？如何对风险进行量化和预测？如何制定风险规避计划？有什么工具可以更方便的进行风险管理？</view>
+        </view>
+        <!--<view class='jyh2_314'></view>-->
+      </navigator>
+      <navigator url="../activity_detail/index2" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/2.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>质量管理：项目知识管理计划</view>
+          <view class='jyh2_3122'>2018-09-11</view>
+          <view class='jyh2_3123'>新项目面对技术、管理多项挑战，如何保障项目获取前人的成功经验和教训？人员流动大，项目经验如何传承？组织经验如何沉淀？</view>
+        </view>
+      </navigator>
+      <navigator url="../activity_detail/index3" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/3.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>绩效管理</view>
+          <view class='jyh2_3122'>2018-09-13</view>
+          <view class='jyh2_3123'>如何公平公正的评定绩效，做好绩效沟通和正向激励，是提升企业核心竞争力，促进企业文化、组织氛围和产出效率的重中之重。</view>
+          <view class='jyh2_313'></view>
+        </view>
+      </navigator>
+      <navigator url="../activity_detail/index4" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/4.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>DevOps理论＋实践之路（思想篇）</view>
+          <view class='jyh2_3122'>2018-09-18</view>
+          <view class='jyh2_3123'>DevOps作为一套实践方法，它能够在保证高质量的前提下缩短系统变更从提交到部署至生产环境的时间，使企业能够以更加精简、高效的方式运作。</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<!--北京-->
+<view hidden="{{currentTab!==1}}">
+  <view class='listpadding'>
+    <view class='jyh2_3'>
+      <navigator url="../activity_detail/index" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/1.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>项目风险管理</view>
+          <view class='jyh2_3122'>2018-09-06</view>
+          <view class='jyh2_3123'>软件项目风险识别有哪些方法？如何对风险进行量化和预测？如何制定风险规避计划？有什么工具可以更方便的进行风险管理？</view>
+        </view>
+        <!--<view class='jyh2_314'></view>-->
+      </navigator>
+      <navigator url="../activity_detail/index2" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/2.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>质量管理：项目知识管理计划</view>
+          <view class='jyh2_3122'>2018-09-11</view>
+          <view class='jyh2_3123'>新项目面对技术、管理多项挑战，如何保障项目获取前人的成功经验和教训？人员流动大，项目经验如何传承？组织经验如何沉淀？</view>
+        </view>
+      </navigator>
+      <navigator url="../activity_detail/index3" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/3.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>绩效管理</view>
+          <view class='jyh2_3122'>2018-09-13</view>
+          <view class='jyh2_3123'>如何公平公正的评定绩效，做好绩效沟通和正向激励，是提升企业核心竞争力，促进企业文化、组织氛围和产出效率的重中之重。</view>
+          <view class='jyh2_313'></view>
+        </view>
+      </navigator>
+      <navigator url="../activity_detail/index4" class='jyh2_31'>
+        <view class='jyh2_311'><image src='http://qdrc.jfh.com/qingdao/webchat/jieyinghui/4.jpg'></image></view>
+        <view class='jyh2_312'>
+          <view class='jyh2_3121'>DevOps理论＋实践之路（思想篇）</view>
+          <view class='jyh2_3122'>2018-09-18</view>
+          <view class='jyh2_3123'>DevOps作为一套实践方法，它能够在保证高质量的前提下缩短系统变更从提交到部署至生产环境的时间，使企业能够以更加精简、高效的方式运作。</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<!--上海-->
+<view hidden="{{currentTab!==2}}">
+  <view class='listpadding'>
+    <view class='zanwu'>暂无该地点活动</view>
+  </view>
+</view>
+
+<!--南京-->
+<view hidden="{{currentTab!==3}}">
+  <view class='listpadding'>
+    <view class='zanwu'>暂无该地点活动</view>
+  </view>
+</view>
+
+<!--西安-->
+<view hidden="{{currentTab!==4}}">
+  <view class='listpadding'>
+    <view class='zanwu'>暂无该地点活动</view>
+  </view>
+</view>

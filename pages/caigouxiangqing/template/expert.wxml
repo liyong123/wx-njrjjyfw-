@@ -1,0 +1,8 @@
+<template name="expert">
+  <navigator style="display: inline-block" url="/pages/expertMessage/index?jfId={{jfId}}">
+    <image class="avatar" style="width: 84rpx; height: 84rpx;margin: 0 48rpx" src="{{expertAvatarUrl}}/{{jfId}}">
+    </image>
+  </navigator>
+  <view class="expert-name">{{expertName}}</view>
+  <view class="expert-job">{{abilitieLevel}}</view>
+</template>

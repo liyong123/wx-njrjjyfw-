@@ -1,0 +1,59 @@
+var sub = function(val, len) {
+  if (val == undefined || val.length == 0) {
+    return '暂无';
+  }
+  if (val.length > len) {
+    return val.substring(0, len) + "...";
+  } else {
+    return val;
+  }
+};
+
+var timeFormatting = function(date) {
+  return date.split('-')[0] + '年' + date.split('-')[1] + '月' + date.split('-')[2].split(' ')[0] + '日';
+}
+
+/** 
+ * 格式化成金额形式 
+ * 
+ * @param num 数值(Number或者String) 
+ * @return 金额格式的字符串,如'1,234,567.45' 
+ * @type String 
+ */
+var formatCurrency = function(num) {
+  num = parseFloat(num);
+  var big = false;
+  if (num > 100000000) {
+    num = num / 10000.0;
+    big = true;
+  }
+  num = parseInt(num).toString();
+  if (isNaN(num))
+    num = "0";
+  for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+    num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+    num.substring(num.length - (4 * i + 3));
+  return num + (big ? '万元' : '元');
+}
+
+/**人员规模 
+ * 8 20 100 200 400 500 750 1
+*/
+var memberSize = function(max) {
+  max = parseInt(max) || 0;
+  if (max < 8) return '少于8名'
+  if (max <=20) return '8-20'
+  if (max <= 100) return '21-100'
+  if (max <= 200) return '101-200'
+  if (max <= 400) return '201-400'
+  if (max <= 500) return '401-500'
+  if (max <= 750) return '501-750'
+  if (max <= 1000) return '751-1000'
+  if (max > 1000) return '1000以上'
+
+}
+
+module.exports.sub = sub;
+module.exports.timeFormatting = timeFormatting;
+module.exports.formatCurrency = formatCurrency;
+module.exports.memberSize = memberSize;

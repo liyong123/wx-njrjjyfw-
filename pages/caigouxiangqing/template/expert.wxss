@@ -1,0 +1,12 @@
+.expert-name {
+  color: #4a4a4a;
+  line-height:1.5;
+  margin-top: 6rpx;
+  text-align: center;
+}
+
+.expert-job {
+  color: #9b9b9b;
+  line-height:1.5;
+  text-align: center;
+}
